@@ -21,7 +21,7 @@ class MCP3426:
         return raw_adc
 
     def read_ch1(self):
-        return self._read_ch(0x10)
+        return self._read_ch(0x80)
 
     def read_ch2(self):
-        return self._read_ch(0x30)
+        return self._read_ch(0xA0)
