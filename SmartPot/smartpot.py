@@ -5,17 +5,18 @@ from SmartPot.PowerOutputPin import PowerOutputPin
 
 
 class SmartPot:
-    X5 = 13
-    X6 = 16
-    X7 = 26
+    X4 = 13
+    X5 = 19
+    X6 = 26
 
-    def __init__(self):
+    def __init__(self, dht_type = "DHT11"):
         power_pins = [SmartPot.X5, SmartPot.X6, SmartPot.X7]
         dht_pin = 21
         adc_bus = 1
 
+
         self.__adc = MCP3426(adc_bus)
-        self.__dht = DHT(dht_pin)
+        self.__dht = DHT(dht_pin, dht_type)
         self.__power_pins = {}
         for pin in power_pins:
             self.__power_pins[pin] = PowerOutputPin(pin)

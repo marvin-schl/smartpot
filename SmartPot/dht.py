@@ -1,14 +1,14 @@
 import Adafruit_DHT
 
-DHT11 = Adafruit_DHT.DHT11
-DHT22 = Adafruit_DHT.DHT22
-
 class DHT:
     """
     Wrapper Class for a DHT Device for an OOP access.
     """
 
-    def __init__(self, pin, dht_type=DHT11):
+    DHT11 = Adafruit_DHT.DHT11
+    DHT22 = Adafruit_DHT.DHT22
+
+    def __init__(self, pin, dht_type):
         """
         Creates an DHT Device.
 
@@ -16,7 +16,10 @@ class DHT:
         :param dht_type:
         """
         self.__pin = pin
-        self.__dht_type = dht_type
+        if dht_type == "DHT22":
+            self.__dht_type = DHT.DHT22
+        else:
+            self.__dht_type = DHT.DHT11
 
     def __read_values(self):
         """
