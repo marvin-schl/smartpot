@@ -31,7 +31,9 @@ class MCP3426:
         return voltage / 1000
 
     def read_ch1(self):
+        self.smbus .write_byte(0x68, 0x10)
         return self._read_ch(0x00)
 
     def read_ch2(self):
+        self.smbus .write_byte(0x68, 0x30)
         return self._read_ch(0x11)
