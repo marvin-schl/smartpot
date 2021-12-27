@@ -36,4 +36,4 @@ class MCP3426:
 
     def read_ch2(self):
         self.smbus .write_byte(0x68, 0x30)
-        return self._read_ch(0x11)
+        return self._read_ch(0x00)
