@@ -12,8 +12,8 @@ class MCP3426:
     def _read_ch(self,conf_bits):
         """ read the signal-value of channel a from the MCP3426
             and return the voltage in volt """
-        self.smbus.write_byte(0x68, conf_bits)
-        data = data = self.smbus.read_i2c_block_data(0x68, 0x00, 2)
+        self.smbus.write_byte(self.slave_address, conf_bits)
+        data = self.smbus.read_i2c_block_data(self.slave_address, 0x00, 2)
         # Convert the data to 12-bits
         raw_adc = (data[0] & 0x0F) * 256 + data[1]
         if raw_adc > 2047:
