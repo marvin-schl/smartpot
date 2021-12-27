@@ -10,7 +10,7 @@ class SmartPot:
     X6 = 26
 
     def __init__(self, dht_type = "DHT11"):
-        power_pins = [SmartPot.X5, SmartPot.X6, SmartPot.X7]
+        power_pins = [SmartPot.X4, SmartPot.X5, SmartPot.X6]
         dht_pin = 21
         adc_bus = 1
 
