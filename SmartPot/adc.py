@@ -17,6 +17,7 @@ class MCP3426:
         data = self.smbus.read_i2c_block_data(self.slave_address, 0x00, 2)
         # Convert the data to 12-bits
         raw_adc = (data[0] & 0x0F) * 256 + data[1]
+        print(raw_adc)
         if raw_adc > 2047:
             raw_adc -= 4095
         return raw_adc
@@ -28,6 +29,7 @@ class MCP3426:
         data = self.smbus.read_i2c_block_data(self.slave_address, 0x00, 2)
         # Convert the data to 12-bits
         raw_adc = (data[0] & 0x0F) * 256 + data[1]
+        print(raw_adc)
         if raw_adc > 2047:
             raw_adc -= 4095
         return raw_adc
