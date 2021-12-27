@@ -11,7 +11,7 @@ class SmartPot:
 
     def __init__(self, dht_type = "DHT11"):
         power_pins = [SmartPot.X4, SmartPot.X5, SmartPot.X6]
-        dht_pin = 21
+        dht_pin = 18
         adc_bus = 1
 
 
@@ -46,6 +46,7 @@ class SmartPot:
         return self.__dht.read_humidity()
 
     def read_light_intensity(self):
+        #get the adc value in volts
         adc_value = self.__adc.read_ch2()
 
         #TODO: calculate an appropriate intensity value
@@ -54,6 +55,7 @@ class SmartPot:
         return intensity
 
     def read_soil_moisture(self):
+        #get the adc value in volts
         adc_value = self.__adc.read_ch1()
 
         # TODO: calculate an appropriate moisture value
