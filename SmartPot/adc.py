@@ -34,4 +34,4 @@ class MCP3426:
         return self._read_ch(0x00)
 
     def read_ch2(self):
-        return self._read_ch(0x01)
+        return self._read_ch(0x10)
