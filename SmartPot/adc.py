@@ -1,35 +1,32 @@
 import time
-import smbus2 as smbus
-import os
+import SmartPot.mcp342x as mcp342x
 
 class MCP3426:
     def __init__(self, busnumber):
         assert busnumber in [0, 1]
-        self.busnumber = busnumber
-        self.slave_address = 0x68
-        self.smbus = smbus.SMBus(1)
+        self.__busnumber = busnumber
+        self.__slave_address = 0x68
+        self.__adc = mcp342x.Mcp3426(self.__slave_address, self.__busnumber)
+        self.__first_channel = mcp342x.Channel(self.__adc, 0)
+        self.__second_channel = mcp342x.Channel(self.__adc, 1)
 
 
     def read_ch1(self):
         """ read the signal-value of channel a from the MCP3426
             and return the voltage in volt """
-        self.smbus.write_byte(self.slave_address, 0x10)
-        data = self.smbus.read_i2c_block_data(self.slave_address, 0x00, 2)
-        # Convert the data to 12-bits
-        raw_adc = (data[0] & 0x0F) * 256 + data[1]
-        print(raw_adc)
-        if raw_adc > 2047:
-            raw_adc -= 4095
-        return raw_adc
+        self.__first_channel.sample_rate = 240
+        self.__first_channel.pga_gain = 1
+        self.__first_channel.continuous = True
+        self.__first_channel.start_conversion()
+        time.sleep(self.__first_channel.conversion_time)
+        return self.__first_channel.get_conversion_volts()
 
     def read_ch2(self):
         """ read the signal-value of channel a from the MCP3426
             and return the voltage in volt """
-        self.smbus.write_byte(self.slave_address, 0x30)
-        data = self.smbus.read_i2c_block_data(self.slave_address, 0x00, 2)
-        # Convert the data to 12-bits
-        raw_adc = (data[0] & 0x0F) * 256 + data[1]
-        print(raw_adc)
-        if raw_adc > 2047:
-            raw_adc -= 4095
-        return raw_adc
+        self.__second_channel.sample_rate = 240
+        self.__second_channel.pga_gain = 1
+        self.__second_channel.continuous = True
+        self.__second_channel.start_conversion()
+        time.sleep(self.__second_channel.conversion_time)
+        return -self.__second_channel.get_conversion_volts() #minus because of swapped CH2+ and CH2- in rev1.1 Shield
