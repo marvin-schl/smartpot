@@ -6,7 +6,7 @@ class MCP3426:
         assert busnumber in [0, 1]
         self.__busnumber = busnumber
         self.__slave_address = 0x68
-        self.__adc = mcp342x.Mcp3426(self.__slave_address, self.__busnumber)
+        self.__adc = mcp342x.Mcp3426(self.__busnumber, self.__slave_address)
         self.__first_channel = mcp342x.Channel(self.__adc, 0)
         self.__second_channel = mcp342x.Channel(self.__adc, 1)
 
