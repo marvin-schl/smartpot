@@ -42,7 +42,7 @@ class MCP3426:
                                                                     ", continuous="+str(self.__first_channel.continuous))
 
             #start the conversion
-            logging.debug(type(self).__name__ + " - Starting Conerversion on Channel 1. Waiting "+ self.__first_channel.conversion_time/1000 +"ms till finished")
+            logging.debug(type(self).__name__ + " - Starting Conerversion on Channel 1. Waiting "+ str(self.__first_channel.conversion_time/1000) +"ms till finished")
             self.__first_channel.start_conversion()
             time.sleep(self.__first_channel.conversion_time)
             #read and return the adc value
@@ -68,7 +68,7 @@ class MCP3426:
                 ", Gain=" + str(self.__first_channel.pga_gain) +
                 ", continuous="+str(self.__first_channel.continuous))
             #start the conversion
-            logging.debug(type(self).__name__ + " - Starting Conerversion on Channel 2. Waiting "+ self.__second_channel.conversion_time/1000 +"ms till finished")
+            logging.debug(type(self).__name__ + " - Starting Conerversion on Channel 2. Waiting "+ str(self.__second_channel.conversion_time/1000) +"ms till finished")
             self.__second_channel.start_conversion()
             time.sleep(self.__second_channel.conversion_time)
             #read and return the adc value
