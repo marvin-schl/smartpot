@@ -1,5 +1,14 @@
 import Adafruit_DHT
 from threading import Lock
+from datetime import datetime
+import logging
+
+#setup logger
+dt = datetime.today()
+logging.basicConfig(filename='logs/'+dt.strftime("%Y%m%d")+'_smartpot.log',
+                    filemode='a',
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%d-%b-%y %H:%M:%S')
 
 class DHT:
     """
@@ -28,9 +37,12 @@ class DHT:
         Private Method for reading humidty in percent and temperature in 'C.
         :return: (humidity, temperature)
         """
+        logging.debug(type(self).__name__ + " - Acquiring Lock on DHT Device...")
         self.__lock.acquire()
         ret = Adafruit_DHT.read_retry(self.__dht_type, self.__pin)
         self.__lock.release()
+        logging.debug(type(self).__name__ + " - Released Lock on DHT Device...")
+
         return ret
 
     def read_temperature(self):
