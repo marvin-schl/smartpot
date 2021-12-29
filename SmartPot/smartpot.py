@@ -11,7 +11,7 @@ class SmartPot:
 
     def __init__(self, dht_type = "DHT11"):
         """
-        Creates a new instance of a SmartPot.
+        Creates a new instance of a SmartPot. The implementation is threadsafe.
         :param dht_type: (optional) "DHT11" or "DHT22" depending on the connected DHT sensor. Default Value is "DHT11".
         """
         power_pins = [SmartPot.X4, SmartPot.X5, SmartPot.X6]
