@@ -17,8 +17,10 @@ class SmartPot:
         power_pins = [SmartPot.X4, SmartPot.X5, SmartPot.X6]
         dht_pin = 18
         adc_bus = 1
+
         self.__adc = MCP3426(adc_bus)
         self.__dht = DHT(dht_pin, dht_type)
+
         self.__power_pins = {}
         for pin in power_pins:
             self.__power_pins[pin] = PowerOutputPin(pin)

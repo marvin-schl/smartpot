@@ -1,8 +1,9 @@
 import Adafruit_DHT
+from threading import Lock
 
 class DHT:
     """
-    Wrapper Class for a DHT Device for an OOP access.
+    Wrapper Class for a DHT Device for an OOP and threadsafe access.
     """
 
     DHT11 = Adafruit_DHT.DHT11
@@ -16,6 +17,7 @@ class DHT:
         :param dht_type:
         """
         self.__pin = pin
+        self.__lock = Lock()
         if dht_type == "DHT22":
             self.__dht_type = DHT.DHT22
         else:
@@ -26,7 +28,10 @@ class DHT:
         Private Method for reading humidty in percent and temperature in 'C.
         :return: (humidity, temperature)
         """
-        return Adafruit_DHT.read_retry(self.__dht_type, self.__pin)
+        self.__lock.acquire()
+        ret = Adafruit_DHT.read_retry(self.__dht_type, self.__pin)
+        self.__lock.release()
+        return ret
 
     def read_temperature(self):
         """
