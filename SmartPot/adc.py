@@ -9,7 +9,8 @@ dt = datetime.today()
 logging.basicConfig(filename='smartpot.log',
                     filemode='w',
                     format='%(asctime)s - %(levelname)s - %(message)s',
-                    datefmt='%d-%b-%y %H:%M:%S')
+                    datefmt='%d-%b-%y %H:%M:%S',
+                    level=logging.DEBUG)
 
 class MCP3426:
     def __init__(self, busnumber = 1):
