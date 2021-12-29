@@ -13,6 +13,12 @@ logging.basicConfig(filename='logs/'+dt.strftime("%Y%m%d")+'_smartpot.log',
 
 
 class SmartPot:
+    """
+    This class represents a physical SmartPot rev1.1. It handles the simple functions like controlling single outputs,
+    reading temperature, humidity, light intensity and soil moisture values.
+    """
+
+
     X4 = 13
     X5 = 19
     X6 = 26

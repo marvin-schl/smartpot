@@ -59,7 +59,7 @@ class PowerOutputPin:
 
     def start_pwm(self, freq, dc):
         """
-        Starts a PWM on this PowerOutputPin
+        Starts a PWM on this PowerOutputPin.
 
         :param freq: Frequency in Hertz
         :param dc:  Duty Cycle in percent (0 <= dc <= 100.0)
