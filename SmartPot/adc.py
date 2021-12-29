@@ -36,9 +36,9 @@ class MCP3426:
             self.__first_channel.sample_rate = 240
             self.__first_channel.pga_gain = 1
             self.__first_channel.continuous = True
-            logging.debug(type(self).__name__ + " - Configuring Channel 1. SPS="+str(self.__first_channel.sample_rate+
+            logging.debug(type(self).__name__ + " - Configuring Channel 1. SPS="+str(self.__first_channel.sample_rate)+
                                                                     ", Gain="+str(self.__first_channel.pga_gain)+
-                                                                    ", continuous="+str(self.__first_channel.continuous)))
+                                                                    ", continuous="+str(self.__first_channel.continuous))
 
             #start the conversion
             logging.debug(type(self).__name__ + " - Starting Conerversion on Channel 1. Waiting "+ self.__first_channel.conversion_time/1000 +"ms till finished")
