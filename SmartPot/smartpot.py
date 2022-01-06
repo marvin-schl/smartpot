@@ -72,7 +72,7 @@ class SmartPot:
         :param dc: Duty Cycle in percent
         :return: None
         """
-        logging.info(type(self).__name__ + " - Turning PWM at "+SmartPot.pin_names[pin]+" on. f=" +str(freq)+"Hz, dc="+dc+"%")
+        logging.info(type(self).__name__ + " - Turning PWM at "+SmartPot.pin_names[pin]+" on. f=" +str(freq)+"Hz, dc="+str(dc)+"%")
         return self.__power_pins[pin].start_pwm(freq, dc)
 
     def output_pwm_off(self, pin):
