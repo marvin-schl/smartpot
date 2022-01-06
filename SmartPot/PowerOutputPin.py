@@ -41,7 +41,7 @@ class PowerOutputPin:
         Sets this PowerOutputPin high.
         :return:
         """
-        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
         with self.__lock:
             GPIO.output(self.__pin, GPIO.HIGH)
             logging.debug(type(self).__name__ + " - GPIO " + self.__pin + "(BCM Mode) was set to HIGH.")
