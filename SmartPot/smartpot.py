@@ -19,7 +19,6 @@ class SmartPot:
     reading temperature, humidity, light intensity and soil moisture values.
     """
 
-
     X4 = 13
     X5 = 19
     X6 = 26
