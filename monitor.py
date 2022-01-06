@@ -12,8 +12,7 @@ logging.basicConfig(filename='smartpot.log',
                     level=logging.DEBUG)
 
 class HysteresisMonitor(Thread):
-    """
-    """
+
     def __init__(self,name,getter,thres,callback_up_thres,lower_thres = None,callback_lw_thres = None,cycle_time = 0.1):
         """
         Initilizes a new HysteresisMonitor class. A callback is called by this class as soon as a defined threshold value
@@ -21,9 +20,11 @@ class HysteresisMonitor(Thread):
         :param name: A String representation of the value that is monitored. Mainly for logging purposes.
         :param getter: A callable which return value should be the value of the monitored variable.
         :param thres: The upper threshold.
-        :param callback_up_thres: A callable which is called when getter() > thres
+        :param callback_up_thres: A callable which is called when getter() > thres.
+                                    Signature should be: `callback_up_thres(name, val, thres, timestamp)`
         :param lower_thres: (optionally) A lower threshold value. Default value is equal to thres.
         :param callback_lw_thres: (optionally) A callable which is called when getter() < lower_thres. When not passed nothing is executed.
+                                    Signature should be: `callback_lw_thres(name, val, thres, timestamp)`
         :param cycle_time: (optionally) Time to wait beween retrieving new values in seconds. Default value is 0.1s.
         """
         logging.info("Initiliazing Monitor for "+ name + ".")
@@ -90,18 +91,17 @@ class HysteresisMonitor(Thread):
         logging.info(type(self).__name__.__str__() + " - Monitor for " + self.__name + " stopped...")
 
 class TimeBasedMonitor(Thread):
-    """
-    """
+
     def __init__(self, name, getter, callback, cycle_time):
         """
+        Initilizes a new TimeBasedMonitor. A TimeBasedMonitor monitors a specific variable by retrieving its value
+        in defined time steps.
 
-        :param name:
-        :param getter:
-        :param thres:
-        :param callback_up_thres:
-        :param lower_thres:
-        :param callback_lw_thres:
-        :param cycle_time:
+        :param name: A String representation of the value that is monitored. Mainly for logging purposes.
+        :param getter: A callable which return value should be the value of the monitored variable.
+        :param callback: A callback functioin which is called every cycle.
+                            Signature should be: `callback(name, val, timestamp)`
+        :param cycle_time: Time to wait beween retrieving new values in seconds.
         """
         logging.info(type(self).__name__.__str__() + " - Initiliazing Monitor for "+ name + ".")
         super(TimeBasedMonitor, self).__init__()
@@ -114,25 +114,40 @@ class TimeBasedMonitor(Thread):
 
     def start(self):
         """
-
-        :return:
+        Starts the run() method in a new Thread.
+        :return: None
         """
         self.__running = True
         logging.info(type(self).__name__.__str__() + " - Starting Monitor for " + self.__name + " in a new Thread...")
         super().start()
 
     def stop(self):
+        """
+        Stops the running Monitor Thread.
+        :return: None
+        """
         self.__running = False
         logging.info(type(self).__name__.__str__() + " - Stopping Monitor for " + self.__name + "...")
 
 
     def run(self, *args, **kwargs):
+        """
+        Run method which is started in a new thread when calling start() method. To stop the Thread call stop() method.
+        :return: None
+        """
+        #do as long as self.__running is true
         while self.__running:
+            # get current time and current value
             now = datetime.now()
             val = self.__getter()
+
+            #do some logging and exceute the callback
             logging.info(type(self).__name__.__str__() + " - Read Value for " + self.__name + "="+str(val)+" at "+ str(now)+".")
             self.__callback(now, val, self.__name)
+
+            #wait cycle time until next call
             time.sleep(self.__cycle_time)
+
         logging.info(type(self).__name__.__str__() + " - Monitor for " + self.__name + " stopped...")
 
 if __name__=="__main__":
