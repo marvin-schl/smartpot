@@ -44,19 +44,19 @@ class PowerOutputPin:
         logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
         with self.__lock:
             GPIO.output(self.__pin, GPIO.HIGH)
-            logging.debug(type(self).__name__ + " - GPIO " + self.__pin + "(BCM Mode) was set to HIGH.")
+            logging.debug(type(self).__name__ + " - GPIO " + str(self.__pin) + "(BCM Mode) was set to HIGH.")
 
     def off(self):
         """
         Sets this PowerOutputPin low.
         :return: None
         """
-        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
         with self.__lock:
             GPIO.output(self.__pin, GPIO.LOW)
-            logging.debug(type(self).__name__ + " - GPIO " + self.__pin + "(BCM Mode) was set to LOW.")
+            logging.debug(type(self).__name__ + " - GPIO " + str(self.__pin) + "(BCM Mode) was set to LOW.")
 
-        logging.debug(type(self).__name__ + " - Released Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Released Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
 
     def start_pwm(self, freq, dc):
         """
@@ -66,31 +66,31 @@ class PowerOutputPin:
         :param dc:  Duty Cycle in percent (0 <= dc <= 100.0)
         :return: None
         """
-        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
         with self.__lock:
             self.__pwm = GPIO.PWM(self.__pin, freq)
             self.__pwm.start(dc)
-            logging.debug(type(self).__name__ + " - PWM on GPIO " + self.__pin + "(BCM Mode) started.")
+            logging.debug(type(self).__name__ + " - PWM on GPIO " + str(self.__pin) + "(BCM Mode) started.")
 
-        logging.debug(type(self).__name__ + " - Released Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Released Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
 
     def stop_pwm(self):
         """
         Stops the PWM on this PowerOutputPin.
         :return: True if stopping was successfull. False if no PWM was started yet.
         """
-        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
         with self.__lock:
             if self.__pwm:
                 self.__pwm.stop()
                 self.__pwm = None
                 ret = True
-                logging.debug(type(self).__name__ + " - PWM on GPIO " + self.__pin + "(BCM Mode) stopped.")
+                logging.debug(type(self).__name__ + " - PWM on GPIO " + str(self.__pin) + "(BCM Mode) stopped.")
 
             else:
                 logging.warning(type(self).__name__ + " - PWM can not be stopped if never started.")
                 ret = False
-        logging.debug(type(self).__name__ + " - Released Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Released Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
 
         return ret
 
@@ -100,16 +100,16 @@ class PowerOutputPin:
         :param freq: New Frequency in Hertz.
         :return: True if successfull. False if no PWM was started yet.
         """
-        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Acquiring Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
         with self.__lock:
             if self.__pwm:
                 self.__pwm.ChangeFrequency(freq)
-                logging.debug(type(self).__name__ + " - Changed PWM frequency on GPIO " + self.__pin + "(BCM Mode) to" + str(freq) + "Hz.")
+                logging.debug(type(self).__name__ + " - Changed PWM frequency on GPIO " + str(self.__pin) + "(BCM Mode) to" + str(freq) + "Hz.")
                 ret = True
             else:
                 logging.warning(type(self).__name__ + " - Frequency cannot be changend if no PWM is started")
                 ret = False
-        logging.debug(type(self).__name__ + " - Released Lock on GPIO " + self.__pin + "(BCM Mode).")
+        logging.debug(type(self).__name__ + " - Released Lock on GPIO " + str(self.__pin) + "(BCM Mode).")
 
         return ret
 
