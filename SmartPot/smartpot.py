@@ -23,7 +23,7 @@ class SmartPot:
     X4 = 13
     X5 = 19
     X6 = 26
-    pin_names = {13:"X4",19:X5,26:X6}
+    pin_names = {13:"X4",19: "X5" ,26: "X6"}
 
     def __init__(self, dht_type = "DHT11"):
         """
@@ -52,7 +52,7 @@ class SmartPot:
         :param pin: SmartPot.X4, SmartPot.X5 or SmartPot.X6
         :return: None
         """
-        logging.info(type(self).__name__ + " - Turning PowertOuput "+SmartPot.pin_names[pin]+" on.")
+        logging.info(type(self).__name__ + " - Turning PowertOuput "+ SmartPot.pin_names[pin]+" on.")
         self.__power_pins[pin].on()
 
     def output_off(self, pin):
