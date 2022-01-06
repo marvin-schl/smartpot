@@ -1,6 +1,16 @@
 ''' mc3426 a/d converter'''
 
 import smbus2
+from datetime import datetime
+import logging
+
+#setup logger
+dt = datetime.today()
+logging.basicConfig(filename='smartpot.log',
+                    filemode='w',
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%d-%b-%y %H:%M:%S',
+                    level=logging.DEBUG)
 
 # I2C address of the device
 DEFAULT_ADDRESS = 0x68

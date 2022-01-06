@@ -70,7 +70,7 @@ class MCP3426:
             #start the conversion
             logging.debug(type(self).__name__ + " - Starting Conerversion on Channel 2. Waiting "+ str(self.__second_channel.conversion_time/1000) +"ms till finished")
             self.__second_channel.start_conversion()
-            time.sleep(self.__second_channel.conversion_time)
+            time.sleep(2*self.__second_channel.conversion_time)
             #read and return the adc value
             voltage = -self.__second_channel.get_conversion_volts() #minus because of swapped CH2+ and CH2- in rev1.1 Shield
             logging.debug(type(self).__name__ + " - Conversion on Channel 2 should be finished. Conversion Result is "+str(voltage)+"V")

@@ -1,0 +1,79 @@
+06-Jan-22 19:34:04 - INFO - SmartPot - Initializing ADC on Bus Number 1
+06-Jan-22 19:34:04 - INFO - SmartPot - Initializing DHT11 on pin 18...
+06-Jan-22 19:34:04 - INFO - SmartPot - Initializing PowerOutputPins X4,X5 and X6...
+06-Jan-22 19:34:04 - INFO - SmartPot - SmartPot initalized
+06-Jan-22 19:34:04 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:04 - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+06-Jan-22 19:34:04 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getMe HTTP/1.1" 200 210
+06-Jan-22 19:34:04 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:04 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:34:04 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:04 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 299
+06-Jan-22 19:34:04 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:04 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 1052
+06-Jan-22 19:34:04 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:08 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 1376
+06-Jan-22 19:34:08 - INFO - SmartPot - Start temperature measurement.
+06-Jan-22 19:34:08 - DEBUG - DHT - Acquiring Lock on DHT Device...
+06-Jan-22 19:34:08 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:08 - DEBUG - DHT - Released Lock on DHT Device...
+06-Jan-22 19:34:08 - INFO - SmartPot - Temperature measurement finished at 35.0'C.
+06-Jan-22 19:34:08 - INFO - SmartPot - Start humidity measurement.
+06-Jan-22 19:34:08 - DEBUG - DHT - Acquiring Lock on DHT Device...
+06-Jan-22 19:34:11 - DEBUG - DHT - Released Lock on DHT Device...
+06-Jan-22 19:34:11 - INFO - SmartPot - Humidity measurement finished at 25.0%.
+06-Jan-22 19:34:11 - INFO - SmartPot - Start soil moisture measurement.
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Released Lock for Channel 1.
+06-Jan-22 19:34:11 - INFO - SmartPot - Soil moisture measurement finished at 0.0 [V <- see TODO].
+06-Jan-22 19:34:11 - INFO - SmartPot - Start light intensity measurement.
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.8268920371275037V
+06-Jan-22 19:34:11 - DEBUG - MCP3426 - Released Lock for Channel 2.
+06-Jan-22 19:34:11 - INFO - SmartPot - Light intensity measurement finished at 1.8268920371275037 [V <- see TODO].
+06-Jan-22 19:34:11 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:11 - DEBUG - Starting new HTTPS connection (2): api.telegram.org:443
+06-Jan-22 19:34:12 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 299
+06-Jan-22 19:34:12 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:12 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 293
+06-Jan-22 19:34:12 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:12 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 299
+06-Jan-22 19:34:12 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:12 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 316
+06-Jan-22 19:34:12 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:12 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 311
+06-Jan-22 19:34:12 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:12 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 299
+06-Jan-22 19:34:28 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:34:28 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:34:48 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:34:49 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:35:09 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:35:09 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:35:29 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:35:29 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:35:49 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:35:49 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:36:09 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:36:09 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:36:29 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:36:30 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:36:50 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:36:50 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:37:10 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:37:10 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:37:30 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:37:30 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:37:50 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:37:50 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:38:10 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:38:10 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:38:30 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:38:31 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+06-Jan-22 19:38:51 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+06-Jan-22 19:38:51 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
