@@ -16,14 +16,15 @@ class HysteresisMonitor(Thread):
     """
     def __init__(self,name,getter,thres,callback_up_thres,lower_thres = None,callback_lw_thres = None,cycle_time = 0.1):
         """
-
-        :param name:
-        :param getter:
-        :param thres:
-        :param callback_up_thres:
-        :param lower_thres:
-        :param callback_lw_thres:
-        :param cycle_time:
+        Initilizes a new HysteresisMonitor class. A callback is called by this class as soon as a defined threshold value
+        is exceeded. Optionally a second callback can be passed when the monitored value falls below a lower threshold.
+        :param name: A String representation of the value that is monitored. Mainly for logging purposes.
+        :param getter: A callable which return value should be the value of the monitored variable.
+        :param thres: The upper threshold.
+        :param callback_up_thres: A callable which is called when getter() > thres
+        :param lower_thres: (optionally) A lower threshold value. Default value is equal to thres.
+        :param callback_lw_thres: (optionally) A callable which is called when getter() < lower_thres. When not passed nothing is executed.
+        :param cycle_time: (optionally) Time to wait beween retrieving new values in seconds. Default value is 0.1s.
         """
         logging.info("Initiliazing Monitor for "+ name + ".")
         super(HysteresisMonitor, self).__init__()
@@ -43,8 +44,8 @@ class HysteresisMonitor(Thread):
 
     def start(self):
         """
-
-        :return:
+        Starts the run() method in a new Thread.
+        :return: None
         """
         self.__running = True
         logging.info(type(self).__name__.__str__() + " - Starting Monitor for " + self.__name + " in a new Thread...")
@@ -52,8 +53,8 @@ class HysteresisMonitor(Thread):
 
     def stop(self):
         """
-
-        :return:
+        Stops the running Monitor Thread.
+        :return: None
         """
         self.__running = False
         logging.info(type(self).__name__.__str__() + " - Stopping Monitor for " + self.__name + "...")
@@ -61,21 +62,30 @@ class HysteresisMonitor(Thread):
 
     def run(self, *args, **kwargs):
         """
-
-        :return:
+        Run method which is started in a new thread when calling start() method. To stop the Thread call stop() method.
+        :return: None
         """
+        #do as long as self.__running is true
         while self.__running:
             val = self.__getter()
             now = datetime.now()
+
             if val > self.__thres and self.__reported == False:
+                # do this if self.__thres is exceeded for the first time, do some logging
                 logging.info(type(self).__name__.__str__() + " - Value "+ self.__name + "=" +str(val)+ "passed upper threshold of " + str(self.__thres) + " at " + str(now) +".")
+                #call the callback
                 self.__callback_up_thres(now, val, self.__thres, self.__name)
+                #set reported to True to make sure that the callback is not called every single cycle while val is greater than threshold
                 self.__reported = True
             if val < self.__lw_thres and self.__reported == True:
+                # do this if a exceed was reported and the val falls bellow lower threshold
+                # reset the reported value so next up_threshold exceed will be reported and do some logging
                 self.__reported = False
                 logging.info(type(self).__name__.__str__() + " - Value "+ self.__name + "=" + str(val) + "passed upper threshold of " + str(self.__lw_thres) + " at " + str(now) +".")
+                # if a callback is provided for this case, execute it
                 if self.__callback_lw_thres != None:
                     self.__callback_lw_thres(now, val, self.__lw_thres, self.__name)
+            # wait the cycle time until next value is retrieved
             time.sleep(self.__cycle_time)
         logging.info(type(self).__name__.__str__() + " - Monitor for " + self.__name + " stopped...")
 
