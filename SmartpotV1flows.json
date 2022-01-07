@@ -1,0 +1,705 @@
+[
+    {
+        "id": "e4c88edef57e4391",
+        "type": "tab",
+        "label": "SmartPot V1.0 Sensorwerte",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e9e399dc9e126137",
+        "type": "ui_tab",
+        "name": "SmartPot V1.0 Sensorwerte",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c740e67c16695bd6",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#050505",
+                "baseFont": "Arial Black,Arial Black,Gadget,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD.MM.YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 3,
+                "gy": 3,
+                "cx": 3,
+                "cy": 3,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6bd472928adf8b1d",
+        "type": "ui_group",
+        "name": "Luftfeuchtigkeit",
+        "tab": "e9e399dc9e126137",
+        "order": 2,
+        "disp": true,
+        "width": 8,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "410830196cb47d0c",
+        "type": "ui_group",
+        "name": "Temperatur",
+        "tab": "e9e399dc9e126137",
+        "order": 3,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "9665aa3ff34b8e5d",
+        "type": "ui_group",
+        "name": "Bodenfeuchtigkeit",
+        "tab": "e9e399dc9e126137",
+        "order": 4,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "e80ca7ea66137e05",
+        "type": "ui_group",
+        "name": "Lichstärke",
+        "tab": "e9e399dc9e126137",
+        "order": 5,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "54cf0a69c9bfef70",
+        "type": "file in",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "filename": "/home/pi/smartpot/Logging.csv",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "228b4e50b58d655d"
+            ]
+        ]
+    },
+    {
+        "id": "228b4e50b58d655d",
+        "type": "csv",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "Timestamp,Luftfeuchtigkeit,Temperatur,Bodenfeuchtigkeit,Lichtstärke",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 650,
+        "y": 180,
+        "wires": [
+            [
+                "22da11c28b110ac2",
+                "7acf463193d9fc23",
+                "15505142169f90c2",
+                "eb22a395bb2fb0f6",
+                "68859ec396f9b0a8",
+                "b88ab81100ef1bb3",
+                "92a53a86d24a1f68",
+                "5990f90fd196d680"
+            ]
+        ]
+    },
+    {
+        "id": "22da11c28b110ac2",
+        "type": "change",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[\t   {\t       \"labels\":[\"Luftfeuchtigkeit\"],\t       \"series\":[\"Luftfeuchtigkeit\"],\t       \"data\": [\t           [\t               $map(\t                   payload.Timestamp,\t                   function($v, $i, $a) {\t                       {\t                           'x': $fromMillis($v * 1000),\t                           'y':payload[$i].Luftfeuchtigkeit                 \t                       }              \t                   }            \t               )            \t           ]       \t       ]   \t   }\t]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 120,
+        "wires": [
+            [
+                "acd346961d601d96"
+            ]
+        ]
+    },
+    {
+        "id": "acd346961d601d96",
+        "type": "ui_chart",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "6bd472928adf8b1d",
+        "order": 2,
+        "width": 8,
+        "height": 10,
+        "label": "Luftfeuchtigkeit Historie",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1330,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9eb21339a41bcd45",
+        "type": "inject",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "54cf0a69c9bfef70"
+            ]
+        ]
+    },
+    {
+        "id": "7acf463193d9fc23",
+        "type": "change",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[\t   {\t       \"labels\":[\"Temperatur\"],\t       \"series\":[\"Temperatur\"],\t       \"data\": [\t           [\t               $map(\t                   payload.Timestamp,\t                   function($v, $i, $a) {\t                       {\t                           'x': $fromMillis($v * 1000),\t                           'y':payload[$i].Temperatur                 \t                       }              \t                   }            \t               )            \t           ]       \t       ]   \t   }\t]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 200,
+        "wires": [
+            [
+                "39eac790f005894d"
+            ]
+        ]
+    },
+    {
+        "id": "39eac790f005894d",
+        "type": "ui_chart",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "410830196cb47d0c",
+        "order": 2,
+        "width": 8,
+        "height": 10,
+        "label": "Temperatur Historie",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1310,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e1b1e0403f22f31",
+        "type": "ui_gauge",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "6bd472928adf8b1d",
+        "order": 1,
+        "width": 8,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Luftfeuchtigkeit Live",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "60",
+        "seg2": "80",
+        "className": "",
+        "x": 1320,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "15505142169f90c2",
+        "type": "function",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "func": "var d = msg.payload[msg.payload.length-1].Luftfeuchtigkeit\n\nvar newMsg = { payload: d };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 80,
+        "wires": [
+            [
+                "7e1b1e0403f22f31"
+            ]
+        ]
+    },
+    {
+        "id": "eb22a395bb2fb0f6",
+        "type": "function",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "func": "var d = msg.payload[msg.payload.length-1].Temperatur\n\nvar newMsg = { payload: d };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 160,
+        "wires": [
+            [
+                "aa97f778052b97b2"
+            ]
+        ]
+    },
+    {
+        "id": "aa97f778052b97b2",
+        "type": "ui_gauge",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "410830196cb47d0c",
+        "order": 1,
+        "width": 8,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Temperatur Live",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "35",
+        "seg2": "40",
+        "className": "",
+        "x": 1300,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "68859ec396f9b0a8",
+        "type": "function",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "func": "var d = msg.payload[msg.payload.length-1].Bodenfeuchtigkeit\n\nvar newMsg = { payload: d };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 240,
+        "wires": [
+            [
+                "c04cb9f441cbe686"
+            ]
+        ]
+    },
+    {
+        "id": "b88ab81100ef1bb3",
+        "type": "change",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[\t   {\t       \"labels\":[\"Temperatur\"],\t       \"series\":[\"Temperatur\"],\t       \"data\": [\t           [\t               $map(\t                   payload.Timestamp,\t                   function($v, $i, $a) {\t                       {\t                           'x': $fromMillis($v * 1000),\t                           'y':payload[$i].Bodenfeuchtigkeit                 \t                       }              \t                   }            \t               )            \t           ]       \t       ]   \t   }\t]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 280,
+        "wires": [
+            [
+                "428b4c34fd4e2597"
+            ]
+        ]
+    },
+    {
+        "id": "428b4c34fd4e2597",
+        "type": "ui_chart",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "9665aa3ff34b8e5d",
+        "order": 2,
+        "width": 8,
+        "height": 10,
+        "label": "Bodenfeuchtigkeit Historie",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1330,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c04cb9f441cbe686",
+        "type": "ui_gauge",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "9665aa3ff34b8e5d",
+        "order": 1,
+        "width": 8,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Bodenfeuchtigkeit Live",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1320,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "92a53a86d24a1f68",
+        "type": "function",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "func": "var d = msg.payload[msg.payload.length-1].Lichtstärke\n\nvar newMsg = { payload: d };\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 320,
+        "wires": [
+            [
+                "6cbec594eec8a9d5"
+            ]
+        ]
+    },
+    {
+        "id": "5990f90fd196d680",
+        "type": "change",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[\t   {\t       \"labels\":[\"Temperatur\"],\t       \"series\":[\"Temperatur\"],\t       \"data\": [\t           [\t               $map(\t                   payload.Timestamp,\t                   function($v, $i, $a) {\t                       {\t                           'x': $fromMillis($v * 1000),\t                           'y':payload[$i].Lichtstärke                \t                       }              \t                   }            \t               )            \t           ]       \t       ]   \t   }\t]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 360,
+        "wires": [
+            [
+                "654efd1a84e85e62"
+            ]
+        ]
+    },
+    {
+        "id": "6cbec594eec8a9d5",
+        "type": "ui_gauge",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "e80ca7ea66137e05",
+        "order": 1,
+        "width": 8,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Lichstärke Live",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "80",
+        "seg2": "90",
+        "className": "",
+        "x": 1300,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "654efd1a84e85e62",
+        "type": "ui_chart",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "e80ca7ea66137e05",
+        "order": 2,
+        "width": 8,
+        "height": 10,
+        "label": "Lichtstärke Historie",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1310,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    }
+]
