@@ -127,8 +127,7 @@ class SmartPot:
     def read_light_intensity(self):
         """
         Reads the value of the light intensity snesor
-        :return: currently only returns output voltage of the sensor, in the future return value will be a appropriate
-        light intensity value (see TODO)
+        :return: Percentage of maximum measurable light intensity.
         """
         logging.info(type(self).__name__ + " - Start light intensity measurement.")
 
@@ -136,16 +135,16 @@ class SmartPot:
         adc_value = self.__adc.read_ch2()
 
         #TODO: calculate an appropriate intensity value
-        intensity = adc_value
+        max_val = 1.45
+        intensity = adc_value/max_val * 100 if adc_value < max_val else 100
 
-        logging.info(type(self).__name__ + " - Light intensity measurement finished at "+str(intensity)+" [V <- see TODO].")
+        logging.info(type(self).__name__ + " - Light intensity measurement finished at "+str(intensity)+" %.")
         return intensity
 
     def read_soil_moisture(self):
         """
         Reads the value of the soil moisture sensor.
-        :return: currently only returns output voltage of the sensor, in the future return value will be a appropriate
-        moisture value (see TODO)
+        :return: relative soil moisture in percent
         """
         logging.info(type(self).__name__ + " - Start soil moisture measurement.")
 
@@ -153,8 +152,9 @@ class SmartPot:
         adc_value = self.__adc.read_ch1()
 
         # TODO: calculate an appropriate moisture value
-        moisture = adc_value
+        max_val = 1.9
+        moisture = adc_value/max_val*100 if adc_value < max_val else 100
 
-        logging.info(type(self).__name__ + " - Soil moisture measurement finished at "+str(moisture)+" [V <- see TODO].")
+        logging.info(type(self).__name__ + " - Soil moisture measurement finished at "+str(moisture)+"%.")
 
         return moisture
