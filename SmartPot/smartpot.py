@@ -135,7 +135,7 @@ class SmartPot:
         adc_value = self.__adc.read_ch2()
 
         #TODO: calculate an appropriate intensity value
-        max_val = 1.45
+        max_val = 1.8
         intensity = adc_value/max_val * 100 if adc_value < max_val else 100
 
         logging.info(type(self).__name__ + " - Light intensity measurement finished at "+str(intensity)+" %.")
