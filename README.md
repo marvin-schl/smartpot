@@ -82,3 +82,65 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 ## Software Implementation
 
 
+
+Nachfolgend soll eine Klassenreferenz augestellt werden. Die einen Überblick über die implementierten Klassen und deren Methoden gib. Für eine genauere Beschreibung bitte die Methoden Kommentare beachten. Dort werden die einzelnen Argumente genauer beschrieben. 
+
+**monitor.HysteresisMonitor**:
+Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgröße. Es kann eine Funktion übergeben werden, welche den zu überwachenden Wert zurückgibt, ein oberer Grenzwert und ein unterer Grenzwert. Außerdem kann für das überschreiten des oberen und das unterschreiten des unteren Grenzwerts jeweils eine Callback Funktion übergeben werden. Diese Klasse erbt von threading.Thread. Eine Beispielhafte Verwendung dieser Klasse ist in example.py gegeben.
+
+Öffentliche Methoden:
+- start()
+- stop()
+- run()
+
+**mointor.TimeBasedMonitor**:
+Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgröße. Es kann eine Funktion übergeben werden, die die zu überwachende(n) Größe(n) zurückgibt. Diese Klasse erbt von threading.Thread. Eine Beispielhafte Verwendung dieser Klasse ist in example.py gegeben.
+
+Öffentliche Methoden:
+- start()
+- stop()
+- run()
+
+**SmarPot.smartpot.SmartPot**:
+Diese Klasse implementiert eine physikalische Repräsentation des SmartPots an sich und dient als Interface zum Backend. Es sind drei Konstanten vorhanden SmarPot.smarpot.SmartPot.X4, SmarPot.smarpot.SmartPot.X5 und SmarPot.smarpot.SmartPot.X6. Diese referenzieren die Leistungsausgänge auf dem SmartPot Raspberry Shield rev 1.1 und können den output_* Methoden als pin übergeben werden.
+Öffentliche Methoden:
+- output_on(pin)
+- output_off(pin)
+- output_pwm_on(pin, freq, dc)
+- output_pwm_off(pin)
+- output_pwm_change_freq(pin, freq)
+- output_pwm_change_dc(pin, dc)
+- read_temperature()
+- read_humidity()
+- read_light_intensity()
+- read_soil_moisture()
+
+**SmartPot.dht.DHT**:
+Diese Klasse wrapped die Adafruit_DHT Library und stellt einen objektorientierten Zugriff zur Verfügung. Es kann bei der instanziierung festgelgt werden ob es sich um einen DHT11 oder DHT22 handelt.
+
+Öffentliche Methoden:
+- read_temperature()
+- read_humidity()
+
+**SmartPot.adc.MCP3426**:
+Diese Klasse wrapped die verwendete [MCP342x](https://github.com/coburnw/MCP342x) Library für die hier benötigete Anwendung.
+
+Öffentliche Methoden:
+- read_ch1()
+- read_ch2()
+
+
+**SmartPot.output.PowerOutputPin**:
+Diese Klasse verwendendet das RPi.GPIO Modul und implementiert die Funktionen der Leistungsausgänge. 
+
+Öffentliche Methoden
+- on()
+- off()
+- start_pwm(freq, dc)
+- stop_pwm()
+- change_freq(freq)
+- change_dc(dc)
+
+
+
+
