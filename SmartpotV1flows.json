@@ -158,6 +158,17 @@
         "className": ""
     },
     {
+        "id": "34a10dc04efb8a6c",
+        "type": "ui_group",
+        "name": "Rücksetzen",
+        "tab": "e9e399dc9e126137",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "54cf0a69c9bfef70",
         "type": "file in",
         "z": "e4c88edef57e4391",
@@ -572,14 +583,14 @@
         "label": "units",
         "format": "{{value}}",
         "min": 0,
-        "max": 10,
+        "max": "100",
         "colors": [
-            "#00b500",
+            "#d60000",
             "#e6e600",
-            "#ca3838"
+            "#00e025"
         ],
-        "seg1": "",
-        "seg2": "",
+        "seg1": "25",
+        "seg2": "50",
         "className": "",
         "x": 1320,
         "y": 240,
@@ -647,12 +658,12 @@
         "min": 0,
         "max": "100",
         "colors": [
-            "#00b500",
+            "#b30000",
             "#e6e600",
-            "#ca3838"
+            "#33e60f"
         ],
-        "seg1": "80",
-        "seg2": "90",
+        "seg1": "10",
+        "seg2": "30",
         "className": "",
         "x": 1300,
         "y": 320,
@@ -700,6 +711,50 @@
         "y": 360,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "c08cefca6389fe4c",
+        "type": "file",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "filename": "/home/pi/smartpot/Logging.csv",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "delete",
+        "encoding": "none",
+        "x": 410,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0ebca440383fd80a",
+        "type": "ui_button",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "group": "34a10dc04efb8a6c",
+        "order": 0,
+        "width": "6",
+        "height": "2",
+        "passthru": false,
+        "label": "Chart Reset",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 500,
+        "wires": [
+            [
+                "c08cefca6389fe4c"
+            ]
         ]
     }
 ]
