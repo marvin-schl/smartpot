@@ -73,12 +73,85 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 21          | Joy-It Linker Kit Lichtsensor     |1        |1,01        | 1,01
 22          | Joy-it sen-Moisture Sensorkit     |1        |4,99        | 4,99
 23          | Platine                           |1        |2,00        | 2,00
-------------|-----------------------------------|---------|------------|--------------------
-24          | Gesamt                            |         |            | 22,93
+********24          | Gesamt                            |         |            | 22,93
 
 (Reichelt Preise beispielhaft, Stand 06.01.22)
 
 
 ## Software Implementation
+
+
+
+Nachfolgend soll eine Klassenreferenz augestellt werden. Die einen Überblick über die implementierten Klassen und deren Methoden gib. Für eine genauere Beschreibung bitte die Methoden Kommentare beachten. Dort werden die einzelnen Argumente genauer beschrieben. 
+
+**monitor.HysteresisMonitor**:
+Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgröße. Es kann eine Funktion übergeben werden, welche den zu überwachenden Wert zurückgibt, ein oberer Grenzwert und ein unterer Grenzwert. Außerdem kann für das überschreiten des oberen und das unterschreiten des unteren Grenzwerts jeweils eine Callback Funktion übergeben werden. Diese Klasse erbt von threading.Thread. Eine Beispielhafte Verwendung dieser Klasse ist in example.py gegeben.
+
+Öffentliche Methoden:
+- start()
+- stop()
+- run()
+
+**mointor.TimeBasedMonitor**:
+Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgröße. Es kann eine Funktion übergeben werden, die die zu überwachende(n) Größe(n) zurückgibt. Diese Klasse erbt von threading.Thread. Eine Beispielhafte Verwendung dieser Klasse ist in example.py gegeben.
+
+Öffentliche Methoden:
+- start()
+- stop()
+- run()
+
+**SmarPot.smartpot.SmartPot**:
+Diese Klasse implementiert eine physikalische Repräsentation des SmartPots an sich und dient als Interface zum Backend. Es sind drei Konstanten vorhanden SmarPot.smarpot.SmartPot.X4, SmarPot.smarpot.SmartPot.X5 und SmarPot.smarpot.SmartPot.X6. Diese referenzieren die Leistungsausgänge auf dem SmartPot Raspberry Shield rev 1.1 und können den output_* Methoden als pin übergeben werden.
+Öffentliche Methoden:
+- output_on(pin)
+- output_off(pin)
+- output_pwm_on(pin, freq, dc)
+- output_pwm_off(pin)
+- output_pwm_change_freq(pin, freq)
+- output_pwm_change_dc(pin, dc)
+- read_temperature()
+- read_humidity()
+- read_light_intensity()
+- read_soil_moisture()
+
+**SmartPot.dht.DHT**:
+Diese Klasse wrapped die Adafruit_DHT Library und stellt einen objektorientierten Zugriff zur Verfügung. Es kann bei der instanziierung festgelgt werden ob es sich um einen DHT11 oder DHT22 handelt.
+
+Öffentliche Methoden:
+- read_temperature()
+- read_humidity()
+
+**SmartPot.adc.MCP3426**:
+Diese Klasse wrapped die verwendete [MCP342x](https://github.com/coburnw/MCP342x) Library für die hier benötigete Anwendung.
+
+Öffentliche Methoden:
+- read_ch1()
+- read_ch2()
+
+
+**SmartPot.output.PowerOutputPin**:
+Diese Klasse verwendendet das RPi.GPIO Modul und implementiert die Funktionen der Leistungsausgänge. 
+
+Öffentliche Methoden
+- on()
+- off()
+- start_pwm(freq, dc)
+- stop_pwm()
+- change_freq(freq)
+- change_dc(dc)
+
+
+## Ausblick
+
+Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des dazugehörige Shield aufgelistet, welche in folgenden Versionen überarbeitet werden sollten.
+
+- Der Linearregler auf der Platine wird bei Betrieb mit einem 12V Netzteil und hohen Stromverbräuchen des Raspberrys sehr warm. Hier wäre eine Spannungswandlung über einen Schaltregler zu bevorzugen.
+
+- Beim Ausschalten der Leistungsausgänge, also wenn das Gatesignal der Ausgangsmosfets (Q2, Q3, Q4) von 0V auf 12V gezogen wird. Findet die Entladung der Gatekapazität im unbelaseten Zustand über die Pullup Widerstände (R5, R6, R7) statt. Dies führt zumidest im unbelasteten Zustand zu sehr hohen Abfallszeit des Ausgangssignals. Ein Ansatz wäre kleinere Pullup Widerstände zu verwenden auf Kosten einer höheren Stromaufnahme bei eingeschaltetem Ausgang. Ein anderer Ansatz wäre die verwendung einer richtigen Mosfet Endstufe.
+
+- Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-2,048V messen. Eine Lösuing wäre ein auf der Platine befindlicher 1:1 Spannungsteiler, ein anderer AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
+
+
+
 
 

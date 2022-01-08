@@ -275,8 +275,8 @@ def callbackBackup(now, val, name):
     zeit = str(int(time.mktime(now.timetuple())))
     humi = str(val[0])
     temp = str(val[1])
-    moisture = str(val[2])
-    light = str(val[3])
+    moisture = str(round(val[2],0))
+    light = str(round(val[3],0))
     
     file = open("Logging.csv","a")
 
