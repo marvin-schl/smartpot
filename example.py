@@ -1,18 +1,24 @@
-import logging
+"""
+Example Script to demonstrate monitor usage.
+"""
 import time
 from SmartPot.smartpot import SmartPot
 from monitor import TimeBasedMonitor, HysteresisMonitor
 from datetime import datetime
-from threading import Thread
 
-
+import logging
+import configparser
+#setup config
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
+levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
 #setup logger
 dt = datetime.today()
-logging.basicConfig(filename='smartpot.log',
+logging.basicConfig(filename=config["Logging"]["file"],
                     filemode='w',
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%d-%b-%y %H:%M:%S',
-                    level=logging.DEBUG)
+                    level=levels.get(config["Logging"]["level"], "DEBUG"))
 
 def  monitor_getter():
    return s.read_humidity(), s.read_temperature(), s.read_soil_moisture(), s.read_light_intensity()
