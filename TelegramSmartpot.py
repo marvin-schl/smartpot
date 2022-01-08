@@ -1,13 +1,17 @@
 from SmartPot.smartpot import SmartPot
 from threading import Thread
 from monitor import TimeBasedMonitor, HysteresisMonitor
-
+import configparser
 import telepot
 from telepot.loop import MessageLoop
 import time
 
-token="5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k"
-chatid=-792038619
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
+
+
+token=config["Telegram"]["chattoken"]
+chatid=int(config["Telegram"]["chatid"])
 
 
 bot = telepot.Bot(token)

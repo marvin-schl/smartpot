@@ -3,14 +3,19 @@ import SmartPot.mcp342x as mcp342x
 from threading import Lock
 from datetime import datetime
 import logging
-
+import configparser
+#setup config
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
+levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
 #setup logger
 dt = datetime.today()
-logging.basicConfig(filename='smartpot.log',
+logging.basicConfig(filename=config["Logging"]["file"],
                     filemode='w',
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%d-%b-%y %H:%M:%S',
-                    level=logging.DEBUG)
+                    level=levels.get(config["Logging"]["level"], "DEBUG"))
+
 
 class MCP3426:
     def __init__(self, busnumber = 1):
