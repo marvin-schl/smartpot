@@ -73,8 +73,7 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 21          | Joy-It Linker Kit Lichtsensor     |1        |1,01        | 1,01
 22          | Joy-it sen-Moisture Sensorkit     |1        |4,99        | 4,99
 23          | Platine                           |1        |2,00        | 2,00
-------------|-----------------------------------|---------|------------|--------------------
-24          | Gesamt                            |         |            | 22,93
+********24          | Gesamt                            |         |            | 22,93
 
 (Reichelt Preise beispielhaft, Stand 06.01.22)
 
@@ -140,6 +139,18 @@ Diese Klasse verwendendet das RPi.GPIO Modul und implementiert die Funktionen de
 - stop_pwm()
 - change_freq(freq)
 - change_dc(dc)
+
+
+## Ausblick
+
+Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des dazugehörige Shield aufgelistet, welche in folgenden Versionen überarbeitet werden sollten.
+
+- Der Linearregler auf der Platine wird bei Betrieb mit einem 12V Netzteil und hohen Stromverbräuchen des Raspberrys sehr warm. Hier wäre eine Spannungswandlung über einen Schaltregler zu bevorzugen.
+
+- Beim Ausschalten der Leistungsausgänge, also wenn das Gatesignal der Ausgangsmosfets (Q2, Q3, Q4) von 0V auf 12V gezogen wird. Findet die Entladung der Gatekapazität im unbelaseten Zustand über die Pullup Widerstände (R5, R6, R7) statt. Dies führt zumidest im unbelasteten Zustand zu sehr hohen Abfallszeit des Ausgangssignals. Ein Ansatz wäre kleinere Pullup Widerstände zu verwenden auf Kosten einer höheren Stromaufnahme bei eingeschaltetem Ausgang. Ein anderer Ansatz wäre die verwendung einer richtigen Mosfet Endstufe.
+
+- Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-2,048V messen. Eine Lösuing wäre ein auf der Platine befindlicher 1:1 Spannungsteiler, ein anderer AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
+
 
 
 
