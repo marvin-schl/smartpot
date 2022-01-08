@@ -1,0 +1,30 @@
+FROM armhf/debian:buster
+
+# install java on image
+RUN apt-get update
+RUN apt-get install -y python3-pip npm
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install RPi.GPIO Adafruit_DHT smbus2 telepot
+
+#setting up a new user
+RUN useradd -ms /bin/bash  smartpot
+USER smartpot
+WORKDIR /home/smartpot
+
+#setting up smartpot directory
+COPY SmartPot ./SmartPot
+COPY monitor.py .
+COPY smartpot.log .
+COPY smartpot.ini .
+COPY TelegramSmartpot.py .
+
+#Instatllation Node-Red
+RUN bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --node16
+RUN cd .node-red
+RUN npm install i node-red-dashboard
+RUN cd ..
+#auskommentieren von der ui
+RUN sed -i -e "s/\/\/ui: { path: \"ui\" }/ui: { path: \"ui\" }/g"  ~/.node-red/settings.js
+RUN systemctl enable nodered.service
+
+CMD python3 TelegramSmartpot.py
