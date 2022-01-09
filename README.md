@@ -76,7 +76,7 @@ Zusätzlich müssen in den Node-RED Einstellungen Parameter konfiguriert werden:
 
 @Line 253: „//“ entfernen
 
-![Schaltplan](https://git.haw-hamburg.de/aco732/smartpot/-/blob/main/Dokubilder/node-red_settings.png)
+![Node-RedUI](https://git.haw-hamburg.de/aco732/smartpot/-/blob/main/Dokubilder/node-red_settings.png)
 
 Um Node-RED bei Systemstart automatisch auszuführen wird folgender Befehl verwendet:
 
