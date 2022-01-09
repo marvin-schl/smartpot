@@ -10,14 +10,27 @@ config = configparser.ConfigParser()
 config.read("smartpot.ini")
 levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
 #setup logger
-dt = datetime.today()
-if bool(config["Logging"]["stdout"]):
-    logging.StreamHandler(sys.stdout)
-logging.basicConfig(filename=config["Logging"]["file"],
-                    filemode='w',
-                    format='%(asctime)s - %(levelname)s - %(message)s',
-                    datefmt='%d-%b-%y %H:%M :%S',
-                    level=levels.get(config["Logging"]["level"], "DEBUG"))
+# create logger with 'smartpot'
+log = logging.getLogger('smartpot')
+log.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
+
+# create formatter and add it to the handlers
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+# create file handler which logs even debug messages
+fh = logging.FileHandler(config["Logging"]["file"])
+fh.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
+fh.setFormatter(formatter)
+log.addHandler(fh)
+
+if config["Logging"]["stdout"] == "1":
+    # create console handler with a higher log level
+    ch = logging.StreamHandler()
+    ch.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
+    ch.setFormatter(formatter)
+    log.addHandler(ch)
+
+
 # I2C address of the device
 DEFAULT_ADDRESS = 0x68
 REFERENCE_VOLTAGE = 2.048
