@@ -93,26 +93,20 @@ Platzhalter <hostname> :
 
 Das Node-RED Dashboard kann nun wie folgt installiert werden:
 
-![Daschboard1](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_1.png)
-
-![Dashboard2](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_2.png)
-
 1. Menü-Reiter auswählen
 2. Palette verwalten klicken
 3. „Dashboard“ in Suchfeld eingeben
 4. Auf „Installieren“ klicken 
+
+![Daschboard1](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_1.png)
+
+![Dashboard2](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_2.png)
 
 Der Inhalt des Node-RED Dashboards wird nun wie folgt importiert:
 
 `cp /home/pi/smartpot/Node-Red/SmartpotVflows.json /home/pi/.node-red/lib/flows`
 
 Abschließend wird die flow-Datei in Node-RED importiert:
-
-![Daschboard3](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_3.png)
-
-![Bashboard4](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_4.png)
-
-![Dashboard5](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_5.png)
 
 1. Menü-Reiter auswählen
 2. Import klicken
@@ -121,8 +115,55 @@ Abschließend wird die flow-Datei in Node-RED importiert:
 5. Auf „Import“ klicken
 6. „Übernahme (deploy)“ klicken
 
+![Daschboard3](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_3.png)
 
-## elektronischer Aufbau
+![Bashboard4](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_4.png)
+
+![Dashboard5](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_5.png)
+
+## Einrichten Telegram-Bot
+
+Zunächst muss der Telegram-bot „BotFather“ wie folgt erstellt werden:
+
+Bei Telegram im Suchfeld „BotFather“ eingeben
+und unter Chats den BotFather auswählen.
+
+![Bot1](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_1.png)
+
+Im Chat des BotFather kann nun ein Chatbot erstellt werden:
+
+1. /newbot eingeben
+2. Botname vergeben
+3. Username vergeben
+4. Bot-Token kopieren
+5. Link für Chatbot anklicken
+
+![Bot2](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_2.png)
+
+Im Browser folgende Website aufrufen:
+
+`https://api.telegram.org/botReplaceThisWithTheBotFatherToken/getUpdates`
+
+Im Telegram Web dem erstellten Chatbot eine Nachricht senden und auf der Website die Chat-ID 
+ablesen:
+
+![Bot3](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_3.png)
+
+(Optional): Um den Chatbot einer Gruppe hinzufügen zu können, muss folgende Konfiguration im 
+BotFather vorgenommen werden:
+
+1. /setprivacy eingeben
+2. @Botname eingeben
+3. Disable eingeben
+
+![Bot4](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_4.png)
+
+Achtung: 
+Wenn sich der Chatbot in einer Gruppe befindet, muss die Chat-ID der Gruppe verwendet werden.
+Abschließend müssen der Bot-Token und die Chat-ID in der Config-Datei hinterlegt werden.
+
+
+## Elektronischer Aufbau
 
 Schaltplan des RaspberryPi Shields:
 
