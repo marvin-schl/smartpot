@@ -24,6 +24,27 @@ Unter- bzw. Überschreiten eine Benachrichtigung über Telegram abgeschickt wird
 Im Folgenden wird die Umsetzung des Projektes detailliert dokumentiert, sodass mit Hilfe dieser 
 Anleitung ein Nachbau des SmartPots möglich wird.
 
+## Projektidee
+
+Die Idee einen intelligenten Blumentopf zu entwickeln wurde durch zahlreiche Anleitungen aus dem 
+Web inspiriert.[Link](https://tutorials-raspberrypi.de/automatisches-raspberry-pi-gewaechshaus-selber-bauen/)
+
+Der modulare Aufbau dieses Projektes eignet sich sehr gut für Gruppenarbeiten und kann dem 
+jeweiligen Wissensstand (Programmierung vom Raspberry Pi) durch Variation der 
+Funktionskomplexität angepasst werden.
+
+Die erste Version des SmartPots beinhaltet folgende Funktionen:
+
+Die erste Version des SmartPots beinhaltet folgende Funktionen:
+1) _Temperatur_ messen, auslesen und ausgeben
+2) _Luftfeuchtigkeit_ messen, auslesen und ausgeben
+3) _Bodenfeuchtigkeit_ messen, auslesen und ausgeben
+4) _Lichtstärke_ messen, auslesen und ausgeben
+5) Kommunikation in Telegram Web
+6) Node-RED Visualisierung der Sensorwerte (historisch/live)
+
+
+
 ## Einrichtung des RaspberryPi's
 
 Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes RaspianOS basierend auf Debian Buster installiert ist. Zunächst muss dieses Repository auf den RaspberryPi geclonet werden:
