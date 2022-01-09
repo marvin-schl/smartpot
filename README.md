@@ -43,7 +43,8 @@ Die erste Version des SmartPots beinhaltet folgende Funktionen:
 5) Kommunikation in Telegram Web
 6) Node-RED Visualisierung der Sensorwerte (historisch/live)
 
-
+In zukünftigen Versionen könnten je nach Wissensstand und finanziellen Mitteln weitere Funktionen 
+wie z.B. automatische Bewässerung, Lichtregelung sowie Belüftung realisiert werden.
 
 ## Einrichtung des RaspberryPi's
 
