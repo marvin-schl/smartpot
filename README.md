@@ -60,6 +60,37 @@ Desweiteren wird eine [Library für den MCP3426](https://github.com/coburnw/MCP3
 
 ## Einrichten Node-RED Editors
 
+Das Installieren der Node-RED Editors erfolgt durch folgende Shell-Eingabe:
+
+`bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --node16`
+
+Das Node-RED Dashboard wird mit folgender Eingabe installiert:
+
+`npm i node-red-dashboard`
+
+Zusätzlich müssen in den Node-RED Einstellungen Parameter konfiguriert werden:
+
+`cd ~/.node-red`
+
+`nano settings.js`
+
+@Line 253: „//“ entfernen
+
+![Schaltplan](https://git.haw-hamburg.de/aco732/smartpot/-/blob/main/Dokubilder/node-red_settings.png)
+
+Um Node-RED bei Systemstart automatisch auszuführen wird folgender Befehl verwendet:
+
+`sudo systemctl enable nodered.service`
+
+Der Node-RED Editor ist über die IP-Adresse des Pi´s aufzurufen. Die IP wird wie folgt angezeigt:
+
+`hostname -l`
+
+Anschließend wird der folgende Link im Browser aufgerufen und die IP-Adresse ersetzt den 
+Platzhalter <hostname> :
+
+`http://<hostname>:188`
+
 ## elektronischer Aufbau
 
 Schaltplan des RaspberryPi Shields:
