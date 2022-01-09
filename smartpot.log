@@ -1,96 +1,44 @@
-09-Jan-22 14:35:44 - INFO - SmartPot - Initializing ADC on Bus Number 1
-09-Jan-22 14:35:44 - INFO - SmartPot - Initializing DHT11 on pin 18...
-09-Jan-22 14:35:44 - INFO - SmartPot - Initializing PowerOutputPins X4,X5 and X6...
-09-Jan-22 14:35:44 - INFO - SmartPot - SmartPot initalized
-09-Jan-22 14:35:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-09-Jan-22 14:35:44 - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
-09-Jan-22 14:35:44 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getMe HTTP/1.1" 200 210
-09-Jan-22 14:35:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-09-Jan-22 14:35:44 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-09-Jan-22 14:35:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-09-Jan-22 14:35:44 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 300
-09-Jan-22 14:35:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-09-Jan-22 14:35:45 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 1767
-09-Jan-22 14:35:45 - INFO - TimeBasedMonitor - Initiliazing Monitor for Info.
-09-Jan-22 14:35:45 - INFO - TimeBasedMonitor - Successfully initilized Info Monitor.
-09-Jan-22 14:35:45 - INFO - TimeBasedMonitor - Starting Monitor for Info in a new Thread...
-09-Jan-22 14:35:45 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-09-Jan-22 14:35:45 - INFO - SmartPot - Start humidity measurement.
-09-Jan-22 14:35:45 - DEBUG - DHT - Acquiring Lock on DHT Device...
-09-Jan-22 14:35:45 - DEBUG - DHT - Released Lock on DHT Device...
-09-Jan-22 14:35:45 - INFO - SmartPot - Humidity measurement finished at 46.0%.
-09-Jan-22 14:35:45 - INFO - SmartPot - Start temperature measurement.
-09-Jan-22 14:35:45 - DEBUG - DHT - Acquiring Lock on DHT Device...
-09-Jan-22 14:35:48 - DEBUG - DHT - Released Lock on DHT Device...
-09-Jan-22 14:35:48 - INFO - SmartPot - Temperature measurement finished at 14.0'C.
-09-Jan-22 14:35:48 - INFO - SmartPot - Start soil moisture measurement.
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Released Lock for Channel 1.
-09-Jan-22 14:35:48 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-09-Jan-22 14:35:48 - INFO - SmartPot - Start light intensity measurement.
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.5267454811919883V
-09-Jan-22 14:35:48 - DEBUG - MCP3426 - Released Lock for Channel 2.
-09-Jan-22 14:35:48 - INFO - SmartPot - Light intensity measurement finished at 84.8191933995549 %.
-09-Jan-22 14:35:48 - INFO - TimeBasedMonitor - Read Value for Info=(46.0, 14.0, 0.0, 84.8191933995549) at 2022-01-09 14:35:45.051563.
-09-Jan-22 14:35:53 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 2115
-09-Jan-22 14:35:53 - INFO - SmartPot - Start temperature measurement.
-09-Jan-22 14:35:53 - DEBUG - DHT - Acquiring Lock on DHT Device...
-09-Jan-22 14:35:54 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-09-Jan-22 14:35:54 - INFO - SmartPot - Start humidity measurement.
-09-Jan-22 14:35:54 - DEBUG - DHT - Released Lock on DHT Device...
-09-Jan-22 14:35:54 - DEBUG - DHT - Acquiring Lock on DHT Device...
-09-Jan-22 14:35:54 - INFO - SmartPot - Temperature measurement finished at 14.0'C.
-09-Jan-22 14:35:54 - INFO - SmartPot - Start humidity measurement.
-09-Jan-22 14:35:54 - DEBUG - DHT - Acquiring Lock on DHT Device...
-09-Jan-22 14:35:57 - DEBUG - DHT - Released Lock on DHT Device...
-09-Jan-22 14:35:57 - INFO - SmartPot - Humidity measurement finished at 47.0%.
-09-Jan-22 14:35:57 - INFO - SmartPot - Start temperature measurement.
-09-Jan-22 14:35:57 - DEBUG - DHT - Acquiring Lock on DHT Device...
-09-Jan-22 14:36:02 - DEBUG - DHT - Released Lock on DHT Device...
-09-Jan-22 14:36:02 - INFO - SmartPot - Humidity measurement finished at 47.0%.
-09-Jan-22 14:36:02 - INFO - SmartPot - Start soil moisture measurement.
-09-Jan-22 14:36:02 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-09-Jan-22 14:36:02 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-09-Jan-22 14:36:02 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-09-Jan-22 14:36:03 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-09-Jan-22 14:36:03 - DEBUG - MCP3426 - Released Lock for Channel 1.
-09-Jan-22 14:36:03 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-09-Jan-22 14:36:03 - INFO - SmartPot - Start light intensity measurement.
-09-Jan-22 14:36:03 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-09-Jan-22 14:36:03 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-09-Jan-22 14:36:03 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-09-Jan-22 14:36:03 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.5267454811919883V
-09-Jan-22 14:36:03 - DEBUG - MCP3426 - Released Lock for Channel 2.
-09-Jan-22 14:36:03 - INFO - SmartPot - Light intensity measurement finished at 84.8191933995549 %.
-09-Jan-22 14:36:03 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-09-Jan-22 14:36:03 - DEBUG - Starting new HTTPS connection (2): api.telegram.org:443
-09-Jan-22 14:36:03 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 444
-09-Jan-22 14:36:05 - DEBUG - DHT - Released Lock on DHT Device...
-09-Jan-22 14:36:05 - INFO - SmartPot - Temperature measurement finished at 14.0'C.
-09-Jan-22 14:36:05 - INFO - SmartPot - Start soil moisture measurement.
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Released Lock for Channel 1.
-09-Jan-22 14:36:05 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-09-Jan-22 14:36:05 - INFO - SmartPot - Start light intensity measurement.
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.5307474352711286V
-09-Jan-22 14:36:05 - DEBUG - MCP3426 - Released Lock for Channel 2.
-09-Jan-22 14:36:05 - INFO - SmartPot - Light intensity measurement finished at 85.04152418172937 %.
-09-Jan-22 14:36:05 - INFO - TimeBasedMonitor - Read Value for Info=(47.0, 14.0, 0.0, 85.04152418172937) at 2022-01-09 14:35:54.154713.
-09-Jan-22 14:36:10 - INFO - SmartPot - Start humidity measurement.
-09-Jan-22 14:36:10 - DEBUG - DHT - Acquiring Lock on DHT Device...
-09-Jan-22 14:36:11 - DEBUG - DHT - Released Lock on DHT Device...
-09-Jan-22 14:36:11 - INFO - SmartPot - Humidity measurement finished at 46.0%.
-09-Jan-22 14:36:11 - INFO - SmartPot - Start temperature measurement.
-09-Jan-22 14:36:11 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 15:43:16 - INFO - SmartPot - Initializing ADC on Bus Number 1
+09-Jan-22 15:43:16 - INFO - SmartPot - Initializing DHT11 on pin 18...
+09-Jan-22 15:43:16 - INFO - SmartPot - Initializing PowerOutputPins X4,X5 and X6...
+09-Jan-22 15:43:16 - INFO - SmartPot - SmartPot initalized
+09-Jan-22 15:43:16 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:16 - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+09-Jan-22 15:43:16 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getMe HTTP/1.1" 200 210
+09-Jan-22 15:43:16 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:16 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+09-Jan-22 15:43:16 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:17 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 300
+09-Jan-22 15:43:17 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:17 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 1767
+09-Jan-22 15:43:17 - INFO - TimeBasedMonitor - Initiliazing Monitor for Info.
+09-Jan-22 15:43:17 - INFO - TimeBasedMonitor - Successfully initilized Info Monitor.
+09-Jan-22 15:43:17 - INFO - TimeBasedMonitor - Starting Monitor for Info in a new Thread...
+09-Jan-22 15:43:17 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:17 - INFO - SmartPot - Start humidity measurement.
+09-Jan-22 15:43:17 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 15:43:30 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 2093
+09-Jan-22 15:43:30 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:30 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:30 - DEBUG - Starting new HTTPS connection (2): api.telegram.org:443
+09-Jan-22 15:43:30 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 1767
+09-Jan-22 15:43:32 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 2093
+09-Jan-22 15:43:32 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:32 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:32 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 1767
+09-Jan-22 15:43:34 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 2093
+09-Jan-22 15:43:34 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:34 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:34 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 1767
+09-Jan-22 15:43:38 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 2105
+09-Jan-22 15:43:38 - INFO - SmartPot - Start humidity measurement.
+09-Jan-22 15:43:38 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 15:43:38 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:41 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 2093
+09-Jan-22 15:43:41 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 15:43:55 - DEBUG - DHT - Released Lock on DHT Device...
+09-Jan-22 15:43:55 - INFO - SmartPot - Humidity measurement finished at None%.
+09-Jan-22 15:43:55 - INFO - SmartPot - Start temperature measurement.
+09-Jan-22 15:43:55 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 15:44:01 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 327
+09-Jan-22 15:44:01 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)

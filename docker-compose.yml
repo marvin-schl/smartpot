@@ -1,4 +1,4 @@
-version: "3.9"  # optional since v1.27.0
+version: "3.3"  # optional since v1.27.0
 services:
   nodered:
     build:
@@ -16,7 +16,8 @@ services:
     privileged: true
     volumes:
     - smartpot_data:/data
-    - ${PWD}/smarpot.ini:/data/smartpot.ini
+    - ${PWD}/smartpot.ini:/data/smartpot.ini
+    - ${PWD}/smartpot.log:/data/smartpot.log
 
 volumes:
   smartpot_data:
