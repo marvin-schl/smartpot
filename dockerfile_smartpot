@@ -1,6 +1,7 @@
 FROM arm32v7/debian:buster
 # install java on image
-RUN apt-get update
+RUN apt-get update 
+RUN apt-get install -y  python3-pip
 RUN pip3 install --no-cache-dir --upgrade pip
 RUN pip3 install RPi.GPIO Adafruit_DHT smbus2 telepot
 WORKDIR /data
