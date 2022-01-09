@@ -149,6 +149,8 @@ ablesen:
 
 ![Bot3](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_3.png)
 
+![Bot4](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_4.png)
+
 (Optional): Um den Chatbot einer Gruppe hinzufügen zu können, muss folgende Konfiguration im 
 BotFather vorgenommen werden:
 
@@ -156,7 +158,7 @@ BotFather vorgenommen werden:
 2. @Botname eingeben
 3. Disable eingeben
 
-![Bot4](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_4.png)
+![Bot5](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_5.png)
 
 Achtung: 
 Wenn sich der Chatbot in einer Gruppe befindet, muss die Chat-ID der Gruppe verwendet werden.
