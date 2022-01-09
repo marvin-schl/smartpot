@@ -18,13 +18,4 @@ COPY smartpot.log .
 COPY smartpot.ini .
 COPY TelegramSmartpot.py .
 
-#Instatllation Node-Red
-RUN bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --node16
-RUN cd .node-red
-RUN npm install i node-red-dashboard
-RUN cd ..
-#auskommentieren von der ui
-RUN sed -i -e "s/\/\/ui: { path: \"ui\" }/ui: { path: \"ui\" }/g"  ~/.node-red/settings.js
-RUN systemctl enable nodered.service
-
 CMD python3 TelegramSmartpot.py
