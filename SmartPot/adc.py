@@ -49,25 +49,25 @@ class MCP3426:
         """ read the signal-value of channel a from the MCP3426
             and return the voltage in volt """
         #locking the adc so no other thread can mess up conversion
-        logging.debug(type(self).__name__ + " - Acquiring Lock for Channel 1.")
+        log.debug(type(self).__name__ + " - Acquiring Lock for Channel 1.")
         with self.__lock:
             #configure the sensor
             self.__first_channel.sample_rate = 240
             self.__first_channel.pga_gain = 1
             self.__first_channel.continuous = True
-            logging.debug(type(self).__name__ + " - Configuring Channel 1. SPS="+str(self.__first_channel.sample_rate)+
+            log.debug(type(self).__name__ + " - Configuring Channel 1. SPS="+str(self.__first_channel.sample_rate)+
                                                                     ", Gain="+str(self.__first_channel.pga_gain)+
                                                                     ", continuous="+str(self.__first_channel.continuous))
 
             #start the conversion
-            logging.debug(type(self).__name__ + " - Starting Conerversion on Channel 1. Waiting "+ str(self.__first_channel.conversion_time/1000) +"ms till finished")
+            log.debug(type(self).__name__ + " - Starting Conerversion on Channel 1. Waiting "+ str(self.__first_channel.conversion_time/1000) +"ms till finished")
             self.__first_channel.start_conversion()
             time.sleep(self.__first_channel.conversion_time)
             #read and return the adc value
             voltage = self.__first_channel.get_conversion_volts()
-            logging.debug(type(self).__name__ + " - Conversion on Channel 1 should be finished. Conversion Result is "+str(voltage)+"V")
+            log.debug(type(self).__name__ + " - Conversion on Channel 1 should be finished. Conversion Result is "+str(voltage)+"V")
             #release lock after conversion
-        logging.debug(type(self).__name__ + " - Released Lock for Channel 1.")
+        log.debug(type(self).__name__ + " - Released Lock for Channel 1.")
 
         return voltage
 
@@ -75,22 +75,22 @@ class MCP3426:
         """ read the signal-value of channel a from the MCP3426
             and return the voltage in volt """
         # locking the adc so no other thread can mess up conversion
-        logging.debug(type(self).__name__ + " - Acquiring Lock for Channel 2.")
+        log.debug(type(self).__name__ + " - Acquiring Lock for Channel 2.")
         with self.__lock:
             #configure the sensor
             self.__second_channel.sample_rate = 240
             self.__second_channel.pga_gain = 1
             self.__second_channel.continuous = True
-            logging.debug(
+            log.debug(
                 type(self).__name__ + " - Configuring Channel 2 SPS=" + str(self.__first_channel.sample_rate) +
                 ", Gain=" + str(self.__first_channel.pga_gain) +
                 ", continuous="+str(self.__first_channel.continuous))
             #start the conversion
-            logging.debug(type(self).__name__ + " - Starting Conerversion on Channel 2. Waiting "+ str(self.__second_channel.conversion_time/1000) +"ms till finished")
+            log.debug(type(self).__name__ + " - Starting Conerversion on Channel 2. Waiting "+ str(self.__second_channel.conversion_time/1000) +"ms till finished")
             self.__second_channel.start_conversion()
             time.sleep(2*self.__second_channel.conversion_time)
             #read and return the adc value
             voltage = -self.__second_channel.get_conversion_volts() #minus because of swapped CH2+ and CH2- in rev1.1 Shield
-            logging.debug(type(self).__name__ + " - Conversion on Channel 2 should be finished. Conversion Result is "+str(voltage)+"V")
-        logging.debug(type(self).__name__ + " - Released Lock for Channel 2.")
+            log.debug(type(self).__name__ + " - Conversion on Channel 2 should be finished. Conversion Result is "+str(voltage)+"V")
+        log.debug(type(self).__name__ + " - Released Lock for Channel 2.")
         return voltage

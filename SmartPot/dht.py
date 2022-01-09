@@ -54,11 +54,11 @@ if config["Logging"]["stdout"] == "1":
         Private Method for reading humidty in percent and temperature in 'C.
         :return: (humidity, temperature)
         """
-        logging.debug(type(self).__name__ + " - Acquiring Lock on DHT Device...")
+        log.debug(type(self).__name__ + " - Acquiring Lock on DHT Device...")
         self.__lock.acquire()
         ret = Adafruit_DHT.read_retry(self.__dht_type, self.__pin)
         self.__lock.release()
-        logging.debug(type(self).__name__ + " - Released Lock on DHT Device...")
+        log.debug(type(self).__name__ + " - Released Lock on DHT Device...")
 
         return ret
 

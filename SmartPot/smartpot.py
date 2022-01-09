@@ -50,16 +50,16 @@ class SmartPot:
         dht_pin = 18
         adc_bus = 1
 
-        logging.info(type(self).__name__ + " - Initializing ADC on Bus Number " + adc_bus.__str__())
+        log.info(type(self).__name__ + " - Initializing ADC on Bus Number " + adc_bus.__str__())
         self.__adc = MCP3426(adc_bus)
-        logging.info(type(self).__name__ + " - Initializing "+dht_type+" on pin "+dht_pin.__str__()+"...")
+        log.info(type(self).__name__ + " - Initializing "+dht_type+" on pin "+dht_pin.__str__()+"...")
         self.__dht = DHT(dht_pin, dht_type)
 
-        logging.info(type(self).__name__ + " - Initializing PowerOutputPins X4,X5 and X6...")
+        log.info(type(self).__name__ + " - Initializing PowerOutputPins X4,X5 and X6...")
         self.__power_pins = {}
         for pin in power_pins:
             self.__power_pins[pin] = PowerOutputPin(pin)
-        logging.info(type(self).__name__ + " - SmartPot initalized")
+        log.info(type(self).__name__ + " - SmartPot initalized")
 
 
     def output_on(self, pin):
@@ -68,7 +68,7 @@ class SmartPot:
         :param pin: SmartPot.X4, SmartPot.X5 or SmartPot.X6
         :return: None
         """
-        logging.info(type(self).__name__ + " - Turning PowertOuput "+ SmartPot.pin_names[pin]+" on.")
+        log.info(type(self).__name__ + " - Turning PowertOuput "+ SmartPot.pin_names[pin]+" on.")
         self.__power_pins[pin].on()
 
     def output_off(self, pin):
@@ -77,7 +77,7 @@ class SmartPot:
         :param pin:  SmartPot.X4, SmartPot.X5 or SmartPot.X6
         :return: None
         """
-        logging.info(type(self).__name__ + " - Turning PowertOuput "+SmartPot.pin_names[pin]+" off.")
+        log.info(type(self).__name__ + " - Turning PowertOuput "+SmartPot.pin_names[pin]+" off.")
         return self.__power_pins[pin].off()
 
     def output_pwm_on(self, pin, freq, dc):
@@ -88,7 +88,7 @@ class SmartPot:
         :param dc: Duty Cycle in percent
         :return: None
         """
-        logging.info(type(self).__name__ + " - Turning PWM at "+SmartPot.pin_names[pin]+" on. f=" +str(freq)+"Hz, dc="+str(dc)+"%")
+        log.info(type(self).__name__ + " - Turning PWM at "+SmartPot.pin_names[pin]+" on. f=" +str(freq)+"Hz, dc="+str(dc)+"%")
         return self.__power_pins[pin].start_pwm(freq, dc)
 
     def output_pwm_off(self, pin):
@@ -97,7 +97,7 @@ class SmartPot:
         :param pin: SmartPot.X4, SmartPot.X5 or SmartPot.X6
         :return: True if successfull, False if no PWM was started yet
         """
-        logging.info(type(self).__name__ + " - Turning PWM at "+SmartPot.pin_names[pin]+" off.")
+        log.info(type(self).__name__ + " - Turning PWM at "+SmartPot.pin_names[pin]+" off.")
         return self.__power_pins[pin].stop_pwm()
 
     def output_pwm_change_freq(self, pin, freq):
@@ -107,7 +107,7 @@ class SmartPot:
         :param freq: New frequency in Hertz
         :return: True if successfull, False if no PWM was started yet
         """
-        logging.info(type(self).__name__ + " - Changing  PWM Frequency at "+SmartPot.pin_names[pin]+" to f="+str(freq)+"Hz.")
+        log.info(type(self).__name__ + " - Changing  PWM Frequency at "+SmartPot.pin_names[pin]+" to f="+str(freq)+"Hz.")
         return self.__power_pins[pin].change_freq(freq)
 
     def output_pwm_change_dc(self, pin, dc):
@@ -118,7 +118,7 @@ class SmartPot:
         :return: True if successfull, False if no PWM was started yet
         """
         #no dc cycle change logging because -> eventually overloading the logfile
-        #logging.debug("Changing PWM DC at "+SmartPot.pin_names[pin]+" to dc="+str(dc)+"%.")
+        #log.debug("Changing PWM DC at "+SmartPot.pin_names[pin]+" to dc="+str(dc)+"%.")
         return  self.__power_pins[pin].change_dc(dc)
 
     def read_temperature(self):
@@ -126,9 +126,9 @@ class SmartPot:
         Reads the temperature of an connected DHT sensor.
         :return: Temperature in degree celsius
         """
-        logging.info(type(self).__name__ + " - Start temperature measurement.")
+        log.info(type(self).__name__ + " - Start temperature measurement.")
         temp = self.__dht.read_temperature()
-        logging.info(type(self).__name__ + " - Temperature measurement finished at "+str(temp)+"'C.")
+        log.info(type(self).__name__ + " - Temperature measurement finished at "+str(temp)+"'C.")
         return temp
 
     def read_humidity(self):
@@ -136,9 +136,9 @@ class SmartPot:
         Reads the humidity  of an connected DHT sensor.
         :return: relative humidity in percent
         """
-        logging.info(type(self).__name__ + " - Start humidity measurement.")
+        log.info(type(self).__name__ + " - Start humidity measurement.")
         hum = self.__dht.read_humidity()
-        logging.info(type(self).__name__ + " - Humidity measurement finished at "+str(hum)+"%.")
+        log.info(type(self).__name__ + " - Humidity measurement finished at "+str(hum)+"%.")
         return hum
 
     def read_light_intensity(self):
@@ -146,7 +146,7 @@ class SmartPot:
         Reads the value of the light intensity snesor
         :return: Percentage of maximum measurable light intensity.
         """
-        logging.info(type(self).__name__ + " - Start light intensity measurement.")
+        log.info(type(self).__name__ + " - Start light intensity measurement.")
 
         #get the adc value in volts
         adc_value = self.__adc.read_ch2()
@@ -155,7 +155,7 @@ class SmartPot:
         max_val = 1.8
         intensity = adc_value/max_val * 100 if adc_value < max_val else 100
 
-        logging.info(type(self).__name__ + " - Light intensity measurement finished at "+str(intensity)+" %.")
+        log.info(type(self).__name__ + " - Light intensity measurement finished at "+str(intensity)+" %.")
         return intensity
 
     def read_soil_moisture(self):
@@ -163,7 +163,7 @@ class SmartPot:
         Reads the value of the soil moisture sensor.
         :return: relative soil moisture in percent
         """
-        logging.info(type(self).__name__ + " - Start soil moisture measurement.")
+        log.info(type(self).__name__ + " - Start soil moisture measurement.")
 
         #get the adc value in volts
         adc_value = self.__adc.read_ch1()
@@ -172,6 +172,6 @@ class SmartPot:
         max_val = 1.9
         moisture = adc_value/max_val*100 if adc_value < max_val else 100
 
-        logging.info(type(self).__name__ + " - Soil moisture measurement finished at "+str(moisture)+"%.")
+        log.info(type(self).__name__ + " - Soil moisture measurement finished at "+str(moisture)+"%.")
 
         return moisture
