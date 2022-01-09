@@ -12,7 +12,7 @@ Der SmartPot umfasst folgende Funktionalitäten:
 - Anbindung eines Lichtsensors
 - Drei schaltbare 12V/1,5A Leistungsausgänge mit PWM Unterstützung
 
-##Einleitung
+## Einleitung
 
 Bei diesem Projekt handelt es sich um die Realisierung eines intelligenten Blumentopfes, der die für 
 Pflanzen wichtigen Parameter (Temperatur, Luft-/Bodenfeuchtigkeit und Lichtstärke) misst und 
