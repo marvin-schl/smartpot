@@ -171,14 +171,20 @@ Schaltplan des RaspberryPi Shields:
 
 ![Schaltplan](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Platine/Bilder/schematic.png)
 
-Die Schaltung kann an einem handelsüblichen 12V Netzteil betrieben werden. Über einen 12V/5V Linearregler wird die Betriebsspannung 
-wird die Versorgnungsspannung für den RaspberryPi bereit gestellt. 
+Die Schaltung kann an einem handelsüblichen 12V Netzteil betrieben werden. Über einen 12V/5V 
+Linearregler wird die Versorgungsspannung für den Raspberry Pi bereitgestellt.
 
-Auf dem Board ist eine dreipolige Buchsenleiste für einen DHT11 bzw DHT22 Sensor vorgesehen. Der Sensor kann einfach auf die Buchsenleiste gesteckt werden und per OneWire Protokoll ausgelesen werden.
+Auf dem Board ist eine dreipolige Buchsenleiste für einen DHT11 bzw. DHT22 Sensor vorgesehen. Der 
+Sensor kann einfach auf die Buchsenleiste gesteckt werden und per One-Wire Protokoll ausgelesen 
+werden.
 
-Für den analogen Lichtsensor und den analogen Bodenfeuchtigkeitssensors ist ein 2 Kanal Delta-Sigma AD-Wandler mit I2C Interface, der MCP3426, verbaut.  
+Für den analogen Lichtsensor und den analogen Bodenfeuchtigkeitssensor ist ein 2 Kanal Delta-Sigma 
+AD-Wandler mit I2C Interface, der MCP3426, verbaut.
 
-Für die Leistungsausgänge wird mit den GPIOs des RaspberryPis ein Darlington Array (ULN20003AD) angesteuert. Mit den verstärkten Ausgängen des Darlington Arrays werden drei P-Kanel Mosfets (AO3401A) angesteuert.
+Für die Leistungsausgänge wird mit den GPIOs des Raspberry Pi´s ein Darlington-Array (ULN20003AD) 
+angesteuert. Mit den verstärkten Ausgängen des Darlington-Arrays werden drei P-Kanal Mosfets 
+(AO3401A) angesteuert.
+
 
 
 Das dazugehörige Layout wurde wie folgt umgesetzt:
@@ -223,10 +229,17 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 
 
 
-Nachfolgend soll eine Klassenreferenz augestellt werden. Die einen Überblick über die implementierten Klassen und deren Methoden gib. Für eine genauere Beschreibung bitte die Methoden Kommentare beachten. Dort werden die einzelnen Argumente genauer beschrieben. 
+Nachfolgend soll eine Klassenreferenz aufgestellt werden, die einen Überblick über die 
+implementierten Klassen und deren Methoden gibt. (Für eine genauere Beschreibung bitte die 
+Methoden Kommentare beachten. Dort werden die einzelnen Argumente genauer beschrieben.)
 
-**monitor.HysteresisMonitor**:
-Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgröße. Es kann eine Funktion übergeben werden, welche den zu überwachenden Wert zurückgibt, ein oberer Grenzwert und ein unterer Grenzwert. Außerdem kann für das überschreiten des oberen und das unterschreiten des unteren Grenzwerts jeweils eine Callback Funktion übergeben werden. Diese Klasse erbt von threading.Thread. Eine Beispielhafte Verwendung dieser Klasse ist in example.py gegeben.
+**monitor.HysteresisMonitor**: 
+Diese Klasse implementiert die nicht-blockierende Überwachung einer 
+Ausgangsgröße. Es kann eine Funktion übergeben werden, welche den zu überwachenden Wert
+sowie einen oberen und unteren Grenzwert zurückgibt. Außerdem kann für das Überschreiten des 
+oberen und das Unterschreiten des unteren Grenzwerts jeweils eine Callback Funktion übergeben 
+werden. Diese Klasse erbt von threading.Thread. Eine Beispielhafte Verwendung dieser Klasse ist in 
+example.py gegeben
 
 Öffentliche Methoden:
 - start()
@@ -234,7 +247,11 @@ Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgr�
 - run()
 
 **mointor.TimeBasedMonitor**:
-Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgröße. Es kann eine Funktion übergeben werden, die die zu überwachende(n) Größe(n) zurückgibt. Diese Klasse erbt von threading.Thread. Eine Beispielhafte Verwendung dieser Klasse ist in example.py gegeben.
+Diese Klasse implementiert die nicht-blockierende Überwachung einer 
+Ausgangsgröße. Es kann eine Funktion übergeben werden, die die zu überwachende(n) Größe(n) 
+zurückgibt. Diese Klasse erbt von threading.Thread. Eine Beispielhafte Verwendung dieser Klasse ist 
+in example.py gegeben.
+
 
 Öffentliche Methoden:
 - start()
@@ -242,7 +259,12 @@ Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgr�
 - run()
 
 **SmarPot.smartpot.SmartPot**:
-Diese Klasse implementiert eine physikalische Repräsentation des SmartPots an sich und dient als Interface zum Backend. Es sind drei Konstanten vorhanden SmarPot.smarpot.SmartPot.X4, SmarPot.smarpot.SmartPot.X5 und SmarPot.smarpot.SmartPot.X6. Diese referenzieren die Leistungsausgänge auf dem SmartPot Raspberry Shield rev 1.1 und können den output_* Methoden als pin übergeben werden.
+Diese Klasse implementiert eine physikalische Repräsentation des 
+SmartPots und dient als Interface zum Backend. Es sind drei Konstanten vorhanden: 
+SmarPot.smarpot.SmartPot.X4, SmarPot.smarpot.SmartPot.X5 und SmarPot.smarpot.SmartPot.X6. 
+Diese referenzieren die Leistungsausgänge auf dem SmartPot Raspberry Shield rev 1.1 und können 
+den output_* Methoden als pin übergeben werden. 
+
 Öffentliche Methoden:
 - output_on(pin)
 - output_off(pin)
@@ -256,7 +278,9 @@ Diese Klasse implementiert eine physikalische Repräsentation des SmartPots an s
 - read_soil_moisture()
 
 **SmartPot.dht.DHT**:
-Diese Klasse wrapped die Adafruit_DHT Library und stellt einen objektorientierten Zugriff zur Verfügung. Es kann bei der instanziierung festgelgt werden ob es sich um einen DHT11 oder DHT22 handelt.
+Diese Klasse wrapped die Adafruit_DHT Library und stellt einen 
+objektorientierten Zugriff zur Verfügung. Es kann bei der Instanziierung festgelegt werden, ob es sich 
+um einen DHT11 oder DHT22 handelt.
 
 Öffentliche Methoden:
 - read_temperature()
@@ -286,11 +310,20 @@ Diese Klasse verwendendet das RPi.GPIO Modul und implementiert die Funktionen de
 
 Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des dazugehörige Shield aufgelistet, welche in folgenden Versionen überarbeitet werden sollten.
 
-- Der Linearregler auf der Platine wird bei Betrieb mit einem 12V Netzteil und hohen Stromverbräuchen des Raspberrys sehr warm. Hier wäre eine Spannungswandlung über einen Schaltregler zu bevorzugen.
+- Der Linearregler auf der Platine wird bei Betrieb mit einem 12V Netzteil und hohen 
+Stromverbräuchen des Raspberry Pi´s sehr warm. Hier wäre eine Spannungswandlung über einen 
+Schaltregler zu bevorzugen.
 
-- Beim Ausschalten der Leistungsausgänge, also wenn das Gatesignal der Ausgangsmosfets (Q2, Q3, Q4) von 0V auf 12V gezogen wird. Findet die Entladung der Gatekapazität im unbelaseten Zustand über die Pullup Widerstände (R5, R6, R7) statt. Dies führt zumidest im unbelasteten Zustand zu sehr hohen Abfallszeit des Ausgangssignals. Ein Ansatz wäre kleinere Pullup Widerstände zu verwenden auf Kosten einer höheren Stromaufnahme bei eingeschaltetem Ausgang. Ein anderer Ansatz wäre die verwendung einer richtigen Mosfet Endstufe.
+- Beim Ausschalten der Leistungsausgänge, also wenn das Gatesignal der Ausgangsmosfets (Q2, Q3, 
+Q4) von 0V auf 12V gezogen wird, findet die Entladung der Gatekapazität im unbelaseten Zustand 
+über die Pullup Widerstände (R5, R6, R7) statt. Dies führt zumindest im unbelasteten Zustand zu sehr 
+hohen Abfallzeiten des Ausgangssignals. Ein Ansatz wäre kleinere Pullup Widerstände zu verwenden 
+auf Kosten einer höheren Stromaufnahme bei eingeschaltetem Ausgang. Ein anderer Ansatz wäre die 
+Verwendung einer richtigen Mosfet-Endstufe.
 
-- Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-2,048V messen. Eine Lösuing wäre ein auf der Platine befindlicher 1:1 Spannungsteiler, ein anderer AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
+-Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-
+2,048V messen. Eine Lösung wäre ein auf der Platine befindlicher 1:1 Spannungsteiler, ein anderer 
+AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
 
 
 
