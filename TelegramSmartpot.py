@@ -6,8 +6,6 @@ import telepot
 from telepot.loop import MessageLoop
 import time
 
-
-
 #Config datei einlesen
 config = configparser.ConfigParser()
 config.read("smartpot.ini")

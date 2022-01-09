@@ -3,12 +3,15 @@ from datetime import datetime
 from threading import Thread
 import logging
 import configparser
+import sys
 #setup config
 config = configparser.ConfigParser()
 config.read("smartpot.ini")
 levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
 #setup logger
 dt = datetime.today()
+if bool(config["Logging"]["stdout"]):
+    logging.StreamHandler(sys.stdout)
 logging.basicConfig(filename=config["Logging"]["file"],
                     filemode='w',
                     format='%(asctime)s - %(levelname)s - %(message)s',
