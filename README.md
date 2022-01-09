@@ -58,6 +58,8 @@ Außerdem müssen über Python Paketmanager pip folgende Pakete installiert werd
 
 Desweiteren wird eine [Library für den MCP3426](https://github.com/coburnw/MCP342x) für den MCP3426 verwendet. Diese ist bereits in den Source Files enthalten.
 
+## Einrichten Node-RED Editors
+
 ## elektronischer Aufbau
 
 Schaltplan des RaspberryPi Shields:
