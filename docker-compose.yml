@@ -12,6 +12,8 @@ services:
       - nodered_data:/data
   smartpot:
     user: "0:1000"
+    environment:
+    - PYTHONUNBUFFERED=1
     build:
       context: .
       dockerfile: dockerfile_smartpot
