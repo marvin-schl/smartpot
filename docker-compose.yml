@@ -1,7 +1,7 @@
 version: "3.3"  # optional since v1.27.0
 services:
   nodered:
-    user: "0:0"
+    user: "1000:1000"
     build:
       context: .
       dockerfile: dockerfile_nodered
@@ -11,15 +11,18 @@ services:
       - smartpot_data:/home/pi/smartpot
       - nodered_data:/data
   smartpot:
+    user: "0:1000"
     build:
       context: .
       dockerfile: dockerfile_smartpot
     privileged: true
     volumes:
     - smartpot_data:/data
-    - ${PWD}/smartpot.ini:/data/smartpot.ini
-    - ${PWD}/smartpot.log:/data/smartpot.log
-
+    - ${PWD}/smartpot.ini:/home/smartpot/smartpot.ini
+    - ${PWD}/smartpot.log:/home/smartpot/smartpot.log
+    devices:
+    - "/dev/i2c-1:/dev/i2c-1"
+    - "/dev/gpiomem:/dev/gpiomem"
 volumes:
   smartpot_data:
   nodered_data:

@@ -1,10 +1,15 @@
 FROM python:3.7-buster
 # install java on image
 RUN apt-get update 
-RUN apt-get install -y  python3-pip
-RUN pip3 install --no-cache-dir --upgrade pip
+RUN apt-get install -y python3-pip
 RUN pip3 install RPi.GPIO Adafruit_DHT smbus2 telepot
-WORKDIR /data
+RUN groupadd -g 998 i2c
+RUN useradd -ms /bin/bash smartpot
+RUN usermod -aG root smartpot
+RUN usermod -aG i2c smartpot
+RUN usermod -aG kmem smartpot
+USER smartpot
+WORKDIR /home/smartpot
 
 #setting up smartpot directory
 COPY SmartPot ./SmartPot
