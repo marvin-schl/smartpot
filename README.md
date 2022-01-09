@@ -12,6 +12,18 @@ Der SmartPot umfasst folgende Funktionalitäten:
 - Anbindung eines Lichtsensors
 - Drei schaltbare 12V/1,5A Leistungsausgänge mit PWM Unterstützung
 
+## Einleitung
+
+Bei diesem Projekt handelt es sich um die Realisierung eines intelligenten Blumentopfes, der die für 
+Pflanzen wichtigen Parameter (Temperatur, Luft-/Bodenfeuchtigkeit und Lichtstärke) misst und 
+informativ zur Verfügung stellt. Die Visualisierung der Informationen kann auf der Homepage des 
+Raspberry Pi´s aufgerufen und analysiert werden. Alternativ können die Sensorwerte auch per 
+Telegram manuell erfragt werden.
+Außerdem können für diese Parameter kritische Schwellenwerte programmiert werden, bei deren 
+Unter- bzw. Überschreiten eine Benachrichtigung über Telegram abgeschickt wird.
+Im Folgenden wird die Umsetzung des Projektes detailliert dokumentiert, sodass mit Hilfe dieser 
+Anleitung ein Nachbau des SmartPots möglich wird.
+
 ## Einrichtung des RaspberryPi's
 
 Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes RaspianOS basierend auf Debian Buster installiert ist. Zunächst muss dieses Repository auf den RaspberryPi geclonet werden:

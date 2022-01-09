@@ -1,0 +1,7 @@
+FROM nodered/node-red
+
+RUN npm install node-red-dashboard
+RUN sed -i -e "s/\/\/ui: { path: \"ui\" }/ui: { path: \"ui\" }/g"  /data/settings.js
+COPY Node-Red/SmartpotVflows.json /data/flows.js
+
+CMD node-red-start

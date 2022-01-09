@@ -1,0 +1,18 @@
+FROM arm32v7/debian:buster
+# install java on image
+RUN apt-get update
+RUN pip3 install --no-cache-dir --upgrade pip
+RUN pip3 install RPi.GPIO Adafruit_DHT smbus2 telepot
+WORKDIR /data
+
+#setting up smartpot directory
+COPY SmartPot ./SmartPot
+COPY monitor.py .
+COPY smartpot.log .
+COPY smartpot.ini .
+COPY TelegramSmartpot.py .
+
+RUN touch Logging.csv
+RUN touch smarpot.log
+
+CMD python3 TelegramSmartpot.py

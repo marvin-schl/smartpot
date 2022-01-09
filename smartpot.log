@@ -1,829 +1,96 @@
-08-Jan-22 14:32:02 - INFO - SmartPot - Initializing ADC on Bus Number 1
-08-Jan-22 14:32:02 - INFO - SmartPot - Initializing DHT11 on pin 18...
-08-Jan-22 14:32:02 - INFO - SmartPot - Initializing PowerOutputPins X4,X5 and X6...
-08-Jan-22 14:32:02 - INFO - SmartPot - SmartPot initalized
-08-Jan-22 14:32:02 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:32:02 - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
-08-Jan-22 14:32:02 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getMe HTTP/1.1" 200 210
-08-Jan-22 14:32:02 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:32:02 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:32:02 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:32:02 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 300
-08-Jan-22 14:32:02 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:32:02 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 1767
-08-Jan-22 14:32:02 - INFO - TimeBasedMonitor - Initiliazing Monitor for Info.
-08-Jan-22 14:32:02 - INFO - TimeBasedMonitor - Successfully initilized Info Monitor.
-08-Jan-22 14:32:02 - INFO - TimeBasedMonitor - Starting Monitor for Info in a new Thread...
-08-Jan-22 14:32:02 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:32:02 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:32:02 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:03 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:03 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:32:03 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:32:03 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:06 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:06 - INFO - SmartPot - Temperature measurement finished at 16.0'C.
-08-Jan-22 14:32:06 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:32:06 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:32:06 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:32:06 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:32:06 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:32:06 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 16.0, 0.0, 99.493025023069) at 2022-01-08 14:32:02.920011.
-08-Jan-22 14:32:11 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:32:11 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:12 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:12 - INFO - SmartPot - Humidity measurement finished at 51.0%.
-08-Jan-22 14:32:12 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:32:12 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:17 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:17 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:32:17 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:32:17 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:32:17 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7898739618954567V
-08-Jan-22 14:32:17 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:32:17 - INFO - SmartPot - Light intensity measurement finished at 99.43744232752537 %.
-08-Jan-22 14:32:17 - INFO - TimeBasedMonitor - Read Value for Info=(51.0, 17.0, 0.0, 99.43744232752537) at 2022-01-08 14:32:11.537607.
-08-Jan-22 14:32:22 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:32:22 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:23 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:32:23 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:32:25 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:25 - INFO - SmartPot - Humidity measurement finished at 51.0%.
-08-Jan-22 14:32:25 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:32:25 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:28 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:28 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:32:28 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:32:28 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:32:28 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:32:28 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:32:28 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:32:28 - INFO - TimeBasedMonitor - Read Value for Info=(51.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:32:22.668777.
-08-Jan-22 14:32:33 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:32:33 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:36 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:36 - INFO - SmartPot - Humidity measurement finished at 51.0%.
-08-Jan-22 14:32:36 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:32:36 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:42 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:42 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:32:42 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:32:42 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:32:42 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7898739618954567V
-08-Jan-22 14:32:42 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:32:42 - INFO - SmartPot - Light intensity measurement finished at 99.43744232752537 %.
-08-Jan-22 14:32:42 - INFO - TimeBasedMonitor - Read Value for Info=(51.0, 17.0, 0.0, 99.43744232752537) at 2022-01-08 14:32:33.805301.
-08-Jan-22 14:32:43 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:32:43 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:32:47 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:32:47 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:48 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:48 - INFO - SmartPot - Humidity measurement finished at 51.0%.
-08-Jan-22 14:32:48 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:32:48 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:51 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:51 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:32:51 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:32:51 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:32:51 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:32:51 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:32:51 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:32:51 - INFO - TimeBasedMonitor - Read Value for Info=(51.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:32:47.490004.
-08-Jan-22 14:32:56 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:32:56 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:56 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:56 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:32:56 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:32:56 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:32:59 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:32:59 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:32:59 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:32:59 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:32:59 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:32:59 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:32:59 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:32:59 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:32:56.104903.
-08-Jan-22 14:33:03 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:33:03 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:33:04 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:33:04 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:05 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:05 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:33:05 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:33:05 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:08 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:08 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:33:08 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:33:08 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:33:08 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:33:08 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:33:08 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:33:08 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:33:04.718600.
-08-Jan-22 14:33:13 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:33:13 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:13 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:13 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:33:13 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:33:13 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:16 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:16 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:33:16 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:33:16 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:33:16 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:33:16 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:33:16 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:33:16 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:33:13.326839.
-08-Jan-22 14:33:21 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:33:21 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:22 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:22 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:33:22 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:33:22 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:23 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:33:23 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:33:25 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:25 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:33:25 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:33:25 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:33:25 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:33:25 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:33:25 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:33:25 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:33:21.939376.
-08-Jan-22 14:33:30 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:33:30 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:31 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:31 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:33:31 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:33:31 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:36 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:36 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:33:36 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:33:36 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:33:36 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:33:36 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:33:36 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:33:36 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:33:30.545937.
-08-Jan-22 14:33:41 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:33:41 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:43 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:33:43 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:33:44 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:44 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:33:44 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:33:44 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:47 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:47 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:33:47 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:33:47 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:33:47 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:33:47 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:33:47 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:33:47 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:33:41.690853.
-08-Jan-22 14:33:52 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:33:52 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:53 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:53 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:33:53 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:33:53 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:33:56 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:33:56 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:33:56 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:33:56 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:33:56 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:33:56 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:33:56 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:33:56 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:33:52.833051.
-08-Jan-22 14:34:01 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:34:01 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:01 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:01 - INFO - SmartPot - Humidity measurement finished at 49.0%.
-08-Jan-22 14:34:01 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:34:01 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:03 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:34:03 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:34:05 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:05 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:34:05 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:34:05 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:34:05 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:34:05 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:34:05 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:34:05 - INFO - TimeBasedMonitor - Read Value for Info=(49.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:34:01.437866.
-08-Jan-22 14:34:10 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:34:10 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:10 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:10 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:34:10 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:34:10 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:13 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:13 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:34:13 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:34:13 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:34:13 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:34:13 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:34:13 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:34:13 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:34:10.045226.
-08-Jan-22 14:34:18 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:34:18 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:19 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:19 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:34:19 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:34:19 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:22 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:22 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:34:22 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:34:22 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:34:22 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:34:22 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:34:22 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:34:22 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:34:18.655424.
-08-Jan-22 14:34:23 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:34:24 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:34:27 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:34:27 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:27 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:27 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:34:27 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:34:27 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:33 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:33 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:34:33 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:34:33 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:34:33 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:34:33 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:34:33 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:34:33 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:34:27.256137.
-08-Jan-22 14:34:38 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:34:38 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:38 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:38 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:34:38 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:34:38 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:41 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:41 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:34:41 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:34:41 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:34:41 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:34:41 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:34:41 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:34:41 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:34:38.388888.
-08-Jan-22 14:34:44 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:34:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:34:46 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:34:46 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:47 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:47 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:34:47 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:34:47 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:50 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:50 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:34:50 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:34:50 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:34:50 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:34:50 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:34:50 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:34:50 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:34:46.992664.
-08-Jan-22 14:34:55 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:34:55 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:56 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:56 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:34:56 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:34:56 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:34:59 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:34:59 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:34:59 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:34:59 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:34:59 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:34:59 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:34:59 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:34:59 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:34:55.589423.
-08-Jan-22 14:35:04 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:35:04 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:04 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:04 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:35:04 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:35:04 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:35:04 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:05 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:35:07 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:07 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:35:07 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:35:07 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:35:07 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:35:07 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:35:07 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:35:07 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:35:04.194386.
-08-Jan-22 14:35:12 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:35:12 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:13 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:13 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:35:13 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:35:13 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:16 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:16 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:35:16 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:35:16 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:35:16 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:35:16 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:35:16 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:35:16 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:35:12.808265.
-08-Jan-22 14:35:21 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:35:21 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:24 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:24 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:35:24 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:35:24 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:25 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:35:25 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:35:30 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:30 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:35:30 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:35:30 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:35:30 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:35:30 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:35:30 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:35:30 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:35:21.414423.
-08-Jan-22 14:35:35 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:35:35 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:40 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:40 - INFO - SmartPot - Humidity measurement finished at 153.0%.
-08-Jan-22 14:35:40 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:35:40 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:43 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:43 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:35:43 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:35:43 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:35:43 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:35:43 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:35:43 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:35:43 - INFO - TimeBasedMonitor - Read Value for Info=(153.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:35:35.073806.
-08-Jan-22 14:35:45 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:35:45 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:35:48 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:35:48 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:49 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:49 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:35:49 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:35:49 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:52 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:52 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:35:52 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:35:52 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:35:52 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:35:52 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:35:52 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:35:52 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:35:48.732966.
-08-Jan-22 14:35:57 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:35:57 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:35:57 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:35:57 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:35:57 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:35:57 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:00 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:00 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:36:00 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:36:00 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:36:00 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:36:00 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:36:00 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:36:00 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:35:57.337980.
-08-Jan-22 14:36:05 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:36:05 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:36:05 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:36:05 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:06 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:06 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:36:06 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:36:06 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:09 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:09 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:36:09 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:36:09 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:36:09 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:36:09 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:36:09 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:36:09 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:36:05.940634.
-08-Jan-22 14:36:14 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:36:14 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:15 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:15 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:36:15 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:36:15 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:18 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:18 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:36:18 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:36:18 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:36:18 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:36:18 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:36:18 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:36:18 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:36:14.543735.
-08-Jan-22 14:36:23 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:36:23 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:23 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:23 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:36:23 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:36:23 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:25 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:36:25 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:36:26 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:26 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:36:26 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:36:26 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:36:26 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:36:26 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:36:26 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:36:26 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:36:23.148937.
-08-Jan-22 14:36:31 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:36:31 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:32 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:32 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:36:32 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:36:32 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:35 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:35 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:36:35 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:36:35 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:36:35 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:36:35 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:36:35 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:36:35 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:36:31.757766.
-08-Jan-22 14:36:40 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:36:40 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:40 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:40 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:36:40 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:36:40 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:43 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:43 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:36:43 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:36:43 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:36:43 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:36:43 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:36:43 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:36:43 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:36:40.356046.
-08-Jan-22 14:36:45 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:36:45 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:36:48 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:36:48 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:49 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:49 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:36:49 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:36:49 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:36:55 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:36:55 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:36:55 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:36:55 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:36:55 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:36:55 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:36:55 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:36:55 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:36:48.957871.
-08-Jan-22 14:37:00 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:37:00 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:37:00 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:37:00 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:37:00 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:37:00 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:37:03 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:37:03 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:37:03 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:37:03 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:37:03 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:37:03 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:37:03 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:37:03 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:37:00.086596.
-08-Jan-22 14:37:05 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
-08-Jan-22 14:37:06 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
-08-Jan-22 14:37:08 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:37:08 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:37:09 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:37:09 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:37:09 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:37:09 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:37:12 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:37:12 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:37:12 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:37:12 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:37:12 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:37:12 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:37:12 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:37:12 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:37:08.700091.
-08-Jan-22 14:37:17 - INFO - SmartPot - Start humidity measurement.
-08-Jan-22 14:37:17 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:37:17 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:37:17 - INFO - SmartPot - Humidity measurement finished at 50.0%.
-08-Jan-22 14:37:17 - INFO - SmartPot - Start temperature measurement.
-08-Jan-22 14:37:17 - DEBUG - DHT - Acquiring Lock on DHT Device...
-08-Jan-22 14:37:20 - DEBUG - DHT - Released Lock on DHT Device...
-08-Jan-22 14:37:20 - INFO - SmartPot - Temperature measurement finished at 17.0'C.
-08-Jan-22 14:37:20 - INFO - SmartPot - Start soil moisture measurement.
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Released Lock for Channel 1.
-08-Jan-22 14:37:20 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
-08-Jan-22 14:37:20 - INFO - SmartPot - Start light intensity measurement.
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.7908744504152418V
-08-Jan-22 14:37:20 - DEBUG - MCP3426 - Released Lock for Channel 2.
-08-Jan-22 14:37:20 - INFO - SmartPot - Light intensity measurement finished at 99.493025023069 %.
-08-Jan-22 14:37:20 - INFO - TimeBasedMonitor - Read Value for Info=(50.0, 17.0, 0.0, 99.493025023069) at 2022-01-08 14:37:17.308563.
+09-Jan-22 14:35:44 - INFO - SmartPot - Initializing ADC on Bus Number 1
+09-Jan-22 14:35:44 - INFO - SmartPot - Initializing DHT11 on pin 18...
+09-Jan-22 14:35:44 - INFO - SmartPot - Initializing PowerOutputPins X4,X5 and X6...
+09-Jan-22 14:35:44 - INFO - SmartPot - SmartPot initalized
+09-Jan-22 14:35:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 14:35:44 - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+09-Jan-22 14:35:44 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getMe HTTP/1.1" 200 210
+09-Jan-22 14:35:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 14:35:44 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 23
+09-Jan-22 14:35:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 14:35:44 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 300
+09-Jan-22 14:35:44 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 14:35:45 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 1767
+09-Jan-22 14:35:45 - INFO - TimeBasedMonitor - Initiliazing Monitor for Info.
+09-Jan-22 14:35:45 - INFO - TimeBasedMonitor - Successfully initilized Info Monitor.
+09-Jan-22 14:35:45 - INFO - TimeBasedMonitor - Starting Monitor for Info in a new Thread...
+09-Jan-22 14:35:45 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 14:35:45 - INFO - SmartPot - Start humidity measurement.
+09-Jan-22 14:35:45 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 14:35:45 - DEBUG - DHT - Released Lock on DHT Device...
+09-Jan-22 14:35:45 - INFO - SmartPot - Humidity measurement finished at 46.0%.
+09-Jan-22 14:35:45 - INFO - SmartPot - Start temperature measurement.
+09-Jan-22 14:35:45 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 14:35:48 - DEBUG - DHT - Released Lock on DHT Device...
+09-Jan-22 14:35:48 - INFO - SmartPot - Temperature measurement finished at 14.0'C.
+09-Jan-22 14:35:48 - INFO - SmartPot - Start soil moisture measurement.
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Released Lock for Channel 1.
+09-Jan-22 14:35:48 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
+09-Jan-22 14:35:48 - INFO - SmartPot - Start light intensity measurement.
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.5267454811919883V
+09-Jan-22 14:35:48 - DEBUG - MCP3426 - Released Lock for Channel 2.
+09-Jan-22 14:35:48 - INFO - SmartPot - Light intensity measurement finished at 84.8191933995549 %.
+09-Jan-22 14:35:48 - INFO - TimeBasedMonitor - Read Value for Info=(46.0, 14.0, 0.0, 84.8191933995549) at 2022-01-09 14:35:45.051563.
+09-Jan-22 14:35:53 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 200 2115
+09-Jan-22 14:35:53 - INFO - SmartPot - Start temperature measurement.
+09-Jan-22 14:35:53 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 14:35:54 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 14:35:54 - INFO - SmartPot - Start humidity measurement.
+09-Jan-22 14:35:54 - DEBUG - DHT - Released Lock on DHT Device...
+09-Jan-22 14:35:54 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 14:35:54 - INFO - SmartPot - Temperature measurement finished at 14.0'C.
+09-Jan-22 14:35:54 - INFO - SmartPot - Start humidity measurement.
+09-Jan-22 14:35:54 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 14:35:57 - DEBUG - DHT - Released Lock on DHT Device...
+09-Jan-22 14:35:57 - INFO - SmartPot - Humidity measurement finished at 47.0%.
+09-Jan-22 14:35:57 - INFO - SmartPot - Start temperature measurement.
+09-Jan-22 14:35:57 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 14:36:02 - DEBUG - DHT - Released Lock on DHT Device...
+09-Jan-22 14:36:02 - INFO - SmartPot - Humidity measurement finished at 47.0%.
+09-Jan-22 14:36:02 - INFO - SmartPot - Start soil moisture measurement.
+09-Jan-22 14:36:02 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
+09-Jan-22 14:36:02 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
+09-Jan-22 14:36:02 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
+09-Jan-22 14:36:03 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
+09-Jan-22 14:36:03 - DEBUG - MCP3426 - Released Lock for Channel 1.
+09-Jan-22 14:36:03 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
+09-Jan-22 14:36:03 - INFO - SmartPot - Start light intensity measurement.
+09-Jan-22 14:36:03 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
+09-Jan-22 14:36:03 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
+09-Jan-22 14:36:03 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
+09-Jan-22 14:36:03 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.5267454811919883V
+09-Jan-22 14:36:03 - DEBUG - MCP3426 - Released Lock for Channel 2.
+09-Jan-22 14:36:03 - INFO - SmartPot - Light intensity measurement finished at 84.8191933995549 %.
+09-Jan-22 14:36:03 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+09-Jan-22 14:36:03 - DEBUG - Starting new HTTPS connection (2): api.telegram.org:443
+09-Jan-22 14:36:03 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/sendMessage HTTP/1.1" 200 444
+09-Jan-22 14:36:05 - DEBUG - DHT - Released Lock on DHT Device...
+09-Jan-22 14:36:05 - INFO - SmartPot - Temperature measurement finished at 14.0'C.
+09-Jan-22 14:36:05 - INFO - SmartPot - Start soil moisture measurement.
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Acquiring Lock for Channel 1.
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Configuring Channel 1. SPS=240, Gain=1, continuous=True
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Starting Conerversion on Channel 1. Waiting 4.166666666666667e-06ms till finished
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Conversion on Channel 1 should be finished. Conversion Result is 0.0V
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Released Lock for Channel 1.
+09-Jan-22 14:36:05 - INFO - SmartPot - Soil moisture measurement finished at 0.0%.
+09-Jan-22 14:36:05 - INFO - SmartPot - Start light intensity measurement.
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Acquiring Lock for Channel 2.
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Configuring Channel 2 SPS=240, Gain=1, continuous=True
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Starting Conerversion on Channel 2. Waiting 4.166666666666667e-06ms till finished
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Conversion on Channel 2 should be finished. Conversion Result is 1.5307474352711286V
+09-Jan-22 14:36:05 - DEBUG - MCP3426 - Released Lock for Channel 2.
+09-Jan-22 14:36:05 - INFO - SmartPot - Light intensity measurement finished at 85.04152418172937 %.
+09-Jan-22 14:36:05 - INFO - TimeBasedMonitor - Read Value for Info=(47.0, 14.0, 0.0, 85.04152418172937) at 2022-01-09 14:35:54.154713.
+09-Jan-22 14:36:10 - INFO - SmartPot - Start humidity measurement.
+09-Jan-22 14:36:10 - DEBUG - DHT - Acquiring Lock on DHT Device...
+09-Jan-22 14:36:11 - DEBUG - DHT - Released Lock on DHT Device...
+09-Jan-22 14:36:11 - INFO - SmartPot - Humidity measurement finished at 46.0%.
+09-Jan-22 14:36:11 - INFO - SmartPot - Start temperature measurement.
+09-Jan-22 14:36:11 - DEBUG - DHT - Acquiring Lock on DHT Device...
