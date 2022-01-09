@@ -4,18 +4,20 @@ import smbus2
 from datetime import datetime
 import logging
 import configparser
+import sys
 #setup config
 config = configparser.ConfigParser()
 config.read("smartpot.ini")
 levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
 #setup logger
 dt = datetime.today()
+if bool(config["Logging"]["stdout"]):
+    logging.StreamHandler(sys.stdout)
 logging.basicConfig(filename=config["Logging"]["file"],
                     filemode='w',
                     format='%(asctime)s - %(levelname)s - %(message)s',
-                    datefmt='%d-%b-%y %H:%M:%S',
+                    datefmt='%d-%b-%y %H:%M :%S',
                     level=levels.get(config["Logging"]["level"], "DEBUG"))
-
 # I2C address of the device
 DEFAULT_ADDRESS = 0x68
 REFERENCE_VOLTAGE = 2.048

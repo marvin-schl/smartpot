@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 09-Jan-22 21:15:48 - INFO - SmartPot - Initializing ADC on Bus Number 1
 09-Jan-22 21:15:48 - INFO - SmartPot - Initializing DHT11 on pin 18...
 09-Jan-22 21:15:48 - INFO - SmartPot - Initializing PowerOutputPins X4,X5 and X6...
@@ -65,3 +66,5 @@
 09-Jan-22 21:17:48 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
 09-Jan-22 21:17:51 - DEBUG - https://api.telegram.org:443 "POST /bot5001234212:AAEim1ICtmrC_SH0jm043CEv7X-RuIFuY4k/getUpdates HTTP/1.1" 409 143
 09-Jan-22 21:17:51 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+=======
+>>>>>>> ec6cdbc4d302cf5b2d79d42b579bf6520672cb20
