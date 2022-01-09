@@ -74,7 +74,7 @@ Im Chat des BotFather kann nun ein Chatbot erstellt werden:
 
 Im Browser folgende Website aufrufen:
 
-`https://api.telegram.org/botReplaceThisWithTheBotFatherToken/getUpdates`
+https://api.telegram.org/botReplaceThisWithTheBotFatherToken/getUpdates
 
 Im Telegram Web dem erstellten Chatbot eine Nachricht senden und auf der Website die Chat-ID
 ablesen:
@@ -99,11 +99,11 @@ Abschließend müssen der Bot-Token und die Chat-ID in der smartpot.ini hinterle
 
 Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes RaspianOS basierend auf Debian Buster installiert ist. Zunächst muss dieses Repository auf den RaspberryPi geclonet werden:
 
-    `git clone https://git.haw-hamburg.de/aco732/smartpot.git`
+    git clone https://git.haw-hamburg.de/aco732/smartpot.git
 
 Außerdem müssen über Python Paketmanager pip folgende Pakete installiert werden.
 
-    `pip install RPi.GPIO Adafruit_DHT smbus2 telepot`
+    pip install RPi.GPIO Adafruit_DHT smbus2 telepot
 
 Desweiteren wird eine [Library für den MCP3426](https://github.com/coburnw/MCP342x) für den MCP3426 verwendet. Diese ist bereits in den Source Files enthalten.
 
@@ -113,17 +113,16 @@ Desweiteren wird eine [Library für den MCP3426](https://github.com/coburnw/MCP3
 
 Das Installieren der Node-RED Editors erfolgt durch folgende Shell-Eingabe:
 
-    `bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --node16`
+    bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --node16
 
 Das Node-RED Dashboard wird mit folgender Eingabe installiert:
 
-    `npm i node-red-dashboard`
+    npm i node-red-dashboard
 
 Zusätzlich müssen in den Node-RED Einstellungen Parameter konfiguriert werden:
 
-`cd ~/.node-red`
-
-    `nano settings.js`
+    cd ~/.node-red
+    nano settings.js
 
 @Line 253: „//“ entfernen
 
@@ -131,16 +130,16 @@ Zusätzlich müssen in den Node-RED Einstellungen Parameter konfiguriert werden:
 
 Um Node-RED bei Systemstart automatisch auszuführen wird folgender Befehl verwendet:
 
-    `sudo systemctl enable nodered.service`
+    sudo systemctl enable nodered.service
 
 Der Node-RED Editor ist über die IP-Adresse des Pi´s aufzurufen. Die IP wird wie folgt angezeigt:
 
-    `hostname -l`
+    hostname -l
 
 Node-RED ist per default auf Port 1880 erreichbar. Mit im vorherigen Schritt ermittelten <hostname> kann die Node-RED Konfiguration unter folgender Adresse im Interetbrowser aufgerufen werden:
 Platzhalter <hostname> :
 
-    `http://<hostname>:1880`
+    http://<hostname>:1880
 
 Die Node-RED Visualisierung kann nun wie folgt installiert werden:
 
@@ -156,7 +155,7 @@ Die Node-RED Visualisierung kann nun wie folgt installiert werden:
 
 Die zur Verfügung gestellte Visualisierung des Node-RED Dashboards muss nun wie folgt kopiert werden:
 
-    `cp /home/pi/smartpot/Node-Red/flows.json /home/pi/.node-red/lib/flows`
+    cp /home/pi/smartpot/Node-Red/flows.json /home/pi/.node-red/lib/flows
 
 Abschließend wird die flow-Datei in Node-RED importiert:
 
@@ -178,7 +177,7 @@ Abschließend wird die flow-Datei in Node-RED importiert:
 
 Die Visualisierung kann nun unter 
 
-    `http://<hostname>:1880/ui`
+    http://<hostname>:1880/ui
 
 erreicht werden.
 
@@ -186,23 +185,24 @@ erreicht werden.
 
 Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes RaspianOS basierend auf Debian Buster installiert ist. Zunächst muss dieses Repository auf den RaspberryPi geclonet werden:
 
-    `git clone https://git.haw-hamburg.de/aco732/smartpot.git`
+    git clone https://git.haw-hamburg.de/aco732/smartpot.git
 
 ### Einrichtung von Docker und Docker-Compose
 
 Falls Docker und Docker-Compose bereits installiert sein sollten kann dieser Schritt übersprungen werden.
 
 
-    `sudo apt-get update
+    sudo apt-get update
     curl -sSL https://get.docker.com | sh
     sudo apt-get install docker-compose
-    sudo usermod -aG docker pi`
+    sudo usermod -aG docker pi
 
 Nachdem der letzte Befehl ausfgeführt worden ist muss man sich eimal neu einloggen.
 
 ### Starten der Smartpot Umgebung
 Aus dem smartpot Verzeichnis kann nun folgender Befehl die gesamte smartpot Umgebung gestartet werden
-    `docker-compose up`
+
+    docker-compose up
 
 ## elektronischer Aufbau
 
