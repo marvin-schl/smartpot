@@ -91,6 +91,37 @@ Platzhalter <hostname> :
 
 `http://<hostname>:188`
 
+Das Node-RED Dashboard kann nun wie folgt installiert werden:
+
+![Daschboard1](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_1.png)
+
+![Dashboard2](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_2.png)
+
+1. Menü-Reiter auswählen
+2. Palette verwalten klicken
+3. „Dashboard“ in Suchfeld eingeben
+4. Auf „Installieren“ klicken 
+
+Der Inhalt des Node-RED Dashboards wird nun wie folgt importiert:
+
+`cp /home/pi/smartpot/Node-Red/SmartpotVflows.json /home/pi/.node-red/lib/flows`
+
+Abschließend wird die flow-Datei in Node-RED importiert:
+
+![Daschboard3](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_3.png)
+
+![Bashboard4](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_4.png)
+
+![Dashboard5](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_5.png)
+
+1. Menü-Reiter auswählen
+2. Import klicken
+3. Lokal auswählen
+4. „SmartpotVflows.json“ wählen
+5. Auf „Import“ klicken
+6. „Übernahme (deploy)“ klicken
+
+
 ## elektronischer Aufbau
 
 Schaltplan des RaspberryPi Shields:
