@@ -719,11 +719,11 @@
         "z": "e4c88edef57e4391",
         "name": "",
         "filename": "/home/pi/smartpot/Logging.csv",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "delete",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
         "encoding": "none",
-        "x": 410,
+        "x": 630,
         "y": 500,
         "wires": [
             []
@@ -747,9 +747,36 @@
         "icon": "",
         "payload": "",
         "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 100,
+        "topic": "",
+        "topicType": "str",
+        "x": 90,
+        "y": 500,
+        "wires": [
+            [
+                "44443459c98fdd64"
+            ]
+        ]
+    },
+    {
+        "id": "44443459c98fdd64",
+        "type": "change",
+        "z": "e4c88edef57e4391",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
         "y": 500,
         "wires": [
             [
