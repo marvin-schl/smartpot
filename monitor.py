@@ -1,11 +1,11 @@
 import time
 from datetime import datetime
 from threading import Thread
-
+from abc import ABC, abstractmethod
 from logging_conf_setup import get_setup
 log, config = get_setup()
 
-class Monitor(Thread):
+class Monitor(Thread, ABC):
     def __init__(self, name, getter, cycle_time):
         super().__init__()
         self.__getter = getter
@@ -48,6 +48,7 @@ class Monitor(Thread):
             time.sleep(self.__cycle_time)
         log.info(type(self).__name__.__str__() + " - Monitor for " + self.__name + " stopped...")
 
+    @abstractmethod
     def handle(self, val, now):
         """
         The specific handling of the monitored value. Has to be implemented by the subclass.
