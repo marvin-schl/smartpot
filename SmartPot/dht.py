@@ -55,7 +55,7 @@ class DHT:
         """
         temp = self.__read_values()[1]
         if temp == None:
-            log.error(type(self).__name__ + " - Error reading temperature got "+str(temp)+" from DHT. Returning -1")
+            log.error(type(self).__name__ + " - Error reading temperature got "+str(temp)+" from DHT. Returning -999")
             return -999
         return temp
 
@@ -66,6 +66,6 @@ class DHT:
         """
         humidity = self.__read_values()[0]
         if humidity == None or humidity == -1 or humidity > 100:
-            log.error(type(self).__name__ + " - Error while reading humidity got "+str(humidity)+" from DHT. Returning -1")
+            log.error(type(self).__name__ + " - Error while reading humidity got "+str(humidity)+" from DHT. Returning -999")
             return -999
         return humidity
