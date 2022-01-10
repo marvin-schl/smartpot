@@ -1,28 +1,31 @@
-version: "3.3"  # optional since v1.27.0
+version: "3.3" 
 services:
+  smartpot:
+    user: "0:1000"
+    build:
+      context: .
+      dockerfile: dockerfiles/dockerfile_smartpot
+    privileged: true
+    volumes:
+    - type: volume
+      source: smartpot_data
+      target: /gome/smartpot
+    - type: bind
+      source: ./smartpot.ini
+      target: /home/smartpot/smartpot.ini
+    - type: bind
+      source: ./smartpot.log
+      target: /home/smartpot/smartpot.log
   nodered:
     user: "0:1000"
     build:
       context: .
-      dockerfile: dockerfile_nodered
+      dockerfile: dockerfiles/dockerfile_nodered
     ports:
       - "1880:1880"
     volumes:
       - smartpot_data:/home/pi/smartpot
       - nodered_data:/data
-  smartpot:
-    user: "0:1000"
-    environment:
-    - PYTHONUNBUFFERED=0
-    build:
-      context: .
-      dockerfile: dockerfile_smartpot
-    privileged: true
-    tty: true  
-    volumes:
-    - smartpot_data:/home/smartpot
-    - ${PWD}/smartpot.ini:/home/smartpot/smartpot.ini
-    - ${PWD}/smartpot.log:/home/smartpot/smartpot.log
 volumes:
   smartpot_data:
   nodered_data:
