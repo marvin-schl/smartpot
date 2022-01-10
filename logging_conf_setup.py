@@ -1,7 +1,7 @@
 import logging
 import configparser
 import sys
-from multiprocessing import Lock
+from threading import Lock
 
 lock = Lock()
 
@@ -12,8 +12,8 @@ def get_setup():
     config.read("smartpot.ini")
     levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
     #setup logger
-    # create logger with 'smartpot'
-    log = logging.getLogger('smartpot')
+    # create logger with
+    log = logging.getLogger()
     log.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
 
     # create formatter and add it to the handlers
