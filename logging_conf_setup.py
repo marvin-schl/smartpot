@@ -13,7 +13,7 @@ def setup():
     log.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
 
     # create formatter and add it to the handlers
-    formatter = logging.Formatter('%(asctime)s - %(name) - %(levelname)s - %(message)s')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     # create stream handler if stdout is specified
     if config["Logging"]["stdout"] == "1":
