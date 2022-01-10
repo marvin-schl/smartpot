@@ -38,7 +38,11 @@ class DHT:
         """
         log.debug(type(self).__name__ + " - Acquiring Lock on DHT Device...")
         self.__lock.acquire()
-        ret = Adafruit_DHT.read_retry(self.__dht_type, self.__pin)
+        try:
+            ret = Adafruit_DHT.read_retry(self.__dht_type, self.__pin)
+        except Exception as e:
+            log.error(type(self).__name__ + " - Error reading DHT Device. " + str(e))
+            ret = (-999,-999)
         self.__lock.release()
         log.debug(type(self).__name__ + " - Released Lock on DHT Device...")
 
@@ -49,11 +53,19 @@ class DHT:
         Read the current temperature.
         :return: Return temperature in 'C.
         """
-        return self.__read_values()[1]
+        temp = self.__read_values()[1]
+        if temp == None:
+            log.error(type(self).__name__ + " - Error reading temperature got "+str(humidity)+" from DHT. Returning -1")
+            return -999
+        return temp
 
     def read_humidity(self):
         """
         Read the current humidity.
         :return: Return humidity in percent.
         """
-        return self.__read_values()[0]
+        humidity = self.__read_values()[0]
+        if humidity == None or humidity == -1 or humidity > 100:
+            log.error(type(self).__name__ + " - Error while reading humidity got "+str(humidity)+" from DHT. Returning -1")
+            return -999
+        return humidity
