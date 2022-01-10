@@ -15,6 +15,5 @@ COPY smartpot.ini .
 COPY TelegramSmartpot.py .
 
 RUN touch Logging.csv
-RUN touch smarpot.log
 
-CMD python3 TelegramSmartpot.py
+CMD ["python","-u","TelegramSmartpot.py"]

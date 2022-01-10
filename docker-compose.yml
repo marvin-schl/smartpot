@@ -12,10 +12,13 @@ services:
       - nodered_data:/data
   smartpot:
     user: "0:1000"
+    environment:
+    - PYTHONUNBUFFERED=0
     build:
       context: .
       dockerfile: dockerfile_smartpot
     privileged: true
+    tty: true  
     volumes:
     - smartpot_data:/home/smartpot
     - ${PWD}/smartpot.ini:/home/smartpot/smartpot.ini
