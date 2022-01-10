@@ -29,7 +29,8 @@ licht_mon = None
 boden_mon = None
 temperatur_mon = None
 humidity_mon =None
-
+licht_einheit = config["Light"]["unit"]
+boden_einheit = config["Soil Moisture"]["unit"]
 
 #Message Handler fuer Empfangene Telegramnarchichten
 def handle(msg):
@@ -41,7 +42,26 @@ def handle(msg):
     message =msg['text']                    #Nur abgreifen des Textes
     if message == "/Hilfe":
 #Empfangsnarchicht vom Bot senden
-        bot.sendMessage(chatid,"-----Befehle-----\n/Temperatur  # Gibt die aktuelle Temperatur wieder \n/Luftfeuchtigkeit  # Gibt die aktuelle Luftfeuchtigkeit wieder \n/Bodenfeuchtigkeit # Gibt die aktuelle Bodenfeuchtigkeit wieder \n/Lichtstaerke  # Gibt die aktuelle Lichtstaerke wieder \n/Info  # Gibt alle aktuellen Parameter wieder\n/Hilfe gibt diese Narchicht erneut wieder\n-----Monitore-----\n---Starten---\n Beim erstellen der Monitore gibt das XX die Zahl fuer die Obergrenze und YY die Zahl fuer die Untergrenze an\n/LuftfeuchtigkeitMonitor XX YY #Angabe in %% \n/TemperaturMonitor XX YY # Angabe in Grad C\n/BodenfeuchtigkeitMonitor XX YY\n# Angabe in % von 0-50%\n----Stoppen----\nDie Befehle Stoppen den ausgewaelten Monitor\n/LuftfeuchtigkeitMonitorSTOP \n/TemperaturMonitorSTOP\n/BodenfeuchtigkeitMonitorSTOP\n/LichtstaerkeMonitorSTOP")
+        bot.sendMessage(chatid,"-----Befehle-----\n"
+                               "/Temperatur  # Gibt die aktuelle Temperatur wieder \n"
+                               "/Luftfeuchtigkeit  # Gibt die aktuelle Luftfeuchtigkeit wieder \n"
+                               "/Bodenfeuchtigkeit # Gibt die aktuelle Bodenfeuchtigkeit wieder \n"
+                               "/Lichtstaerke  # Gibt die aktuelle Lichtstaerke wieder \n"
+                               "/Info  # Gibt alle aktuellen Parameter wieder\n"
+                               "/Hilfe gibt diese Narchicht erneut wieder\n\n"
+                               "----Monitore-----\n"
+                               "---Starten---\n "
+                               "Beim erstellen der Monitore gibt das XX die Zahl fuer die Obergrenze und YY die Zahl fuer die Untergrenze an\n"
+                               "/LuftfeuchtigkeitMonitor XX YY #Angabe in %% \n"
+                               "/TemperaturMonitor XX YY # Angabe in Grad C\n"
+                               "/BodenfeuchtigkeitMonitor XX YY # Angabe in "+str(boden_einheit)+"\n"
+                               "/LichtstaerkeMonitor XX YY # Angabe in "+str(licht_einheit)+"\n"
+                                "----Stoppen----\n"
+                                "Die Befehle Stoppen den ausgewaelten Monitor\n"
+                                "/LuftfeuchtigkeitMonitorSTOP \n"
+                                "/TemperaturMonitorSTOP\n"
+                                "/BodenfeuchtigkeitMonitorSTOP\n"
+                                "/LichtstaerkeMonitorSTOP")
 
 #Temperaturbefehl abfangen der Narchicht und auslesen des DHT11 Sensors
     if message == "/Temperatur":
@@ -56,12 +76,12 @@ def handle(msg):
 #Bodenfeuchtigkeitsbefehl abfangen der Narchicht und auslesen des Lichtstaerkesensor bzw. AD Wandler mit I2C Bus
     if message == "/Bodenfeuchtigkeit":
         Bodenfeuchtigkeit = PotObject.read_soil_moisture()
-        bot.sendMessage(chatid,"Bodenfeuchtigkeit: %8.4f %%" % (Bodenfeuchtigkeit))
+        bot.sendMessage(chatid,"Bodenfeuchtigkeit: %8.4f %s" % (Bodenfeuchtigkeit, boden_einheit))
 
 #Lichtstaerkebefehl abfangen der Narchicht und auslesen des Lichtstaerkesensor bzw. AD Wandler mit I2C Bus
     if message == "/Lichtstaerke":
         Lichtstaerke = PotObject.read_light_intensity()
-        bot.sendMessage(chatid,"Lichtstaerke: %8.1f %%" % (Lichtstaerke))
+        bot.sendMessage(chatid,"Lichtstaerke: %8.1f %s" % (Lichtstaerke, licht_einheit))
 
 #Info Befehl abfangen und alle Daten ausgeben
     if message == "/Info":
@@ -70,7 +90,12 @@ def handle(msg):
         Luftfeuchtigkeit = PotObject.read_humidity()
         Bodenfeuchtigkeit = PotObject.read_soil_moisture()
         Lichtstaerke = PotObject.read_light_intensity()
-        bot.sendMessage(chatid,"------------Info------------\n" + "Temperatur: %8.1f C\n" % (Temperatur) + "Luftfeuchtigkeit: %8.1f %% \n" % (Luftfeuchtigkeit) + "Bodenfeuchtigkeit: %8.4f %% \n" % (Bodenfeuchtigkeit) + "Lichtstaerke: %8.4f %% \n" % (Lichtstaerke) + "----------------------------")
+        bot.sendMessage(chatid,"------------Info------------\n"
+                        + "Temperatur: %8.1f C\n" % (Temperatur)
+                        + "Luftfeuchtigkeit: %8.1f %% \n" % (Luftfeuchtigkeit)
+                        + "Bodenfeuchtigkeit: %8.4f %s \n" % (Bodenfeuchtigkeit,boden_einheit)
+                        + "Lichtstaerke: %8.4f %s \n" % (Lichtstaerke,licht_einheit)
+                        + "----------------------------")
    
 #Der Message String wird geteilt wenn ein Leerzeichen vorhanden ist und in die Liste der Einzeldaten geschrieben
     einzeldaten = message.split(" ")
@@ -235,12 +260,12 @@ MessageLoop(bot, handle).run_as_thread()
 def callbackhumi(timestamp, value, threshold, name):
     print("Value "+ name + "=" +str(value)+ "passed threshold of " + str(threshold) + " at " + str(timestamp) +".")
     PotObject.output_on(SmartPot.X4)
-    bot.sendMessage(chatid,"Es ist eine zu hohe Luftfeuchtigkeit im Raum diese liegt bei %3.0f%%" % (value))
+    bot.sendMessage(chatid,"Es ist eine zu hohe Luftfeuchtigkeit im Raum diese liegt bei %3.0f %%" % (value))
 
 #Callback fuer Monitor unteren Grenzwert Luftfeuchtigkeit
 def callbackhumi2(timestamp, value, threshold, name):
     PotObject.output_off(SmartPot.X4)
-    bot.sendMessage(chatid,"Die Luftfeuchtigkeit im Raum ist wieder gut sie liegt bei %3.0f%%" % (value))
+    bot.sendMessage(chatid,"Die Luftfeuchtigkeit im Raum ist wieder gut sie liegt bei %3.0f %%" % (value))
 
 #Callback fuer Monitor oberen Grenzwert Temperatur
 def callbacktemp(timestamp, value, threshold, name):
@@ -257,23 +282,23 @@ def callbacktemp2(timestamp, value, threshold, name):
 def callbackboden(timestamp, value, threshold, name):
     print("Value "+ name + "=" +str(value)+ "passed threshold of " + str(threshold) + " at " + str(timestamp) +".")
     PotObject.output_on(SmartPot.X4)
-    bot.sendMessage(chatid,"Der Boden ist genug gewaessert die Bodenfeuchtigkeit liegt bei %3.2f%%" % (value))
+    bot.sendMessage(chatid,"Der Boden ist genug gewaessert die Bodenfeuchtigkeit liegt bei %3.2f %s" % (value,boden_einheit))
 
 #Callback fuer Monitor unteren Grenzwert Bodenfeuchtigkeit
 def callbackboden2(timestamp, value, threshold, name):
     PotObject.output_off(SmartPot.X4)
-    bot.sendMessage(chatid,"Der Boden ist zu trocken ich benoetige Wasser die Bodenfeuchtigkeit liegt bei %3.2f%%" % (value))
+    bot.sendMessage(chatid,"Der Boden ist zu trocken ich benoetige Wasser die Bodenfeuchtigkeit liegt bei %3.2f %s" % (value, boden_einheit))
 
 #Callback fuer Monitor Oberen Grenzwert Lichstaerke
 def callbacklicht(timestamp, value, threshold, name):
     print("Value "+ name + "=" +str(value)+ "passed threshold of " + str(threshold) + " at " + str(timestamp) +".")
     PotObject.output_on(SmartPot.X4)
-    bot.sendMessage(chatid,"Die Lichtstaerke ist absolut ausreichend sie betraegt %3.2f%%" % (value))
+    bot.sendMessage(chatid,"Die Lichtstaerke ist absolut ausreichend sie betraegt %3.2f %s" % (value, licht_einheit))
 
 #Callback fuer Monitor unteren Grenzwert Lichstaerke
 def callbacklicht2(timestamp, value, threshold, name):
     PotObject.output_off(SmartPot.X4)
-    bot.sendMessage(chatid,"Es ist zu dunkel im Raum die Lichtstaerke betraegt %3.2f%%" % (value))
+    bot.sendMessage(chatid,"Es ist zu dunkel im Raum die Lichtstaerke betraegt %3.2f %s" % (value, licht_einheit))
 
 #Definierung welche Werte vom Zetlichen Monitor abgefragt werden
 def  monitor_getter():

@@ -102,31 +102,83 @@ Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes Raspia
 
 Für die Konfiguration steht eine smartpot.ini Datei zur Verfügung. 
 
-    #############################################
-    # Smart Pot Version 1 - Configuration File  #
-    #############################################
+``` ini
+#############################################
+# Smart Pot Version 1 - Configuration File  #
+#############################################
 
-    [Telegram]
+[Telegram]
 
-    #Sets the telepot API token
-    chattoken = <your-token>
+#Sets the telepot API token
+chattoken = <your-token>
 
-    #Sets the telepot Chat-ID
-    chatid = <your-chat-id>
+#Sets the telepot Chat-ID
+chatid = <your-chat-id>
 
-    [Logging]
+[Logging]
 
-    # Sets the loglevel, when not specified DEBUG is taken
-    # Possible Values: INFO, WARN, ERROR, DEBUG
-    level = DEBUG
+# Sets the loglevel, when not specified DEBUG is taken
+# Possible Values: INFO, WARN, ERROR, DEBUG
+level = DEBUG
 
-    # If set to 1 the logs will be printed on sys.stdout
-    stdout = 1
+# If set to 1 the logs will be printed on sys.stdout
+# If set to 1 there will be no logging to a a logfile
+stdout = 1
 
-    #Sets the logfile
-    file = smartpot.log
+# Sets the logfile
+# This options is ignored when logging to stdout
+file = smartpot.log
 
-In der Konfiguationsdatei müssen nun der zuvor ermittelte Telegram API-Token unter chattoken und die ermittelte Chat-ID unter chatid eingetragen werden. Außerdem können das Log-Level und das Ausgabeformat der Logs festgelegt werden. 
+
+[Soil Moisture]
+# This section calibrates the soil moisture sensor. Keep in mind that any calibration action will only effect the
+# python software. Depending on the Calibration it is possible that the Node-RED settings have to updated manually
+
+# Calibration of the soil moisture sensor connected to adc channel 1.
+# The calibrated output value is calculated from the Output value out [V]  follows:
+#     calibrated_out = scaling*(out - offset)
+# Calibration procedure:
+#    1.) Set both Values to zero.
+#    2.) Connect the sensor and make sure it's 100% dry.
+#    3.) Measure the voltage offset and adjust offset_calibration value to get an calibrated_out of 0.
+#    4.) Pull the sensor onto a defined soil moisture level.
+#    5.) Adjust scaling in such a way that calibratet_out matches the desired value.
+offset = 0.0
+scaling = 1.8
+
+# Defines the level at which calibrated_out is going into saturation. Comment out
+# to disable saturation.
+saturation = 1.8
+
+# Defines the unit of the measured and calibrated value
+unit = "%"
+
+[Light]
+# This section calibrates the light sensor. Keep in mind that any calibration action will only effect the
+# python software. Depending on the Calibration it is possible that the Node-RED settings have to updated manually.
+
+# Calibration of the light sensor connected to adc channel 2.
+# The calibrated ouput value is calculated from the Output value out [V] as follows:
+#     calibrated_out = scaling*(out - offset)
+# Calibration procedure:
+#    1.) Set both Values to zero.
+#    2.) Connect the sensor and make sure it's completly dark.
+#    3.) Measure the voltage offset and adjust offset_calibration value to get an calibrated_out of 0.
+#    4.) Pull the sensor onto a defined brightness level.
+#    5.) Adjust scaling in such a way that calibratet_out matches the desired value.
+
+offset = 0.0
+scaling = 1.8
+
+# Defines the level at which calibrated_out is going into saturation. Comment out
+# to disable saturation.
+saturation = 1.8
+
+# Defines the unit of the measured and calibrated value
+unit = "%"
+```
+
+In der Konfiguationsdatei müssen nun der zuvor ermittelte Telegram API-Token unter chattoken und die ermittelte Chat-ID unter chatid eingetragen werden. Außerdem können das Log-Level, das Ausgabeformat der Logs und die Kalibration der analogen Sensoren angepasst werden. 
 
 ## 3.1 manuelle Einrichtung des RaspberryPi's
 
@@ -266,30 +318,33 @@ Das dazugehörige Layout wurde wie folgt umgesetzt:
 
 Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Positionspreis €
 ------------|-----------------------------------|-------- |------------|-----------------
-1           | RaspberryPi Staking Header        |1        |1,6         | 1,60
-2           | ULN20003AD                        |1        |0,75        | 0,75
-3           | MCP3426                           |1        |3,10        | 3,10
-4           | uA78S05                           |1        |0,45        | 0,45
-5           | BD204                             |1        |0,41        | 0,41
-6           | AO3401A                           |3        |0,25        | 0,75
-7           | Widerstand 0805 1,0               |1        |0,03        | 0,03
-8           | Widerstand 0805 2,0               |1        |0,02        | 0,02
-9           | Widerstand 0805 51,0              |3        |0,02        | 0,06
-10          | Widerstand 0805 5k                |2        |0,03        | 0,06
-11          | Widerstand 0805 10k               |3        |0,03        | 0,09
-12          | Keramikkondensator 0805 100nF     |1        |0,02        | 0,02
-13          | Tantalkondensator 1210 10uF       |1        |0,32        | 0,32
-14          | Elektrolytkondensator 2mm 1uF     |2        |0,02        | 0,04
-15          | Elektrolytkondensator 5mm 1mF     |1        |0,29        | 0,29
-16          | JST XH2P ST Buchse                |3        |0,20        | 0,60
-17          | JST XH4P ST Buchse                |2        |0,25        | 0,50
-18          | 3fach Buchsenleiste 2,54mm        |1        |0,14        | 0,14
-19          | DC Buchse 2.1mm                   |1        |1,20        | 1,20
-20          | DHT11                             |1        |4,50        | 4,50
-21          | Joy-It Linker Kit Lichtsensor     |1        |1,01        | 1,01
-22          | Joy-it sen-Moisture Sensorkit     |1        |4,99        | 4,99
-23          | Platine                           |1        |2,00        | 2,00
-24          | Gesamt                            |         |            | 22,93
+1           | RaspberryPi 3B                    |1        |39,4        | 39,4
+2           | RaspberryPi Staking Header        |1        |1,6         | 1,60
+3           | ULN20003AD                        |1        |0,75        | 0,75
+4           | 10k Kohleschichtwiderstand        |1        |0,1         | 0,4
+5           | RPI LK Kabel 50                   |1        |2,75        | 5,50
+6           | MCP3426                           |1        |3,10        | 3,10
+7           | uA78S05                           |1        |0,45        | 0,45
+8           | BD204                             |1        |0,41        | 0,41
+9           | AO3401A                           |3        |0,25        | 0,75
+10          | Widerstand 0805 1,0               |1        |0,03        | 0,03
+11          | Widerstand 0805 2,0               |1        |0,02        | 0,02
+12          | Widerstand 0805 51,0              |3        |0,02        | 0,06
+13          | Widerstand 0805 5k                |2        |0,03        | 0,06
+14          | Widerstand 0805 10k               |3        |0,03        | 0,09
+15          | Keramikkondensator 0805 100nF     |1        |0,02        | 0,02
+16          | Tantalkondensator 1210 10uF       |1        |0,32        | 0,32
+17          | Elektrolytkondensator 2mm 1uF     |2        |0,02        | 0,04
+18          | Elektrolytkondensator 5mm 1mF     |1        |0,29        | 0,29
+19          | JST XH2P ST Buchse                |3        |0,20        | 0,60
+20          | JST XH4P ST Buchse                |2        |0,25        | 0,50
+21          | 3fach Buchsenleiste 2,54mm        |1        |0,14        | 0,14
+22          | DC Buchse 2.1mm                   |1        |1,20        | 1,20
+23          | DHT11                             |1        |4,50        | 4,50
+24          | Joy-It Linker Kit Lichtsensor     |1        |1,01        | 1,01
+25          | Joy-it sen-Moisture Sensorkit     |1        |4,99        | 4,99
+26          | Platine                           |1        |2,00        | 2,00
+27          | Gesamt                            |         |            | 68,23
 
 (Reichelt Preise beispielhaft, Stand 06.01.22)
 
@@ -369,6 +424,6 @@ Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des d
 
 - Eine Verbesserung des Automatisierungsgrades durch die Nutzung der Hardwareseitig implementierten Schaltfunktionen
 
-
+- Eine erweiterung der Node-RED Öberflächen, sodass nicht nur ein passives Monitoring sondern auch eine aktive Kontrolle des SmartPots möglich ist
 
 

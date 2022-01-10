@@ -25,7 +25,6 @@ class SmartPot:
         power_pins = [SmartPot.X4, SmartPot.X5, SmartPot.X6]
         dht_pin = 18
         adc_bus = 1
-
         log.info(type(self).__name__ + " - Initializing ADC on Bus Number " + adc_bus.__str__())
         self.__adc = MCP3426(adc_bus)
         log.info(type(self).__name__ + " - Initializing "+dht_type+" on pin "+dht_pin.__str__()+"...")
@@ -119,17 +118,22 @@ class SmartPot:
 
     def read_light_intensity(self):
         """
-        Reads the value of the light intensity snesor
-        :return: Percentage of maximum measurable light intensity.
+        Reads the value of the light intensity sensor and applies calibration of INI File.
+        :return: Light intensity value according to calibration values in INI File.Default
+        calibration should return percentage of maximum measureable light intensity value.
         """
         log.info(type(self).__name__ + " - Start light intensity measurement.")
 
         #get the adc value in volts
         adc_value = self.__adc.read_ch2()
 
-        #TODO: calculate an appropriate intensity value
-        max_val = 1.8
-        intensity = adc_value/max_val * 100 if adc_value < max_val else 100
+        scale = float(config["Light"]["scale"])
+        offset = float(config["Light"]["scale"])
+        intensity = scale*(adc_value - offset)
+
+        if "saturation" in config["Light"]:
+            saturation = float(config["Light"]["saturation"])
+            intensity = intensity if intensity < saturation else saturation
 
         log.info(type(self).__name__ + " - Light intensity measurement finished at "+str(intensity)+" %.")
         return intensity
@@ -145,8 +149,13 @@ class SmartPot:
         adc_value = self.__adc.read_ch1()
 
         # TODO: calculate an appropriate moisture value
-        max_val = 1.9
-        moisture = adc_value/max_val*100 if adc_value < max_val else 100
+        scale = float(config["Soil Moisture"]["scale"])
+        offset = float(config["Soil Moisture"]["scale"])
+        moisture = scale*(adc_value - offset)
+
+        if "saturation" in config["Soil Moisture"]:
+            saturation = float(config["Soil Moisture"]["saturation"])
+            moisture = moisture if moisture < saturation else saturation
 
         log.info(type(self).__name__ + " - Soil moisture measurement finished at "+str(moisture)+"%.")
 

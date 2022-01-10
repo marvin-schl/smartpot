@@ -1,12 +1,64 @@
 import time
 from datetime import datetime
 from threading import Thread
-
+from abc import ABC, abstractmethod
 from logging_conf_setup import get_setup
 log, config = get_setup()
 
+class Monitor(Thread, ABC):
+    def __init__(self, name, getter, cycle_time):
+        super().__init__()
+        self.__getter = getter
+        self.__name = name
+        self.__cycle_time = cycle_time
+        self.__running = False
 
-class HysteresisMonitor(Thread):
+    @property
+    def running(self):
+        return self.__running
+
+    @property
+    def name(self):
+        return self.__name
+
+    def start(self):
+        """
+        Starts the run() method in a new Thread.
+        :return: None
+        """
+        self.__running = True
+        log.info(type(self).__name__.__str__() + " - Starting Monitor for " + self.__name + " in a new Thread...")
+        super().start()
+
+    def stop(self):
+        """
+        Stops the running Monitor Thread.
+        :return: None
+        """
+        self.__running = False
+        log.info(type(self).__name__.__str__() + " - Stopping Monitor for " + self.__name + "...")
+
+    def run(self,*args,**kwargs):
+        #do as long as self.__running is true
+        while self.__running:
+            val = self.__getter()
+            now = datetime.now()
+            self.handle(val,now)
+            # wait the cycle time until next value is retrieved
+            time.sleep(self.__cycle_time)
+        log.info(type(self).__name__.__str__() + " - Monitor for " + self.__name + " stopped...")
+
+    @abstractmethod
+    def handle(self, val, now):
+        """
+        The specific handling of the monitored value. Has to be implemented by the subclass.
+        :param val: Monitored Value
+        :param now: Timestamp
+        :return:
+        """
+        pass
+
+class HysteresisMonitor(Monitor):
 
     def __init__(self,name,getter,thres,callback_up_thres,lower_thres = None,callback_lw_thres = None,cycle_time = 0.1):
         """
@@ -23,69 +75,43 @@ class HysteresisMonitor(Thread):
         :param cycle_time: (optionally) Time to wait beween retrieving new values in seconds. Default value is 0.1s.
         """
         log.info("Initiliazing Monitor for "+ name + ".")
-        super(HysteresisMonitor, self).__init__()
-        self.__getter = getter
-        self.__name = name
+        super().__init__(name, getter, cycle_time)
         self.__thres = thres
         self.__lw_thres = self.__thres if lower_thres == None else lower_thres
         if self.__lw_thres > self.__thres:
-            log.warning(type(self).__name__.__str__() + " - Lower Threshold for Value " + name + " of "
+            log.warning(type(self).__name__.__str__() + " - Lower Threshold for Value " + self.name + " of "
                             + str(self.__lw_thres)+ "is greater than upper threshold of " + str(self.__thres) + ".")
         self.__callback_up_thres = callback_up_thres
         self.__callback_lw_thres = callback_lw_thres
-        self.__cycle_time = cycle_time
-        self.__running = False
         self.__reported = False
-        log.info(type(self).__name__.__str__() + " - Successfully initilized " + name + " Monitor.")
+        log.info(type(self).__name__.__str__() + " - Successfully initilized " + self.name + " Monitor.")
 
-    def start(self):
+
+    def handle(self, val, now):
         """
-        Starts the run() method in a new Thread.
+        Hanlde method which is does the actual handling of the monitored value.
+        :param val: Monitored Value
+        :param now: Timestamp
         :return: None
         """
-        self.__running = True
-        log.info(type(self).__name__.__str__() + " - Starting Monitor for " + self.__name + " in a new Thread...")
-        super().start()
+        if val > self.__thres and self.__reported == False:
+            # do this if self.__thres is exceeded for the first time, do some logging
+            log.info(type(self).__name__.__str__() + " - Value "+ self.name + "=" +str(val)+ "passed upper threshold of " + str(self.__thres) + " at " + str(now) +".")
+            #call the callback
+            self.__callback_up_thres(now, val, self.__thres, self.name)
+            #set reported to True to make sure that the callback is not called every single cycle while val is greater than threshold
+            self.__reported = True
+        if val < self.__lw_thres and self.__reported == True:
+            # do this if a exceed was reported and the val falls bellow lower threshold
+            # reset the reported value so next up_threshold exceed will be reported and do some logging
+            self.__reported = False
+            log.info(type(self).__name__.__str__() + " - Value "+ self.name + "=" + str(val) + "passed upper threshold of " + str(self.__lw_thres) + " at " + str(now) +".")
+            # if a callback is provided for this case, execute in
+            if self.__callback_lw_thres != None:
+                self.__callback_lw_thres(now, val, self.__lw_thres, self.name)
 
-    def stop(self):
-        """
-        Stops the running Monitor Thread.
-        :return: None
-        """
-        self.__running = False
-        log.info(type(self).__name__.__str__() + " - Stopping Monitor for " + self.__name + "...")
 
-
-    def run(self, *args, **kwargs):
-        """
-        Run method which is started in a new thread when calling start() method. To stop the Thread call stop() method.
-        :return: None
-        """
-        #do as long as self.__running is true
-        while self.__running:
-            val = self.__getter()
-            now = datetime.now()
-
-            if val > self.__thres and self.__reported == False:
-                # do this if self.__thres is exceeded for the first time, do some logging
-                log.info(type(self).__name__.__str__() + " - Value "+ self.__name + "=" +str(val)+ "passed upper threshold of " + str(self.__thres) + " at " + str(now) +".")
-                #call the callback
-                self.__callback_up_thres(now, val, self.__thres, self.__name)
-                #set reported to True to make sure that the callback is not called every single cycle while val is greater than threshold
-                self.__reported = True
-            if val < self.__lw_thres and self.__reported == True:
-                # do this if a exceed was reported and the val falls bellow lower threshold
-                # reset the reported value so next up_threshold exceed will be reported and do some logging
-                self.__reported = False
-                log.info(type(self).__name__.__str__() + " - Value "+ self.__name + "=" + str(val) + "passed upper threshold of " + str(self.__lw_thres) + " at " + str(now) +".")
-                # if a callback is provided for this case, execute it
-                if self.__callback_lw_thres != None:
-                    self.__callback_lw_thres(now, val, self.__lw_thres, self.__name)
-            # wait the cycle time until next value is retrieved
-            time.sleep(self.__cycle_time)
-        log.info(type(self).__name__.__str__() + " - Monitor for " + self.__name + " stopped...")
-
-class TimeBasedMonitor(Thread):
+class TimeBasedMonitor(Monitor):
 
     def __init__(self, name, getter, callback, cycle_time):
         """
@@ -99,51 +125,22 @@ class TimeBasedMonitor(Thread):
         :param cycle_time: Time to wait beween retrieving new values in seconds.
         """
         log.info(type(self).__name__.__str__() + " - Initiliazing Monitor for "+ name + ".")
-        super(TimeBasedMonitor, self).__init__()
-        self.__getter = getter
-        self.__name = name
+        super().__init__(name, getter, cycle_time)
         self.__callback = callback
-        self.__cycle_time = cycle_time
-        self.__running = False
         log.info(type(self).__name__.__str__() + " - Successfully initilized " + name + " Monitor.")
 
-    def start(self):
+
+    def handle(self, val, now):
         """
-        Starts the run() method in a new Thread.
+        Hanlde method which is does the actual handling of the monitored value.
+        :param val: Monitored Value
+        :param now: Timestamp
         :return: None
         """
-        self.__running = True
-        log.info(type(self).__name__.__str__() + " - Starting Monitor for " + self.__name + " in a new Thread...")
-        super().start()
+        #do some logging and exceute the callback
+        log.info(type(self).__name__.__str__() + " - Read Value for " + self.name + "="+str(val)+" at "+ str(now)+".")
+        self.__callback(now, val, self.name)
 
-    def stop(self):
-        """
-        Stops the running Monitor Thread.
-        :return: None
-        """
-        self.__running = False
-        log.info(type(self).__name__.__str__() + " - Stopping Monitor for " + self.__name + "...")
-
-
-    def run(self, *args, **kwargs):
-        """
-        Run method which is started in a new thread when calling start() method. To stop the Thread call stop() method.
-        :return: None
-        """
-        #do as long as self.__running is true
-        while self.__running:
-            # get current time and current value
-            now = datetime.now()
-            val = self.__getter()
-
-            #do some logging and exceute the callback
-            log.info(type(self).__name__.__str__() + " - Read Value for " + self.__name + "="+str(val)+" at "+ str(now)+".")
-            self.__callback(now, val, self.__name)
-
-            #wait cycle time until next call
-            time.sleep(self.__cycle_time)
-
-        log.info(type(self).__name__.__str__() + " - Monitor for " + self.__name + " stopped...")
 
 if __name__=="__main__":
 
