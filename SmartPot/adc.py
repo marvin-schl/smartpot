@@ -49,7 +49,7 @@ class MCP3426:
                 log.debug(type(self).__name__ + " - Conversion on Channel 1 should be finished. Conversion Result is "+str(voltage)+"V")
                 #release lock after conversion
             except I2CBussError as e:
-                log.error(type(self).__name__ + " - " + str(e))
+                log.error(type(self).__name__ + " - I2CBusError: Device may be not connected correctly. " + str(e))
                 voltage = -999
         log.debug(type(self).__name__ + " - Released Lock for Channel 1.")
 
@@ -78,7 +78,7 @@ class MCP3426:
                 voltage = -self.__second_channel.get_conversion_volts() #minus because of swapped CH2+ and CH2- in rev1.1 Shield
                 log.debug(type(self).__name__ + " - Conversion on Channel 2 should be finished. Conversion Result is "+str(voltage)+"V")
             except I2CBussError as e:
-                log.error(type(self).__name__ + " - " + str(e))
+                log.error(type(self).__name__ + " - I2CBusError: Device may be not connected correctly. " + str(e))
                 voltage = -999
         log.debug(type(self).__name__ + " - Released Lock for Channel 2.")
         return voltage
