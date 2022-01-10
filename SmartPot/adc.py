@@ -2,33 +2,9 @@ import time
 import SmartPot.mcp342x as mcp342x
 from threading import Lock
 from datetime import datetime
-import logging
-import configparser
-import sys
-#setup config
-config = configparser.ConfigParser()
-config.read("smartpot.ini")
-levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
-#setup logger
-# create logger with 'smartpot'
-log = logging.getLogger('smartpot')
-log.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
 
-# create formatter and add it to the handlers
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-
-# create file handler which logs even debug messages
-fh = logging.FileHandler(config["Logging"]["file"])
-fh.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
-fh.setFormatter(formatter)
-log.addHandler(fh)
-
-if config["Logging"]["stdout"] == "1":
-    # create console handler with a higher log level
-    ch = logging.StreamHandler()
-    ch.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
-    ch.setFormatter(formatter)
-    log.addHandler(ch)
+from logging_conf_setup import get_setup
+log, config = get_setup()
 
 class MCP3426:
     def __init__(self, busnumber = 1):

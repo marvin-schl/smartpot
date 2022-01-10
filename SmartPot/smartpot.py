@@ -1,34 +1,10 @@
 from SmartPot.adc import MCP3426
 from SmartPot.dht import DHT
 from SmartPot.output import PowerOutputPin
-from datetime import datetime
-import logging
-import configparser
-import sys
-#setup config
-config = configparser.ConfigParser()
-config.read("smartpot.ini")
-levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
-#setup logger
-# create logger with 'smartpot'
-log = logging.getLogger('smartpot')
-log.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
 
-# create formatter and add it to the handlers
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+from logging_conf_setup import get_setup
+log, config = get_setup()
 
-# create file handler which logs even debug messages
-fh = logging.FileHandler(config["Logging"]["file"])
-fh.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
-fh.setFormatter(formatter)
-log.addHandler(fh)
-
-if config["Logging"]["stdout"] == "1":
-    # create console handler with a higher log level
-    ch = logging.StreamHandler(sys.stdout)
-    ch.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
-    ch.setFormatter(formatter)
-    log.addHandler(ch)
 
 class SmartPot:
     """
