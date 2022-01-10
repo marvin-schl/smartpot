@@ -11,8 +11,6 @@ Anleitung ein Nachbau des SmartPots möglich wird.
 
 Die Software ist Python basiert und wurde auf einen RaspberryPi 3 entwickelt, sollte aber unabhängig davon auf allen RaspberryPi's mit den selben Header Pinout funktionieren.
 
-Das Projekt umfasst einen elektronischen Teil inklusive Schaltplänen, Platinenlayout, Stücklisten und Gerberdateien, um direkt mit der Bestellung bzw. dem Ätzen los legen zu können. Außerdem wird eine exemplarische Aufbauanleitung bereit gestellt. Die Ansteuerung erfolgt über ein an die Schaltung angepasstes Python Modul.
-
 Der SmartPot an sich umfasst folgende Hardwarefunktionalitäten:
 
 - ein auf den RaspberryPi steckbares Shield mit integrierterm 12V/5V Linearregler zur Spannungsversorgung des Pi´s
@@ -29,22 +27,6 @@ jeweiligen Wissensstand (Programmierung vom Raspberry Pi) durch Variation der
 Funktionskomplexität angepasst werden.
 In der ersten Version des Frontends wurden unabhängig von den möglichen Hardwarefunktionen folgende Funktionen implementiert:
 
-1) Temperatur messen, auslesen und ausgeben
-2) Luftfeuchtigkeit messen, auslesen und ausgeben
-3) Bodenfeuchtigkeit messen, auslesen und ausgeben
-4) Lichtstärke messen, auslesen und ausgeben
-5) Kommunikation in Telegram Web
-6) Node-RED Visualisierung der Sensorwerte (historisch/live)
-
-Die Idee einen intelligenten Blumentopf zu entwickeln wurde durch zahlreiche Anleitungen aus dem 
-Web inspiriert.[Link](https://tutorials-raspberrypi.de/automatisches-raspberry-pi-gewaechshaus-selber-bauen/)
-
-Der modulare Aufbau dieses Projektes eignet sich sehr gut für Gruppenarbeiten und kann dem 
-jeweiligen Wissensstand (Programmierung vom Raspberry Pi) durch Variation der 
-Funktionskomplexität angepasst werden.
-
-Die erste Version des SmartPots beinhaltet folgende Funktionen:
-
 Die erste Version des SmartPots beinhaltet folgende Funktionen:
 1) _Temperatur_ messen, überwachen, auslesen und ausgeben
 2) _Luftfeuchtigkeit_ messen, überwachen,  auslesen und ausgeben
@@ -53,9 +35,25 @@ Die erste Version des SmartPots beinhaltet folgende Funktionen:
 5) Kommunikation in Telegram Web
 6) Node-RED Visualisierung der Sensorwerte (historisch/live)
 
-In zukünftigen Versionen könnte unter einer optimierten Ausnutzung der verfügbaren Leistungsausgänge und erweiterung von finanziellen Mitteln weitere Funktionen wie z.B. automatische Bewässerung, Lichtregelung sowie Belüftung realisiert werden, um so den Automatisierungsgrade weiter zu erhöhen.
+Die Idee einen intelligenten Blumentopf zu entwickeln wurde durch zahlreiche Anleitungen aus dem 
+Web inspiriert.[Link](https://tutorials-raspberrypi.de/automatisches-raspberry-pi-gewaechshaus-selber-bauen/)
 
-## Einrichtung des TelegramBots
+In zukünftigen Versionen könnte unter einer optimierten Ausnutzung der verfügbaren Leistungsausgänge und Erweiterung von finanziellen Mitteln weitere Funktionen wie z.B. automatische Bewässerung, Lichtregelung sowie Belüftung realisiert werden, um so den Automatisierungsgrad weiter zu erhöhen.
+
+## Gliederung
+
+Diese Dokumentation glieder sich in folgende Schritte an denen unter Anderem die Inbetriebnahme des SmartPots erläutert wird:
+
+1. Die Erstellung eines Telegram Bots 
+2. Die Konfiguration des Telegram Bots für den SmartPot
+3. Die Einrchtung von Node Red und der SmartPot Software selber 
+    - 3.1 als manuelle Einichtung **oder**
+    - 3.2  als automatische Einrchtung via Docker und Docker-Compose
+4. Die Bereitstellung der Schaltpläne und Platinenlayouts, zum Nachbau auf einem Bredboard, Bestellung der Platine bzw. Eigenherstellung der Platine, inklusive Stückliste aller benötigten Komponenten
+5. Einer kurzen Übersicht der enthaltenen Klassen und Methoden 
+6. Eine Übersicht, welche bekannten Schwachstellen und Verbesserungsideen für zukünftige Versionen des SmartPots existieren
+
+## 1. Einrichtung des TelegramBots
 
 Zunächst muss ein Chat mit dem Telegram-Bot „BotFather“ wie folgt erstellt werden:
 Bei Telegram im Suchfeld „BotFather“ eingeben und unter Chats den BotFather auswählen.
@@ -76,9 +74,13 @@ Im Browser folgende Website aufrufen:
 
 https://api.telegram.org/botReplaceThisWithTheBotFatherToken/getUpdates
 
-Im Telegram Web dem erstellten Chatbot eine Nachricht senden und auf der Website die Chat-ID
-ablesen:
+In Telegram Web dem erstellten Chatbot eine Nachricht senden. 
+
 ![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_4.png?inline=false)
+
+Nach Neuladen der Website kann die Chat-ID
+ermittelt werden.
+
 ![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_3.png?inline=false)
 
 (Optional) Um den Chatbot einer Gruppe hinzufügen zu können, muss folgende Konfiguration im
@@ -90,16 +92,44 @@ BotFather vorgenommen werden:
 
 ![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_6.png?inline=false)
 
-*Achtung: Wenn sich der Chatbot in einer Gruppe befindet, muss die Chat-ID der Gruppe verwendet werden.*
+***Achtung:** Wenn sich der Chatbot in einer Gruppe befindet, muss die Chat-ID der Gruppe verwendet werden.*
 
-Abschließend müssen der Bot-Token und die Chat-ID in der smartpot.ini hinterlegt werden.
-
-
-## manuelle Einrichtung des RaspberryPi's
+## 2. Konfiguration des SmartPots
 
 Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes RaspianOS basierend auf Debian Buster installiert ist. Zunächst muss dieses Repository auf den RaspberryPi geclonet werden:
 
     git clone https://git.haw-hamburg.de/aco732/smartpot.git
+
+Für die Konfiguration steht eine smartpot.ini Datei zur Verfügung. 
+
+    #############################################
+    # Smart Pot Version 1 - Configuration File  #
+    #############################################
+
+    [Telegram]
+
+    #Sets the telepot API token
+    chattoken = <your-token>
+
+    #Sets the telepot Chat-ID
+    chatid = <your-chat-id>
+
+    [Logging]
+
+    # Sets the loglevel, when not specified DEBUG is taken
+    # Possible Values: INFO, WARN, ERROR, DEBUG
+    level = DEBUG
+
+    # If set to 1 the logs will be printed on sys.stdout
+    stdout = 1
+
+    #Sets the logfile
+    file = smartpot.log
+
+In der Konfiguationsdatei müssen nun der zuvor ermittelte Telegram API-Token unter chattoken und die ermittelte Chat-ID unter chatid eingetragen werden. Außerdem können das Log-Level und das Ausgabeformat der Logs festgelegt werden. 
+
+## 3.1 manuelle Einrichtung des RaspberryPi's
+
 
 Außerdem müssen über Python Paketmanager pip folgende Pakete installiert werden.
 
@@ -181,30 +211,36 @@ Die Visualisierung kann nun unter
 
 erreicht werden.
 
-## automatische Einrichtung des RaspberryPi's via Docker
-
-Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes RaspianOS basierend auf Debian Buster installiert ist. Zunächst muss dieses Repository auf den RaspberryPi geclonet werden:
-
-    git clone https://git.haw-hamburg.de/aco732/smartpot.git
-
-### Einrichtung von Docker und Docker-Compose
+## 3.2 automatische Einrichtung des RaspberryPi's via Docker
 
 Falls Docker und Docker-Compose bereits installiert sein sollten kann dieser Schritt übersprungen werden.
 
+
+### Einrichtung von Docker und Docker-Compose
+
+Für die Einrichtung von Docker und Docker-Compose müssen folgende Befehle ausfgeführt werden.
 
     sudo apt-get update
     curl -sSL https://get.docker.com | sh
     sudo apt-get install docker-compose
     sudo usermod -aG docker pi
 
-Nachdem der letzte Befehl ausfgeführt worden ist muss man sich eimal neu einloggen.
+Nachdem der letzte Befehl ausfgeführt worden ist muss der Pi neugstartet werden.
+
+   sudo reboot
 
 ### Starten der Smartpot Umgebung
+
+Zunächst muss sichergestellt werden, dass im SmartPot Verzeichnis die smartpot.log sowie die smartpot.ini Datei vorhanden ist. Sollte dies nicht der Fall sein müssen beide Dateien erstellt werden.
+
+    touch smartpot.log smartpot.ini
+
+Die ini-Konfigurationsdatei muss anschließend nach Abschnitt 2 konfiguriert werden.
 Aus dem smartpot Verzeichnis kann nun folgender Befehl die gesamte smartpot Umgebung gestartet werden
 
     docker-compose up
 
-## elektronischer Aufbau
+## 4. elektronischer Aufbau
 
 Schaltplan des RaspberryPi Shields:
 
@@ -258,7 +294,7 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 (Reichelt Preise beispielhaft, Stand 06.01.22)
 
 
-## Software Implementation
+## 5. Software Implementation
 
 
 
@@ -321,7 +357,7 @@ Diese Klasse verwendendet das RPi.GPIO Modul und implementiert die Funktionen de
 - change_dc(dc)
 
 
-## Ausblick
+## 6. Ausblick
 
 Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des dazugehörige Shield aufgelistet, welche in folgenden Versionen überarbeitet werden sollten.
 
