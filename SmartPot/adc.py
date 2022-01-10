@@ -50,6 +50,7 @@ class MCP3426:
                 #release lock after conversion
             except I2CBussError as e:
                 log.error(type(self).__name__ + " - " + str(e))
+                voltage = -999
         log.debug(type(self).__name__ + " - Released Lock for Channel 1.")
 
         return voltage
@@ -78,5 +79,6 @@ class MCP3426:
                 log.debug(type(self).__name__ + " - Conversion on Channel 2 should be finished. Conversion Result is "+str(voltage)+"V")
             except I2CBussError as e:
                 log.error(type(self).__name__ + " - " + str(e))
+                voltage = -999
         log.debug(type(self).__name__ + " - Released Lock for Channel 2.")
         return voltage
