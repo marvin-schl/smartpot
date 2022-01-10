@@ -102,31 +102,83 @@ Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes Raspia
 
 Für die Konfiguration steht eine smartpot.ini Datei zur Verfügung. 
 
-    #############################################
-    # Smart Pot Version 1 - Configuration File  #
-    #############################################
+``` ini
+#############################################
+# Smart Pot Version 1 - Configuration File  #
+#############################################
 
-    [Telegram]
+[Telegram]
 
-    #Sets the telepot API token
-    chattoken = <your-token>
+#Sets the telepot API token
+chattoken = <your-token>
 
-    #Sets the telepot Chat-ID
-    chatid = <your-chat-id>
+#Sets the telepot Chat-ID
+chatid = <your-chat-id>
 
-    [Logging]
+[Logging]
 
-    # Sets the loglevel, when not specified DEBUG is taken
-    # Possible Values: INFO, WARN, ERROR, DEBUG
-    level = DEBUG
+# Sets the loglevel, when not specified DEBUG is taken
+# Possible Values: INFO, WARN, ERROR, DEBUG
+level = DEBUG
 
-    # If set to 1 the logs will be printed on sys.stdout
-    stdout = 1
+# If set to 1 the logs will be printed on sys.stdout
+# If set to 1 there will be no logging to a a logfile
+stdout = 1
 
-    #Sets the logfile
-    file = smartpot.log
+# Sets the logfile
+# This options is ignored when logging to stdout
+file = smartpot.log
 
-In der Konfiguationsdatei müssen nun der zuvor ermittelte Telegram API-Token unter chattoken und die ermittelte Chat-ID unter chatid eingetragen werden. Außerdem können das Log-Level und das Ausgabeformat der Logs festgelegt werden. 
+
+[Soil Moisture]
+# This section calibrates the soil moisture sensor. Keep in mind that any calibration action will only effect the
+# python software. Depending on the Calibration it is possible that the Node-RED settings have to updated manually
+
+# Calibration of the soil moisture sensor connected to adc channel 1.
+# The calibrated output value is calculated from the Output value out [V]  follows:
+#     calibrated_out = scaling*(out - offset)
+# Calibration procedure:
+#    1.) Set both Values to zero.
+#    2.) Connect the sensor and make sure it's 100% dry.
+#    3.) Measure the voltage offset and adjust offset_calibration value to get an calibrated_out of 0.
+#    4.) Pull the sensor onto a defined soil moisture level.
+#    5.) Adjust scaling in such a way that calibratet_out matches the desired value.
+offset = 0.0
+scaling = 1.8
+
+# Defines the level at which calibrated_out is going into saturation. Comment out
+# to disable saturation.
+saturation = 1.8
+
+# Defines the unit of the measured and calibrated value
+unit = "%"
+
+[Light]
+# This section calibrates the light sensor. Keep in mind that any calibration action will only effect the
+# python software. Depending on the Calibration it is possible that the Node-RED settings have to updated manually.
+
+# Calibration of the light sensor connected to adc channel 2.
+# The calibrated ouput value is calculated from the Output value out [V] as follows:
+#     calibrated_out = scaling*(out - offset)
+# Calibration procedure:
+#    1.) Set both Values to zero.
+#    2.) Connect the sensor and make sure it's completly dark.
+#    3.) Measure the voltage offset and adjust offset_calibration value to get an calibrated_out of 0.
+#    4.) Pull the sensor onto a defined brightness level.
+#    5.) Adjust scaling in such a way that calibratet_out matches the desired value.
+
+offset = 0.0
+scaling = 1.8
+
+# Defines the level at which calibrated_out is going into saturation. Comment out
+# to disable saturation.
+saturation = 1.8
+
+# Defines the unit of the measured and calibrated value
+unit = "%"
+```
+
+In der Konfiguationsdatei müssen nun der zuvor ermittelte Telegram API-Token unter chattoken und die ermittelte Chat-ID unter chatid eingetragen werden. Außerdem können das Log-Level, das Ausgabeformat der Logs und die Kalibration der analogen Sensoren angepasst werden. 
 
 ## 3.1 manuelle Einrichtung des RaspberryPi's
 
