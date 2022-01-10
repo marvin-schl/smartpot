@@ -2,6 +2,7 @@ import logging
 import configparser
 import sys
 
+
 def get_setup():
     #setup config
     config = configparser.ConfigParser()

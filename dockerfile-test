@@ -1,0 +1,4 @@
+FROM python:3.7-buster
+COPY monitor.py .
+COPY smartpot.ini .
+CMD python monitor.py
