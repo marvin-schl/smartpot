@@ -28,6 +28,8 @@ if config["Logging"]["stdout"] == "1":
     ch.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
     ch.setFormatter(formatter)
     log.addHandler(ch)
+
+class DHT:
     """
     Wrapper Class for a DHT Device for an OOP and threadsafe access.
     """

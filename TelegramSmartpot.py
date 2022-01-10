@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from SmartPot.smartpot import SmartPot
 from threading import Thread
 from monitor import TimeBasedMonitor, HysteresisMonitor
