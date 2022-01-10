@@ -369,6 +369,6 @@ Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des d
 
 - Eine Verbesserung des Automatisierungsgrades durch die Nutzung der Hardwareseitig implementierten Schaltfunktionen
 
-
+- Eine erweiterung der Node-RED Öberflächen, sodass nicht nur ein passives Monitoring sondern auch eine aktive Kontrolle des SmartPots möglich ist
 
 
