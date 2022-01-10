@@ -4,7 +4,10 @@ from monitor import TimeBasedMonitor, HysteresisMonitor
 import telepot
 from telepot.loop import MessageLoop
 import time
-
+import configparser
+#setup config
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
 #Bot token und Chatid aus Config Datei holen
 token=config["Telegram"]["chattoken"]
 chatid=int(config["Telegram"]["chatid"])
