@@ -1,10 +1,14 @@
 ''' mc3426 a/d converter'''
 
 import smbus2
-
-from logging_conf_setup import get_setup
-log, config = get_setup()
-
+import logging
+import configparser
+#setup config
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
+#setup logger
+# get root Logger
+log = logging.getLogger()
 
 
 # I2C address of the device

@@ -1,10 +1,14 @@
 import time
 import SmartPot.mcp342x as mcp342x
 from threading import Lock
-from datetime import datetime
-
-from logging_conf_setup import get_setup
-log, config = get_setup()
+import logging
+import configparser
+#setup config
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
+#setup logger
+# get root Logger
+log = logging.getLogger()
 
 class MCP3426:
     def __init__(self, busnumber = 1):

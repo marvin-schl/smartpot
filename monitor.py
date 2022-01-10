@@ -2,8 +2,14 @@ import time
 from datetime import datetime
 from threading import Thread
 from abc import ABC, abstractmethod
-from logging_conf_setup import get_setup
-log, config = get_setup()
+import logging
+import configparser
+#setup config
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
+#setup logger
+# get root Logger
+log = logging.getLogger()
 
 class Monitor(Thread, ABC):
     def __init__(self, name, getter, cycle_time):
