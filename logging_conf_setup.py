@@ -2,7 +2,7 @@ import sys
 import logging
 import configparser
 
-def setup()
+def setup():
     #setup config
     config = configparser.ConfigParser()
     config.read("smartpot.ini")
