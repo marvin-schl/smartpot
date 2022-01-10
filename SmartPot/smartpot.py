@@ -1,9 +1,18 @@
 from SmartPot.adc import MCP3426
 from SmartPot.dht import DHT
 from SmartPot.output import PowerOutputPin
+import logging_conf_setup
+import logging
+import configparser
 
-from logging_conf_setup import get_setup
-log, config = get_setup()
+#setup logger for the first time
+logging_conf_setup.setup()
+#setup config
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
+#setup logger
+# get root Logger
+log = logging.getLogger()
 
 
 class SmartPot:

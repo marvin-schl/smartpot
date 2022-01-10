@@ -1,17 +1,13 @@
 import Adafruit_DHT
 from threading import Lock
-from datetime import datetime
 import logging
 import configparser
-import sys
 #setup config
 config = configparser.ConfigParser()
 config.read("smartpot.ini")
-levels = {"DEBUG": logging.DEBUG, "ERROR":logging.ERROR, "WARN":logging.WARN, "INFO":logging.INFO}
 #setup logger
-# create logger with 'smartpot'
-log = logging.getLogger('smartpot')
-log.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
+# get root Logger
+log = logging.getLogger()
 
 # create formatter and add it to the handlers
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')

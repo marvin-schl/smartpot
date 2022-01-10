@@ -1,9 +1,13 @@
 import RPi.GPIO as GPIO
 from threading import Lock
-
-from logging_conf_setup import get_setup
-log, config = get_setup()
-
+import logging
+import configparser
+#setup config
+config = configparser.ConfigParser()
+config.read("smartpot.ini")
+#setup logger
+# get root Logger
+log = logging.getLogger()
 
 
 class PowerOutputPin:

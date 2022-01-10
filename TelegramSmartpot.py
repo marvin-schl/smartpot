@@ -4,9 +4,6 @@ from monitor import TimeBasedMonitor, HysteresisMonitor
 import telepot
 from telepot.loop import MessageLoop
 import time
-from logging_conf_setup import get_setup
-
-log, config = get_setup()
 
 #Bot token und Chatid aus Config Datei holen
 token=config["Telegram"]["chattoken"]
