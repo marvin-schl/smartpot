@@ -29,8 +29,8 @@ licht_mon = None
 boden_mon = None
 temperatur_mon = None
 humidity_mon =None
-licht_einheit = config["Light"]["unit"]
-boden_einheit = config["Soil Moisture"]["unit"]
+licht_einheit = str(config["Light"]["unit"])
+boden_einheit = str(config["Soil Moisture"]["unit"])
 
 #Message Handler fuer Empfangene Telegramnarchichten
 def handle(msg):
