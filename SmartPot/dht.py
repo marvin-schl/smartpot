@@ -9,30 +9,6 @@ config.read("smartpot.ini")
 # get root Logger
 log = logging.getLogger()
 
-# create formatter and add it to the handlers
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-
-if config["Logging"]["stdout"] == "1":
-    # create console handler with a higher log level
-    ch = logging.StreamHandler()
-    ch.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
-    ch.setFormatter(formatter)
-    log.addHandler(ch)
-else:
-    # create file handler which logs even debug messages
-    fh = logging.FileHandler(config["Logging"]["file"])
-    fh.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
-    fh.setFormatter(formatter)
-    log.addHandler(fh)
-
-
-if config["Logging"]["stdout"] == "1":
-    # create console handler with a higher log level
-    ch = logging.StreamHandler()
-    ch.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
-    ch.setFormatter(formatter)
-    log.addHandler(ch)
-
 class DHT:
     """
     Wrapper Class for a DHT Device for an OOP and threadsafe access.
