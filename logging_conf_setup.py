@@ -1,9 +1,12 @@
 import logging
 import configparser
 import sys
+from multiprocessing import Lock
 
+lock = Lock()
 
 def get_setup():
+    lock.acquire()
     #setup config
     config = configparser.ConfigParser()
     config.read("smartpot.ini")
@@ -23,4 +26,5 @@ def get_setup():
         ch.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
         ch.setFormatter(formatter)
         log.addHandler(ch)
+    lock.release()
     return log, config
