@@ -4,7 +4,7 @@ services:
     user: "0:1000"
     build:
       context: .
-      dockerfile: dockerfile_smartpot
+      dockerfile: dockerfiles/dockerfile_smartpot
     privileged: true
     volumes:
     - type: volume
@@ -20,7 +20,7 @@ services:
     user: "0:1000"
     build:
       context: .
-      dockerfile: dockerfile_nodered
+      dockerfile: dockerfiles/dockerfile_nodered
     ports:
       - "1880:1880"
     volumes:
