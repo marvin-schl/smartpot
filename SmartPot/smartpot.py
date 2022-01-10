@@ -136,10 +136,11 @@ class SmartPot:
         #get the adc value in volts
         adc_value = self.__adc.read_ch2()
 
-        # calibrate
-        scale = float(config["Light"]["scaling"])
-        offset = float(config["Light"]["offset"])
-        intensity = scale*(adc_value - offset)
+        if adc_value != -999:
+            # calibrate
+            scale = float(config["Light"]["scaling"])
+            offset = float(config["Light"]["offset"])
+            intensity = scale*(adc_value - offset)
 
         #apply saturation if configured
         if "saturation" in config["Light"]:
@@ -159,10 +160,11 @@ class SmartPot:
         #get the adc value in volts
         adc_value = self.__adc.read_ch1()
 
-        # calibrate
-        scale = float(config["Soil Moisture"]["scaling"])
-        offset = float(config["Soil Moisture"]["offset"])
-        moisture = scale*(adc_value - offset)
+        if adc_value != -999:
+            # calibrate
+            scale = float(config["Soil Moisture"]["scaling"])
+            offset = float(config["Soil Moisture"]["offset"])
+            moisture = scale*(adc_value - offset)
 
         #apply saturation if configured
         if "saturation" in config["Soil Moisture"]:
