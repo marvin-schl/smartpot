@@ -24,7 +24,7 @@ log.addHandler(fh)
 
 if config["Logging"]["stdout"] == "1":
     # create console handler with a higher log level
-    ch = logging.StreamHandler(sys.stdout)
+    ch = logging.StreamHandler(sys.stderr)
     ch.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
     ch.setFormatter(formatter)
     log.addHandler(ch)
