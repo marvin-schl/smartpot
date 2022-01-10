@@ -9,13 +9,16 @@ services:
     volumes:
     - type: volume
       source: smartpot_data
-      target: /gome/smartpot
+      target: /home/smartpot
     - type: bind
       source: ./smartpot.ini
       target: /home/smartpot/smartpot.ini
     - type: bind
       source: ./smartpot.log
       target: /home/smartpot/smartpot.log
+    - type: bind
+      source: ./Logging.csv
+      target: /home/smartpot/Logging.csv
   nodered:
     user: "0:1000"
     build:
