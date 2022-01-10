@@ -7,9 +7,6 @@ services:
       dockerfile: dockerfiles/dockerfile_smartpot
     privileged: true
     volumes:
-    - type: volume
-      source: smartpot_data
-      target: /home/smartpot
     - type: bind
       source: ./smartpot.ini
       target: /home/smartpot/smartpot.ini
@@ -27,8 +24,7 @@ services:
     ports:
       - "1880:1880"
     volumes:
-      - smartpot_data:/home/pi/smartpot
+      - ./Logging.csv:/home/pi/Logging.csv
       - nodered_data:/data
 volumes:
-  smartpot_data:
   nodered_data:
