@@ -180,6 +180,10 @@ unit = "%"
 
 In der Konfiguationsdatei müssen nun der zuvor ermittelte Telegram API-Token unter chattoken und die ermittelte Chat-ID unter chatid eingetragen werden. Außerdem können das Log-Level, das Ausgabeformat der Logs und die Kalibration der analogen Sensoren angepasst werden. 
 
+Alternativ kann das setup.sh Skript ausgeführt werden und auf die abschließende Frage, ob der SmartPot via docker-compose gestartet werden soll mit "n" beantwortet werden:
+
+    bash setup.sh
+
 ## 3.1 manuelle Einrichtung des RaspberryPi's
 
 
