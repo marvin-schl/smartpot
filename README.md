@@ -2,16 +2,14 @@
 
 SmartPot ist ein RaspberryPi Projekt um einen smarten Blumentopf/Gewächshaus umzusetzen. Es werden alle für 
 Pflanzen wichtigen Parameter (Temperatur, Luft-/Bodenfeuchtigkeit und Lichtstärke) gemessen und 
-informativ zur Verfügung stellt. Die Visualisierung der Daten kann auf der Homepage des 
+auf verschiedenen Wegen zur Verfügung stellt. Die Visualisierung der Daten kann über einen Webserver des 
 Raspberry Pi´s aufgerufen und analysiert werden. Alternativ können die Sensorwerte auch per 
-Telegram manuell erfragt werden. Außerdem können für diese Parameter kritische Schwellenwerte programmiert werden, bei deren 
+Telegram manuell erfragt werden. Außerdem können für alle Parameter kritische Schwellenwerte programmiert werden, bei deren 
 Unter- bzw. Überschreiten eine Benachrichtigung über Telegram abgeschickt wird.
 Im Folgenden wird die Umsetzung des Projektes detailliert dokumentiert, sodass mit Hilfe dieser 
-Anleitung ein Nachbau des SmartPots möglich wird.
+Anleitung ein Nachbau des SmartPots möglich wird. Es werden alle Softwareeinrichtungsschritte von der Erstellung des Telegram Bots bis zur Node-RED Einrichtung erklärt. Außerdem werden Schaltpläne bereitgestellt welche auf die Softwareimplementationen angepasst sind. Zusätzlich zu den Schaltplänen wird ebenso ein Leiterplattenlayout, sowie alle benötigten Komponenten zum Bestücken der Leiterplatte mit einer Preisübersicht zur Verfügung gestellt
 
-Die Software ist Python basiert und wurde auf einen RaspberryPi 3 entwickelt, sollte aber unabhängig davon auf allen RaspberryPi's mit den selben Header Pinout funktionieren.
-
-Der SmartPot an sich umfasst folgende Hardwarefunktionalitäten:
+Schaltungsseitig sind zur Zeit folgende Funktionalitäten implementiert:
 
 - ein auf den RaspberryPi steckbares Shield mit integrierterm 12V/5V Linearregler zur Spannungsversorgung des Pi´s
 - Anbindung eines Temperatur/Luftfeuchtigkeitssensors (DHT11/DHT22)
@@ -19,24 +17,21 @@ Der SmartPot an sich umfasst folgende Hardwarefunktionalitäten:
 - Anbindung eines Lichtsensors
 - Drei schaltbare 12V/1,5A Leistungsausgänge mit PWM Unterstützung
 
+Softwareseitig ist die aktuelle Version des SmartPots beinhaltet folgende Funktionen:
+
+- _Temperatur_ messen, überwachen, auslesen und ausgeben
+- _Luftfeuchtigkeit_ messen, überwachen,  auslesen und ausgeben
+- _Bodenfeuchtigkeit_ messen, überwachen, auslesen und ausgeben
+- _Lichtstärke_ messen, überwachen, auslesen und ausgeben
+- Kommunikationsinterface über Telegram Web
+- Node-RED Visualisierung der Sensorwerte (historisch/live)
+
 Die Idee einen intelligenten Blumentopf zu entwickeln wurde durch zahlreiche Anleitungen aus dem
 Web inspiriert (Bspw: [Automatisches Gewächshaus](https://tutorials-raspberrypi.de/automatisches-raspberry-pi-gewaechshaus-selber-bauen/)).
 
 Der modulare Aufbau dieses Projektes eignet sich sehr gut für Gruppenarbeiten und kann dem
 jeweiligen Wissensstand (Programmierung vom Raspberry Pi) durch Variation der
 Funktionskomplexität angepasst werden.
-In der ersten Version des Frontends wurden unabhängig von den möglichen Hardwarefunktionen folgende Funktionen implementiert:
-
-Die erste Version des SmartPots beinhaltet folgende Funktionen:
-1) _Temperatur_ messen, überwachen, auslesen und ausgeben
-2) _Luftfeuchtigkeit_ messen, überwachen,  auslesen und ausgeben
-3) _Bodenfeuchtigkeit_ messen, überwachen, auslesen und ausgeben
-4) _Lichtstärke_ messen, überwachen, auslesen und ausgeben
-5) Kommunikation in Telegram Web
-6) Node-RED Visualisierung der Sensorwerte (historisch/live)
-
-Die Idee einen intelligenten Blumentopf zu entwickeln wurde durch zahlreiche Anleitungen aus dem 
-Web inspiriert.[Link](https://tutorials-raspberrypi.de/automatisches-raspberry-pi-gewaechshaus-selber-bauen/)
 
 In zukünftigen Versionen könnte unter einer optimierten Ausnutzung der verfügbaren Leistungsausgänge und Erweiterung von finanziellen Mitteln weitere Funktionen wie z.B. automatische Bewässerung, Lichtregelung sowie Belüftung realisiert werden, um so den Automatisierungsgrad weiter zu erhöhen.
 
@@ -48,8 +43,8 @@ Diese Dokumentation glieder sich in folgende Schritte an denen unter Anderem die
 2. Die Konfiguration des Telegram Bots für den SmartPot
 3. Die Einrchtung von Node Red und der SmartPot Software selber 
     - 3.1 als manuelle Einichtung **oder**
-    - 3.2  als automatische Einrchtung via Docker und Docker-Compose
-4. Die Bereitstellung der Schaltpläne und pcbnlayouts, zum Nachbau auf einem Bredboard, Bestellung der pcb bzw. Eigenherstellung der pcb, inklusive Stückliste aller benötigten Komponenten
+    - 3.2  als automatische Einrchtung via docker und docker-compose
+4. Die Bereitstellung der Schaltpläne und eines Leiterplattenlayout, zum Nachbau auf einem Bredboard oder zur Fertigung einer Leiterplatte, inklusive Stückliste aller benötigten Komponenten
 5. Einer kurzen Übersicht der enthaltenen Klassen und Methoden 
 6. Eine Übersicht, welche bekannten Schwachstellen und Verbesserungsideen für zukünftige Versionen des SmartPots existieren
 
@@ -60,7 +55,7 @@ Bei Telegram im Suchfeld „BotFather“ eingeben und unter Chats den BotFather 
 
 ![](https://github.com/marvin-schl/smartpot/raw/master/pictures/bot_1.png)
 
-Im Chat des BotFather kann nun ein Chatbot erstellt werden:
+Im Chat des BotFathers kann nun ein Chatbot erstellt werden:
 
 1. /newbot eingeben
 2. Botname vergeben
@@ -70,7 +65,7 @@ Im Chat des BotFather kann nun ein Chatbot erstellt werden:
 
 ![](https://github.com/marvin-schl/smartpot/raw/master/pictures/bot_2.png)
 
-Im Browser folgende Website aufrufen:
+Zum Abfragen neuer Nachrichten muss im Browser folgende Website aufgerufen werden:
 
 https://api.telegram.org/botReplaceThisWithTheBotFatherToken/getUpdates
 
@@ -78,7 +73,7 @@ In Telegram Web dem erstellten Chatbot eine Nachricht senden.
 
 ![](https://github.com/marvin-schl/smartpot/raw/master/pictures/bot_4.png)
 
-Nach Neuladen der Website kann die Chat-ID
+Nach Neuladen der Website kann nun aus der geschickten Nachricht die Chat-ID
 ermittelt werden.
 
 ![](https://github.com/marvin-schl/smartpot/raw/master/pictures/bot_3.png)
@@ -92,11 +87,11 @@ BotFather vorgenommen werden:
 
 ![](https://github.com/marvin-schl/smartpot/raw/master/pictures/bot_6.png)
 
-***Achtung:** Wenn sich der Chatbot in einer Gruppe befindet, muss die Chat-ID der Gruppe verwendet werden.*
+***Achtung:** Wenn sich der Chatbot in einer Gruppe befindet, muss die Chat-ID der Gruppe verwendet werden!*
 
 ## 2. Konfiguration des SmartPots
 
-Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes RaspianOS basierend auf Debian Buster installiert ist. Zunächst muss dieses Repository auf den RaspberryPi geclonet werden:
+Es wird davon ausgegangen, dass auf dem RaspberryPi ein neu installiertes RaspianOS basierend auf Debian Buster installiert, ein Zugang zum Internet, sowie ein ssh Zugang vorhanden ist. Zunächst muss dieses Repository auf dem RaspberryPi geclonet werden:
 
     git clone https://git.haw-hamburg.de/aco732/smartpot.git
 
@@ -180,16 +175,16 @@ unit = "%"
 
 In der Konfiguationsdatei müssen nun der zuvor ermittelte Telegram API-Token unter chattoken und die ermittelte Chat-ID unter chatid eingetragen werden. Außerdem können das Log-Level, das Ausgabeformat der Logs und die Kalibration der analogen Sensoren angepasst werden. 
 
-Alternativ kann das setup.sh Skript ausgeführt werden und auf die abschließende Frage, ob der SmartPot via docker-compose gestartet werden soll, mit "n" geantwortet werden:
+Alternativ kann das setup.sh Skript ausgeführt werden, um die Telegram Konfiguration durchzuführen. Auf die abschließende Frage, ob der SmartPot via docker-compose gestartet werden soll, muss in diesem Fall mit "n" geantwortet werden:
 
     bash setup.sh
 
 ## 3.1 manuelle Einrichtung des RaspberryPi's
 
 
-Außerdem müssen über Python Paketmanager pip folgende Pakete installiert werden.
+Zuerst müssen über Python Paketmanager pip folgende Pakete installiert werden.
 
-    pip install RPi.GPIO Adafruit_DHT smbus2 telepot
+    pip3 install RPi.GPIO Adafruit_DHT smbus2 telepot
 
 Desweiteren wird eine [Library für den MCP3426](https://github.com/coburnw/MCP342x) für den MCP3426 verwendet. Diese ist bereits in den Source Files enthalten.
 
@@ -197,11 +192,11 @@ Desweiteren wird eine [Library für den MCP3426](https://github.com/coburnw/MCP3
 
 ### Einrichten von Node-RED
 
-Das Installieren der Node-RED Editors erfolgt durch folgende Shell-Eingabe:
+Das Installation von Node-RED erfolgt durch folgende Shell-Eingabe:
 
     bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --node16
 
-Das Node-RED Dashboard wird mit folgender Eingabe installiert:
+Das Node-RED Dashboard zur Visualisierung der Sensorwerte wird mit folgender Eingabe installiert:
 
     npm i node-red-dashboard
 
@@ -222,12 +217,11 @@ Der Node-RED Editor ist über die IP-Adresse des Pi´s aufzurufen. Die IP wird w
 
     hostname -l
 
-Node-RED ist per default auf Port 1880 erreichbar. Mit im vorherigen Schritt ermittelten <hostname> kann die Node-RED Konfiguration unter folgender Adresse im Interetbrowser aufgerufen werden:
-Platzhalter <hostname> :
-
+Node-RED ist standardmäßig auf Port 1880 erreichbar. Mit dem im vorherigen Schritt ermittelten <hostname> kann die Node-RED Konfiguration unter folgender Adresse im Interetbrowser aufgerufen werden:
+    
     http://<hostname>:1880
 
-Die Node-RED Visualisierung kann nun wie folgt installiert werden:
+Die vorbereitete Node-RED Visualisierung kann nun wie folgt installiert werden:
 
 1. Menü-Reiter auswählen
 2. Palette verwalten klicken
@@ -241,7 +235,7 @@ Die Node-RED Visualisierung kann nun wie folgt installiert werden:
 
 Die zur Verfügung gestellte Visualisierung des Node-RED Dashboards muss nun wie folgt kopiert werden:
 
-    cp /home/pi/smartpot/Node-Red/flows.json /home/pi/.node-red/lib/flows
+    cp /home/pi/smartpot/resources/flows.json /home/pi/.node-red/lib/flows
 
 Abschließend wird die flow-Datei in Node-RED importiert:
 
@@ -251,7 +245,7 @@ Abschließend wird die flow-Datei in Node-RED importiert:
 ![](https://github.com/marvin-schl/smartpot/raw/master/pictures/dashboard_3.png)
 
 3. Lokal auswählen
-4. „SmartpotVflows.json“ wählen
+4. „flows.json“ wählen
 
 ![](https://github.com/marvin-schl/smartpot/raw/master/pictures/dashboard_4.png)
 
@@ -259,7 +253,6 @@ Abschließend wird die flow-Datei in Node-RED importiert:
 6. „Übernahme (deploy)“ klicken
 
 ![](https://github.com/marvin-schl/smartpot/raw/master/pictures/dashboard_5.png)
-
 
 Die Visualisierung kann nun unter 
 
@@ -269,12 +262,11 @@ erreicht werden.
 
 ## 3.2 automatische Einrichtung des RaspberryPi's via Docker
 
-Falls Docker und Docker-Compose bereits installiert sein sollten kann dieser Schritt übersprungen werden.
+Falls docker und docker-compose bereits installiert sein sollten kann der nächste Schritt übersprungen werden und direkt mit "Starten der Smartpot Umgebung" fortgefahren werden.
 
+### Einrichtung von docker und docker-compose
 
-### Einrichtung von Docker und Docker-Compose
-
-Für die Einrichtung von Docker und Docker-Compose müssen folgende Befehle ausfgeführt werden.
+Für die Einrichtung von docker und docker-compose müssen folgende Befehle ausfgeführt werden.
 
     sudo apt-get update
     curl -sSL https://get.docker.com | sh
@@ -287,16 +279,16 @@ Nachdem der letzte Befehl ausfgeführt worden ist muss der Pi neugstartet werden
 
 ### Starten der Smartpot Umgebung
 
-Vor dem ersten Start muss die setup.sh ausgeführt werden. Diese stellt sicher, dass die ini, log und csv Dateien vorhanden sind und die Telegramtokens konfiguriert wurden. Außerdem stellt diese sicher, dass die Dockercontainer mit ausreichenden Rechten gestartet werden:
+Vor dem ersten Start muss die setup.sh ausgeführt werden. Diese stellt sicher, dass die ini, log und csv Dateien vorhanden sind und die Telegrameinstellungen getätigt worden sind. Außerdem stellt diese sicher, dass die Container mit ausreichenden Rechten gestartet werden:
     
     bash setup.sh
     
-Der SmartPot kann gleich im Anschluss darauf gestartet werden. **Sollte der Start nicht direkt aus der setup.sh erfolgen muss zuerst ein Neustart oder Neulogin durchgeführt werden!**
+Der SmartPot kann gleich im Anschluss darauf us dem Skript heraus gestartet werden. **Sollte der Start nicht direkt aus der setup.sh erfolgen muss zuerst ein Neustart oder Neulogin durchgeführt werden!**
 Aus dem SmartPot Verzeichnis kann nach Neustart/Neulogin in Zukunft der SmartPot wie folgt gestartet werden:
 
     docker-compose up
     
-Um den SmartPot als Hintergrunddienst laufen zu lassen und automatisch bei jedem Neustart starten zu lassen muss noch das Flag -d/--detached (losgelöst) verwendet werden:
+Um den SmartPot als Hintergrunddienst laufen und automatisch starten zu lassen, muss zusätzlich das Flag -d/--detached (losgelöst) verwendet werden:
     
     docker-compose up -d
 
@@ -306,15 +298,10 @@ Schaltplan des RaspberryPi Shields:
 
 ![Schaltplan](https://github.com/marvin-schl/smartpot/raw/master/pcb/Bilder/schematic.png)
 
-Die Schaltung kann an einem handelsüblichen 12V Netzteil betrieben werden. Über einen 12V/5V Linearregler wird die Betriebsspannung 
-wird die Versorgnungsspannung für den RaspberryPi bereit gestellt. 
-
-Auf dem Board ist eine dreipolige Buchsenleiste für einen DHT11 bzw DHT22 Sensor vorgesehen. Der Sensor kann einfach auf die Buchsenleiste gesteckt werden und per OneWire Protokoll ausgelesen werden.
-
-Für den analogen Lichtsensor und den analogen Bodenfeuchtigkeitssensors ist ein 2 Kanal Delta-Sigma AD-Wandler mit I2C Interface, der MCP3426, verbaut.  
-
-Für die Leistungsausgänge wird mit den GPIOs des RaspberryPis ein Darlington Array (ULN20003AD) angesteuert. Mit den verstärkten Ausgängen des Darlington Arrays werden drei P-Kanel Mosfets (AO3401A) angesteuert.
-
+Die Schaltung kann an einem handelsüblichen 12V Netzteil betrieben werden. Über einen 12V/5V Linearregler (uA78S05)
+wird die Versorgnungsspannung für den RaspberryPi bereit gestellt. Auf dem Board ist eine dreipolige Buchsenleiste für einen DHT11 bzw DHT22 Sensor vorgesehen. Der Sensor kann einfach auf die Buchsenleiste gesteckt (Sensorseitig zur Platinenmitte zeigend) werden und per OneWire Protokoll ausgelesen werden. Für den analogen Lichtsensor und den analogen Bodenfeuchtigkeitssensors ist ein 2 Kanal Delta-Sigma AD-Wandler mit I2C Interface, der MCP3426, verbaut. Die drei Leistungsausgänge werden von drei P-Kanal Mosfets (AO3401A) geschaltet. Die Gate Signale werden durch einen Darlington-Array (ULN2003AD) getrieben, welches die Rohsignale des RaspberryPi verstärkt.
+    
+Für einen Betrieb des SmartPots über ein Bredboard muss in der aktuellen Version des SmartPots lediglich der DHT mit J1-12 und der MCP3426, zusätzlich zu seiner äußeren Beschaltung, mit den I2C-Pins J1-3 und J1-5 verbunden werden. Dann können die Sensoren analog zum o.g. Schaltplan ausgelesen werden. 
 
 Das dazugehörige Layout wurde wie folgt umgesetzt:
 
@@ -328,7 +315,7 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 ------------|-----------------------------------|-------- |------------|-----------------
 1           | RaspberryPi 3B                    |1        |39,4        | 39,4
 2           | RaspberryPi Staking Header        |1        |1,6         | 1,60
-3           | ULN20003AD                        |1        |0,75        | 0,75
+3           | ULN2003AD                         |1        |0,75        | 0,75
 4           | 10k Kohleschichtwiderstand        |4        |0,1         | 0,4
 5           | RPI LK Kabel 50                   |2        |2,75        | 5,50
 6           | MCP3426                           |1        |3,10        | 3,10
@@ -351,7 +338,7 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 23          | DHT11                             |1        |4,50        | 4,50
 24          | Joy-It Linker Kit Lichtsensor     |1        |1,01        | 1,01
 25          | Joy-it sen-Moisture Sensorkit     |1        |4,99        | 4,99
-26          | pcb                           |1        |2,00        | 2,00
+26          | Leiterplatte                      |1        |2,00        | 2,00
 27          | Gesamt                            |         |            | 68,23
 
 (Reichelt Preise beispielhaft, Stand 06.01.22)
@@ -428,10 +415,12 @@ Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des d
 
 - Beim Ausschalten der Leistungsausgänge, also wenn das Gatesignal der Ausgangsmosfets (Q2, Q3, Q4) von 0V auf 12V gezogen wird. Findet die Entladung der Gatekapazität im unbelaseten Zustand über die Pullup Widerstände (R5, R6, R7) statt. Dies führt zumidest im unbelasteten Zustand zu sehr hohen Abfallszeit des Ausgangssignals. Ein Ansatz wäre kleinere Pullup Widerstände zu verwenden auf Kosten einer höheren Stromaufnahme bei eingeschaltetem Ausgang. Ein anderer Ansatz wäre die verwendung einer richtigen Mosfet Endstufe.
 
+- In dem jetzigen Design wurden die positiven und negativen Ch2 Eingangspins des MCP3426 vertauscht. Die folgliche invertiert gemessene Spannung wurde Softwareseitig kompensiert.
+    
 - Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-2,048V messen. Eine Lösuing wäre ein auf der pcb befindlicher 1:1 Spannungsteiler, ein anderer AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
 
 - Eine Verbesserung des Automatisierungsgrades durch die Nutzung der Hardwareseitig implementierten Schaltfunktionen
 
-- Eine erweiterung der Node-RED Öberflächen, sodass nicht nur ein passives Monitoring sondern auch eine aktive Kontrolle des SmartPots möglich ist
+- Eine Erweiterung der Node-RED Oberflächen, sodass nicht nur ein passives Monitoring sondern auch eine aktive Kontrolle des SmartPots möglich ist
 
 
