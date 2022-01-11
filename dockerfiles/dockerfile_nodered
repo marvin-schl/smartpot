@@ -2,6 +2,6 @@ FROM nodered/node-red
 
 RUN npm install node-red-dashboard
 COPY resources/flows.json /data/
-COPY resources/settings.json /data/
+COPY resources/settings.js /data/
 
 CMD node-red-start
