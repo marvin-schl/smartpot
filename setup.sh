@@ -59,5 +59,14 @@ fi;
 
 echo ""
 echo "Configuration of Logfile, Datafile and INI-File was successfull."
-echo "You can now start the smartpot by calling:"
+echo "After your next login you areable to start smartpot by calling from this directory:"
 echo -e "\t docker-compose up"
+
+echo -n "Should smartpot be started now? (y/n)"
+read answer
+if [ answer == "y"]
+then
+    docker-compose up
+fi
+
+
