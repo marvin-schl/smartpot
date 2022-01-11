@@ -17,4 +17,4 @@ COPY telegram_smartpot.py .
 
 RUN touch data.csv
 
-CMD ["python","-u","telgeram_smartpot.py"]
+CMD ["python","-u","telegram_smartpot.py"]
