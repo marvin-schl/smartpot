@@ -1,5 +1,5 @@
 #!/bin/bash
-echo  "export DOCKER_USER=\"$(id root -u):$(id -g)\"" >> ~/.bash_profile
+echo  "export DOCKER_USER=\"$(id root -u):$(id -g)\"" > ~/.bash_profile
 source ~/.bash_profile
 
 echo "Welcome to SmartPot"
@@ -21,7 +21,7 @@ function write_token() {
 }
 
 echo ""
-echo "Checking if configuration file is existent..."
+echo "Checking if configuration file exists..."
 #check if smartpot.ini is existent
 if [ ! -f $ini_file ]
 then
@@ -29,7 +29,7 @@ then
     cp resources/smartpot.ini smartpot.ini
     write_token
 else
-    echo "Found configuration file"
+    echo "Found configuration file!"
     if [ "$(cat smartpot.ini | grep "<your-token>\|<your-chat-id>")" != "" ]
     then
       echo "It seems like you dont have configured your telgram token and chat-id..."
@@ -38,7 +38,7 @@ else
 fi
 
 echo ""
-echo "Checking if logfile is existent..."
+echo "Checking if logfile exists..."
 if [ ! -f "$log_file" ];
 then
     echo "Logfile not found. Creating..."
@@ -48,7 +48,7 @@ else
 fi;
 
 echo ""
-echo "Checking if logfile is existent..."
+echo "Checking if Data file exists..."
 if [ ! -f $data_file ];
 then
     echo "Datafile not found. Creating..."
