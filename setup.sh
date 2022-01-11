@@ -1,11 +1,12 @@
 #!/bin/bash
-
-#!/bin/bash
+echo  "export DOCKER_USER=\"$(id root -u):$(id -g)\"" >> ~/.bash_profile
+source ~/.bash_profile
 
 echo "Welcome to SmartPot"
 echo "###################"
 echo "Starting smartpot setup...."
-export DOCKER_USER="$(id root -u):$(id -g)"
+
+
 ini_file="smartpot.ini"
 log_file="smartpot.log"
 data_file="data.csv"
