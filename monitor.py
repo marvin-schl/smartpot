@@ -12,7 +12,18 @@ config.read("smartpot.ini")
 log = logging.getLogger()
 
 class Monitor(Thread, ABC):
+    """
+    Implements a abstract monitor. This class handles every action all monitors have in common. Namely this is the
+    retrieving of the monitored value, retrieving a timestamp and waiting the cycle time repeatedly until the stop method
+    is called.
+    """
     def __init__(self, name, getter, cycle_time):
+        """
+        Initilizes a new Monitor.
+        :param name: A String representation of the value that is monitored. Mainly for logging purposes.
+        :param getter: A callable which return value should be the value of the monitored variable.
+        :param cycle_time: Time to wait beween retrieving new values in seconds. Default value is 0.1s.
+        """
         super().__init__()
         self.__getter = getter
         self.__name = name
