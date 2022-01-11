@@ -28,4 +28,4 @@ def setup():
         fh = logging.FileHandler(config["Logging"]["file"])
         fh.setLevel(levels.get(config["Logging"]["level"], "DEBUG"))
         fh.setFormatter(formatter)
-        log.addHandler(ch)
+        log.addHandler(fh)
