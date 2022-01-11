@@ -7,7 +7,7 @@ Raspberry Pi´s aufgerufen und analysiert werden. Alternativ können die Sensorw
 Telegram manuell erfragt werden. Außerdem können für alle Parameter kritische Schwellenwerte programmiert werden, bei deren 
 Unter- bzw. Überschreiten eine Benachrichtigung über Telegram abgeschickt wird.
 Im Folgenden wird die Umsetzung des Projektes detailliert dokumentiert, sodass mit Hilfe dieser 
-Anleitung ein Nachbau des SmartPots möglich wird. Es werden alle Softwareeinrichtungsschritte von der Erstellung des Telegram Bots bis zur Node-RED Einrichtung erklärt. Außerdem werden Schaltpläne bereitgestellt welche auf die Softwareimplementationen angepasst sind. Zusätzlich zu den Schaltplänen wird ebenso ein Leiterplattenlayout, sowie alle benötigten Komponenten zum Bestücken der Leiterplatte mit einer Preisübersicht zur Verfügung gestellt
+Anleitung ein Nachbau des SmartPots möglich wird. Es werden alle Softwareeinrichtungsschritte von der Erstellung des Telegram Bots bis zur Node-RED Einrichtung erklärt. Außerdem werden Schaltpläne bereitgestellt welche auf die Softwareimplementationen angepasst sind. Zusätzlich zu den Schaltplänen wird ebenso ein Leiterplattenlayout, sowie alle benötigten Komponenten zum Bestücken der Leiterplatte mit einer Preisübersicht zur Verfügung gestellt.
 
 Schaltungsseitig sind zur Zeit folgende Funktionalitäten implementiert:
 
