@@ -2,7 +2,7 @@
 Example Script to demonstrate monitor usage.
 """
 import time
-from src.SmartPot.smartpot import SmartPot
+from src.smartpot import SmartPot
 from src.monitor import TimeBasedMonitor, HysteresisMonitor
 import logging
 import configparser

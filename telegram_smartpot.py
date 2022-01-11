@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from src.SmartPot.smartpot import SmartPot
+from src.smartpot import SmartPot
 from src.monitor import TimeBasedMonitor, HysteresisMonitor
 import telepot
 from telepot.loop import MessageLoop

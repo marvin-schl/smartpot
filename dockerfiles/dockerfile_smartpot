@@ -9,9 +9,7 @@ WORKDIR /home/smartpot
 
 #setting up smartpot directory
 RUN mkdir src
-COPY src/SmartPot ./src/SmartPot
-COPY src/monitor.py ./src
-COPY src/logging_conf_setup.py ./src
+COPY src/ ./src
 COPY smartpot.log .
 COPY smartpot.ini .
 COPY telegram_smartpot.py .
