@@ -13,7 +13,7 @@ COPY src/monitor.py .
 COPY src/logging_conf_setup.py .
 COPY smartpot.log .
 COPY smartpot.ini .
-COPY telegeram_smartpot.py .
+COPY telegram_smartpot.py .
 
 RUN touch data.csv
 
