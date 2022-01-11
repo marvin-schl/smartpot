@@ -1,6 +1,6 @@
 from src.SmartPot.adc import MCP3426
 from src.SmartPot.dht import DHT
-from src.SmartPot import PowerOutputPin
+from src.SmartPot.output import PowerOutputPin
 from src import logging_conf_setup
 import logging
 import configparser
