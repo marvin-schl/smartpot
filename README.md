@@ -58,7 +58,7 @@ Diese Dokumentation glieder sich in folgende Schritte an denen unter Anderem die
 Zunächst muss ein Chat mit dem Telegram-Bot „BotFather“ wie folgt erstellt werden:
 Bei Telegram im Suchfeld „BotFather“ eingeben und unter Chats den BotFather auswählen.
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_1.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_1.png)
 
 Im Chat des BotFather kann nun ein Chatbot erstellt werden:
 
@@ -68,7 +68,7 @@ Im Chat des BotFather kann nun ein Chatbot erstellt werden:
 4. Bot-Token kopieren
 5. Link für Chatbot anklicken
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_2.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_2.png)
 
 Im Browser folgende Website aufrufen:
 
@@ -76,12 +76,12 @@ https://api.telegram.org/botReplaceThisWithTheBotFatherToken/getUpdates
 
 In Telegram Web dem erstellten Chatbot eine Nachricht senden. 
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_4.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_4.png)
 
 Nach Neuladen der Website kann die Chat-ID
 ermittelt werden.
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_3.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_3.png)
 
 (Optional) Um den Chatbot einer Gruppe hinzufügen zu können, muss folgende Konfiguration im
 BotFather vorgenommen werden:
@@ -90,7 +90,7 @@ BotFather vorgenommen werden:
 2. @Botname eingeben
 3. Disable eingeben
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/bot_6.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_6.png)
 
 ***Achtung:** Wenn sich der Chatbot in einer Gruppe befindet, muss die Chat-ID der Gruppe verwendet werden.*
 
@@ -208,7 +208,7 @@ Zusätzlich müssen in den Node-RED Einstellungen Parameter konfiguriert werden:
 
 @Line 253: „//“ entfernen
 
-![node-red_settings](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/node-red_settings.png)
+![node-red_settings](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/node-red_settings.png)
 
 Um Node-RED bei Systemstart automatisch auszuführen wird folgender Befehl verwendet:
 
@@ -228,12 +228,12 @@ Die Node-RED Visualisierung kann nun wie folgt installiert werden:
 1. Menü-Reiter auswählen
 2. Palette verwalten klicken
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_1.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_1.png)
 
 3. „Dashboard“ in Suchfeld eingeben
 4. Auf „Installieren“ klicken
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_2.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_2.png)
 
 Die zur Verfügung gestellte Visualisierung des Node-RED Dashboards muss nun wie folgt kopiert werden:
 
@@ -244,17 +244,17 @@ Abschließend wird die flow-Datei in Node-RED importiert:
 1. Menü-Reiter auswählen
 2. Import klicken
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_3.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_3.png)
 
 3. Lokal auswählen
 4. „SmartpotVflows.json“ wählen
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_4.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_4.png)
 
 5. Auf „Import“ klicken
 6. „Übernahme (deploy)“ klicken
 
-![](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Dokubilder/dashboard_5.png?inline=false)
+![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_5.png)
 
 
 Die Visualisierung kann nun unter 
@@ -296,7 +296,7 @@ Aus dem smartpot Verzeichnis kann nun folgender Befehl die gesamte smartpot Umge
 
 Schaltplan des RaspberryPi Shields:
 
-![Schaltplan](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Platine/Bilder/schematic.png)
+![Schaltplan](https://github.com/marvin-schl/smartpot/raw/main/Platine/Bilder/schematic.png)
 
 Die Schaltung kann an einem handelsüblichen 12V Netzteil betrieben werden. Über einen 12V/5V Linearregler wird die Betriebsspannung 
 wird die Versorgnungsspannung für den RaspberryPi bereit gestellt. 
@@ -310,7 +310,7 @@ Für die Leistungsausgänge wird mit den GPIOs des RaspberryPis ein Darlington A
 
 Das dazugehörige Layout wurde wie folgt umgesetzt:
 
-![Layout](https://git.haw-hamburg.de/aco732/smartpot/-/raw/main/Platine/Bilder/layout.png)
+![Layout](https://github.com/marvin-schl/smartpot/raw/main/Platine/Bilder/layout.png)
 
 
 ### Stückliste
