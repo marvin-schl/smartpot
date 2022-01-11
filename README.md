@@ -49,7 +49,7 @@ Diese Dokumentation glieder sich in folgende Schritte an denen unter Anderem die
 3. Die Einrchtung von Node Red und der SmartPot Software selber 
     - 3.1 als manuelle Einichtung **oder**
     - 3.2  als automatische Einrchtung via Docker und Docker-Compose
-4. Die Bereitstellung der Schaltpläne und Platinenlayouts, zum Nachbau auf einem Bredboard, Bestellung der Platine bzw. Eigenherstellung der Platine, inklusive Stückliste aller benötigten Komponenten
+4. Die Bereitstellung der Schaltpläne und pcbnlayouts, zum Nachbau auf einem Bredboard, Bestellung der pcb bzw. Eigenherstellung der pcb, inklusive Stückliste aller benötigten Komponenten
 5. Einer kurzen Übersicht der enthaltenen Klassen und Methoden 
 6. Eine Übersicht, welche bekannten Schwachstellen und Verbesserungsideen für zukünftige Versionen des SmartPots existieren
 
@@ -58,7 +58,7 @@ Diese Dokumentation glieder sich in folgende Schritte an denen unter Anderem die
 Zunächst muss ein Chat mit dem Telegram-Bot „BotFather“ wie folgt erstellt werden:
 Bei Telegram im Suchfeld „BotFather“ eingeben und unter Chats den BotFather auswählen.
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_1.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/bot_1.png)
 
 Im Chat des BotFather kann nun ein Chatbot erstellt werden:
 
@@ -68,7 +68,7 @@ Im Chat des BotFather kann nun ein Chatbot erstellt werden:
 4. Bot-Token kopieren
 5. Link für Chatbot anklicken
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_2.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/bot_2.png)
 
 Im Browser folgende Website aufrufen:
 
@@ -76,12 +76,12 @@ https://api.telegram.org/botReplaceThisWithTheBotFatherToken/getUpdates
 
 In Telegram Web dem erstellten Chatbot eine Nachricht senden. 
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_4.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/bot_4.png)
 
 Nach Neuladen der Website kann die Chat-ID
 ermittelt werden.
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_3.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/bot_3.png)
 
 (Optional) Um den Chatbot einer Gruppe hinzufügen zu können, muss folgende Konfiguration im
 BotFather vorgenommen werden:
@@ -90,7 +90,7 @@ BotFather vorgenommen werden:
 2. @Botname eingeben
 3. Disable eingeben
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/bot_6.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/bot_6.png)
 
 ***Achtung:** Wenn sich der Chatbot in einer Gruppe befindet, muss die Chat-ID der Gruppe verwendet werden.*
 
@@ -208,7 +208,7 @@ Zusätzlich müssen in den Node-RED Einstellungen Parameter konfiguriert werden:
 
 @Line 253: „//“ entfernen
 
-![node-red_settings](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/node-red_settings.png)
+![node-red_settings](https://github.com/marvin-schl/smartpot/raw/main/pictures/node-red_settings.png)
 
 Um Node-RED bei Systemstart automatisch auszuführen wird folgender Befehl verwendet:
 
@@ -228,12 +228,12 @@ Die Node-RED Visualisierung kann nun wie folgt installiert werden:
 1. Menü-Reiter auswählen
 2. Palette verwalten klicken
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_1.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/dashboard_1.png)
 
 3. „Dashboard“ in Suchfeld eingeben
 4. Auf „Installieren“ klicken
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_2.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/dashboard_2.png)
 
 Die zur Verfügung gestellte Visualisierung des Node-RED Dashboards muss nun wie folgt kopiert werden:
 
@@ -244,17 +244,17 @@ Abschließend wird die flow-Datei in Node-RED importiert:
 1. Menü-Reiter auswählen
 2. Import klicken
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_3.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/dashboard_3.png)
 
 3. Lokal auswählen
 4. „SmartpotVflows.json“ wählen
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_4.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/dashboard_4.png)
 
 5. Auf „Import“ klicken
 6. „Übernahme (deploy)“ klicken
 
-![](https://github.com/marvin-schl/smartpot/raw/main/Dokubilder/dashboard_5.png)
+![](https://github.com/marvin-schl/smartpot/raw/main/pictures/dashboard_5.png)
 
 
 Die Visualisierung kann nun unter 
@@ -300,7 +300,7 @@ Um den SmartPot als Hintergrunddienst laufen zu lassen und automatisch bei jedem
 
 Schaltplan des RaspberryPi Shields:
 
-![Schaltplan](https://github.com/marvin-schl/smartpot/raw/main/Platine/Bilder/schematic.png)
+![Schaltplan](https://github.com/marvin-schl/smartpot/raw/main/pcb/Bilder/schematic.png)
 
 Die Schaltung kann an einem handelsüblichen 12V Netzteil betrieben werden. Über einen 12V/5V Linearregler wird die Betriebsspannung 
 wird die Versorgnungsspannung für den RaspberryPi bereit gestellt. 
@@ -314,7 +314,7 @@ Für die Leistungsausgänge wird mit den GPIOs des RaspberryPis ein Darlington A
 
 Das dazugehörige Layout wurde wie folgt umgesetzt:
 
-![Layout](https://github.com/marvin-schl/smartpot/raw/main/Platine/Bilder/layout.png)
+![Layout](https://github.com/marvin-schl/smartpot/raw/main/pcb/Bilder/layout.png)
 
 
 ### Stückliste
@@ -347,7 +347,7 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 23          | DHT11                             |1        |4,50        | 4,50
 24          | Joy-It Linker Kit Lichtsensor     |1        |1,01        | 1,01
 25          | Joy-it sen-Moisture Sensorkit     |1        |4,99        | 4,99
-26          | Platine                           |1        |2,00        | 2,00
+26          | pcb                           |1        |2,00        | 2,00
 27          | Gesamt                            |         |            | 68,23
 
 (Reichelt Preise beispielhaft, Stand 06.01.22)
@@ -420,11 +420,11 @@ Diese Klasse verwendendet das RPi.GPIO Modul und implementiert die Funktionen de
 
 Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des dazugehörige Shield aufgelistet, welche in folgenden Versionen überarbeitet werden sollten.
 
-- Der Linearregler auf der Platine wird bei Betrieb mit einem 12V Netzteil und hohen Stromverbräuchen des Raspberrys sehr warm. Hier wäre eine Spannungswandlung über einen Schaltregler zu bevorzugen.
+- Der Linearregler auf der pcb wird bei Betrieb mit einem 12V Netzteil und hohen Stromverbräuchen des Raspberrys sehr warm. Hier wäre eine Spannungswandlung über einen Schaltregler zu bevorzugen.
 
 - Beim Ausschalten der Leistungsausgänge, also wenn das Gatesignal der Ausgangsmosfets (Q2, Q3, Q4) von 0V auf 12V gezogen wird. Findet die Entladung der Gatekapazität im unbelaseten Zustand über die Pullup Widerstände (R5, R6, R7) statt. Dies führt zumidest im unbelasteten Zustand zu sehr hohen Abfallszeit des Ausgangssignals. Ein Ansatz wäre kleinere Pullup Widerstände zu verwenden auf Kosten einer höheren Stromaufnahme bei eingeschaltetem Ausgang. Ein anderer Ansatz wäre die verwendung einer richtigen Mosfet Endstufe.
 
-- Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-2,048V messen. Eine Lösuing wäre ein auf der Platine befindlicher 1:1 Spannungsteiler, ein anderer AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
+- Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-2,048V messen. Eine Lösuing wäre ein auf der pcb befindlicher 1:1 Spannungsteiler, ein anderer AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
 
 - Eine Verbesserung des Automatisierungsgrades durch die Nutzung der Hardwareseitig implementierten Schaltfunktionen
 
