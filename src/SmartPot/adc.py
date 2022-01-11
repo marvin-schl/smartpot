@@ -1,5 +1,5 @@
 import time
-from src import SmartPot as mcp342x
+from src.SmartPot import mcp342x
 from src.SmartPot.mcp342x import I2CBussError
 from threading import Lock
 import logging
