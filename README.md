@@ -117,11 +117,10 @@ chatid = <your-chat-id>
 level = DEBUG
 
 # If set to 1 the logs will be printed on sys.stdout
-# If set to 1 there will be no logging to a a logfile
 stdout = 1
 
 # Sets the logfile
-# This options is ignored when logging to stdout
+# Comment out to deactivate Logfile
 file = smartpot.log
 
 
@@ -138,15 +137,17 @@ file = smartpot.log
 #    3.) Measure the voltage offset and adjust offset_calibration value to get an calibrated_out of 0.
 #    4.) Pull the sensor onto a defined soil moisture level.
 #    5.) Adjust scaling in such a way that calibratet_out matches the desired value.
+# Default calibration is between 0 and 100% -> max Voltage 1.9V -> sclaing=100/1.9=52.6315
 offset = 0.0
-scaling = 1.9
+scaling = 52.6315
+
 
 # Defines the level at which calibrated_out is going into saturation. Comment out
 # to disable saturation.
-saturation = 1.9
+saturation = 100
 
-# Defines the unit of the measured and calibrated value
-unit = "%"
+# Defines the unit of the measured and calibrated value. Percent Symbols have to be escaped with another percent symbol.
+unit = "%%"
 
 [Light]
 # This section calibrates the light sensor. Keep in mind that any calibration action will only effect the
@@ -161,16 +162,17 @@ unit = "%"
 #    3.) Measure the voltage offset and adjust offset_calibration value to get an calibrated_out of 0.
 #    4.) Pull the sensor onto a defined brightness level.
 #    5.) Adjust scaling in such a way that calibratet_out matches the desired value.
-
+# Default calibration is between 0 and 100% -> max Voltage 1.8V -> sclaing=100/1.9=55.555
 offset = 0.0
-scaling = 1.8
+scaling = 55.555
 
 # Defines the level at which calibrated_out is going into saturation. Comment out
 # to disable saturation.
-saturation = 1.8
+saturation = 100
 
-# Defines the unit of the measured and calibrated value
-unit = "%"
+# Defines the unit of the measured and calibrated value. Percent Symbols have to be escaped with another percent symbol.
+unit = "%%"
+
 ```
 
 In der Konfiguationsdatei müssen nun der zuvor ermittelte Telegram API-Token unter chattoken und die ermittelte Chat-ID unter chatid eingetragen werden. Außerdem können das Log-Level, das Ausgabeformat der Logs und die Kalibration der analogen Sensoren angepasst werden. 
