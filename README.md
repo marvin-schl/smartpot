@@ -366,7 +366,7 @@ Diese Klasse implementiert die nicht blockierende Überwachung einer Ausgangsgr�
 - stop()
 - run()
 
-**SmarPot.smartpot.SmartPot**:
+**src.smartpot.SmartPot**:
 Diese Klasse implementiert eine physikalische Repräsentation des SmartPots an sich und dient als Interface zum Backend. Es sind drei Konstanten vorhanden SmarPot.smarpot.SmartPot.X4, SmarPot.smarpot.SmartPot.X5 und SmarPot.smarpot.SmartPot.X6. Diese referenzieren die Leistungsausgänge auf dem SmartPot Raspberry Shield rev 1.1 und können den output_* Methoden als pin übergeben werden.
 Öffentliche Methoden:
 - output_on(pin)
@@ -380,14 +380,14 @@ Diese Klasse implementiert eine physikalische Repräsentation des SmartPots an s
 - read_light_intensity()
 - read_soil_moisture()
 
-**SmartPot.dht.DHT**:
+**src.dht.DHT**:
 Diese Klasse wrapped die Adafruit_DHT Library und stellt einen objektorientierten Zugriff zur Verfügung. Es kann bei der instanziierung festgelgt werden ob es sich um einen DHT11 oder DHT22 handelt.
 
 Öffentliche Methoden:
 - read_temperature()
 - read_humidity()
 
-**SmartPot.adc.MCP3426**:
+**src.adc.MCP3426**:
 Diese Klasse wrapped die verwendete [MCP342x](https://github.com/coburnw/MCP342x) Library für die hier benötigete Anwendung.
 
 Öffentliche Methoden:
@@ -395,7 +395,7 @@ Diese Klasse wrapped die verwendete [MCP342x](https://github.com/coburnw/MCP342x
 - read_ch2()
 
 
-**SmartPot.output.PowerOutputPin**:
+**src.output.PowerOutputPin**:
 Diese Klasse verwendendet das RPi.GPIO Modul und implementiert die Funktionen der Leistungsausgänge. 
 
 Öffentliche Methoden
