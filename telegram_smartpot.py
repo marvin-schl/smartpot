@@ -183,8 +183,8 @@ def handle(msg):
             bot.sendMessage(chatid,"Zu viele Argumente")
     
     
-#Abfrage der Narchicht fuer den LichstaerkeMonitor mit ueberpruefung der Einzelnen Elemente der Liste mithilfe der HysteresisMonitorfunktion wird der Monitor erstellt
-    if einzeldaten[0] == "/LichstaerkeMonitor":
+#Abfrage der Narchicht fuer den LichtstaerkeMonitor mit ueberpruefung der Einzelnen Elemente der Liste mithilfe der HysteresisMonitorfunktion wird der Monitor erstellt
+    if einzeldaten[0] == "/LichtstaerkeMonitor":
         if len(einzeldaten) == 1:
             bot.sendMessage(chatid,"Zu wenig Argumente")
         if len(einzeldaten) == 2:
@@ -192,10 +192,10 @@ def handle(msg):
                 licht_mon.stop()
                 licht_mon.join()
             Obergrenze = einzeldaten[1]
-            print("Starting Lichstaerke Monitors...")
-            licht_mon = HysteresisMonitor("Lichstaerke", PotObject.read_light_intensity, int(einzeldaten[1]), callbacklicht, callback_lw_thres=callbacklicht2)
+            print("Starting Lichtstaerke Monitors...")
+            licht_mon = HysteresisMonitor("Lichtstaerke", PotObject.read_light_intensity, int(einzeldaten[1]), callbacklicht, callback_lw_thres=callbacklicht2)
             licht_mon.start()
-            bot.sendMessage(chatid,"LichstaerkeMonitor wurde gestartet mit der Obergrenze %s und ohne Untergrenze" % (einzeldaten[1]))
+            bot.sendMessage(chatid,"LichtstaerkeMonitor wurde gestartet mit der Obergrenze %s und ohne Untergrenze" % (einzeldaten[1]))
         if len(einzeldaten) == 3:
             if licht_mon != None:
                 licht_mon.stop()
@@ -203,9 +203,9 @@ def handle(msg):
             Obergrenze = einzeldaten[1]
             Untergrenze = einzeldaten[2]
             print("Starting Bodenfeuchtigkeit Monitors...")
-            licht_mon = HysteresisMonitor("Lichstaerke", PotObject.read_light_intensity, int(einzeldaten[1]), callbacklicht, callback_lw_thres=callbacklicht2, lower_thres=int(einzeldaten[2]))
+            licht_mon = HysteresisMonitor("Lichtstaerke", PotObject.read_light_intensity, int(einzeldaten[1]), callbacklicht, callback_lw_thres=callbacklicht2, lower_thres=int(einzeldaten[2]))
             licht_mon.start()
-            bot.sendMessage(chatid,"LichstaerkeMonitor wurde gestartet mit der Obergrenze %s und einer Untergrenze von %s" % (einzeldaten[1],einzeldaten[2]))
+            bot.sendMessage(chatid,"LichtstaerkeMonitor wurde gestartet mit der Obergrenze %s und einer Untergrenze von %s" % (einzeldaten[1],einzeldaten[2]))
         if len(einzeldaten) >= 4:
             bot.sendMessage(chatid,"Zu viele Argumente")
 
@@ -243,15 +243,15 @@ def handle(msg):
             bot.sendMessage(chatid,"Bodenfeuchtigkeit Monitor wurde erfolgreich gestopt.")
         
 #Auswerten des Monitor Stop Befehls fuer den Lichtstaerke Monitor
-    if message == "/LichstaerkeMonitorSTOP":
+    if message == "/LichtstaerkeMonitorSTOP":
         print(message)                          #Ausgabe des Textes
         if licht_mon == None:
-            bot.sendMessage(chatid,"Es war kein Lichstaerke Monitor gestaret.")
+            bot.sendMessage(chatid,"Es war kein Lichtstaerke Monitor gestaret.")
         if licht_mon != None:
             licht_mon.stop()
             licht_mon.join()
             licht_mon = None
-            bot.sendMessage(chatid,"Lichstaerke Monitor wurde erfolgreich gestopt.")
+            bot.sendMessage(chatid,"Lichtstaerke Monitor wurde erfolgreich gestopt.")
         
 #Starten des Messageloops zur ueberwachung und Auswertung der Telegrameingabe als Thread
 MessageLoop(bot, handle).run_as_thread()
@@ -289,13 +289,13 @@ def callbackboden2(timestamp, value, threshold, name):
     PotObject.output_off(SmartPot.X4)
     bot.sendMessage(chatid,"Der Boden ist zu trocken ich benoetige Wasser die Bodenfeuchtigkeit liegt bei %3.2f %s" % (value, boden_einheit))
 
-#Callback fuer Monitor Oberen Grenzwert Lichstaerke
+#Callback fuer Monitor Oberen Grenzwert Lichtstaerke
 def callbacklicht(timestamp, value, threshold, name):
     print("Value "+ name + "=" +str(value)+ "passed threshold of " + str(threshold) + " at " + str(timestamp) +".")
     PotObject.output_on(SmartPot.X4)
     bot.sendMessage(chatid,"Die Lichtstaerke ist absolut ausreichend sie betraegt %3.2f %s" % (value, licht_einheit))
 
-#Callback fuer Monitor unteren Grenzwert Lichstaerke
+#Callback fuer Monitor unteren Grenzwert Lichtstaerke
 def callbacklicht2(timestamp, value, threshold, name):
     PotObject.output_off(SmartPot.X4)
     bot.sendMessage(chatid,"Es ist zu dunkel im Raum die Lichtstaerke betraegt %3.2f %s" % (value, licht_einheit))
