@@ -10,7 +10,8 @@ data_dile="data.csv"
 
 echo "Checking if configuration file is existent"
 #check if smartpot.ini is existent
-if [[ ! -f $ini_file ]]; then
+if [ ! -f $ini_file ];
+then
     echo "Configuration file not found. Creating..."
     cp resource/smartpot.ini smartpot.ini
     echo "Please enter your telegram token: "
@@ -22,13 +23,15 @@ if [[ ! -f $ini_file ]]; then
 fi;
 
 echo "Checking if logfile is existent..."
-if [[! -f $log_file]]; then
+if [ ! -f "$log_file" ];
+then
     echo "Logfile not found. Creating..."
     touch $log_file
 fi;
 
 echo "Checking if logfile is existent..."
-if [[! -f $data_file]]; then
+if [ ! -f $data_file ];
+then
     echo "Datafile not found. Creating..."
     touch $data_file
 fi;
