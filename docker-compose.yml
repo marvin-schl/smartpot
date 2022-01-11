@@ -1,7 +1,7 @@
 version: "3.3" 
 services:
   smartpot:
-    user: "0:"$(id -g)
+    user: $DOCKER_USER
     build:
       context: .
       dockerfile: dockerfiles/dockerfile_smartpot
@@ -17,7 +17,7 @@ services:
       source: ./data.csv
       target: /home/smartpot/data.csv
   nodered:
-    user: "0:"$(id -g)
+    user: $DOCKER_USER
     build:
       context: .
       dockerfile: dockerfiles/dockerfile_nodered
