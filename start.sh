@@ -6,14 +6,14 @@ echo "Starting smartpot setup...."
 export DOCKER_USER="$(id root -u):$(id -g)"
 ini_file="smartpot.ini"
 log_file="smartpot.log"
-data_dile="data.csv"
+data_file="data.csv"
 
 echo "Checking if configuration file is existent"
 #check if smartpot.ini is existent
 if [ ! -f $ini_file ];
 then
     echo "Configuration file not found. Creating..."
-    cp resource/smartpot.ini smartpot.ini
+    cp resources/smartpot.ini smartpot.ini
     echo "Please enter your telegram token: "
     read TOKEN
     echo "Please enter yout chatid: "
