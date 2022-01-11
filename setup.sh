@@ -1,5 +1,5 @@
 #!/bin/bash
-echo  "export DOCKER_USER=\"$(id root -u):$(id -g)\"" > ~/.bash_profile
+echo  "export DOCKER_USER=\"$(id root -u):$(id -g)\"" >> ~/.bash_profile
 source ~/.bash_profile
 
 echo "Welcome to SmartPot"
