@@ -1,1 +1,4 @@
 smartpot.log
+smartpot.ini
+*/**/__pycache__/
+
