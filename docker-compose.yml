@@ -2,6 +2,7 @@ version: "3.3"
 services:
   smartpot:
     user: $DOCKER_USER
+    restart: "always"
     build:
       context: .
       dockerfile: dockerfiles/dockerfile_smartpot
@@ -18,6 +19,7 @@ services:
       target: /home/smartpot/data.csv
   nodered:
     user: $DOCKER_USER
+    restart: "always"
     build:
       context: .
       dockerfile: dockerfiles/dockerfile_nodered
