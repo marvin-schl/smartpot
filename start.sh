@@ -18,7 +18,7 @@ then
     read TOKEN
     echo "Please enter yout chatid: "
     read ID
-    sed -i "s/token = */token = $TOKEN/g" smarpot.ini
+    sed -i "s/token = */token = $TOKEN/g" smartpot.ini
     sed -i "s/chatid = */chatid = $ID/g" smartpot.ini
 fi;
 
