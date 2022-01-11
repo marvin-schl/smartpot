@@ -32,6 +32,3 @@ if [[! -f $data_file]]; then
     echo "Datafile not found. Creating..."
     touch $data_file
 fi;
-
-echo "Starting docker-compose"
-docker-compose up
