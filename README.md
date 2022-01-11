@@ -283,14 +283,18 @@ Nachdem der letzte Befehl ausfgeführt worden ist muss der Pi neugstartet werden
 
 ### Starten der Smartpot Umgebung
 
-Zunächst muss sichergestellt werden, dass im SmartPot Verzeichnis die smartpot.log sowie die smartpot.ini Datei vorhanden ist. Sollte dies nicht der Fall sein müssen beide Dateien erstellt werden.
-
-    touch smartpot.log smartpot.ini
-
-Die ini-Konfigurationsdatei muss anschließend nach Abschnitt 2 konfiguriert werden.
-Aus dem smartpot Verzeichnis kann nun folgender Befehl die gesamte smartpot Umgebung gestartet werden
+Vor dem ersten Start muss die setup.sh ausgeführt werden. Diese stellt sicher, dass die ini, log und csv Dateien vorhanden sind und die Telegramtokens konfiguriert wurden. Außerdem stellt diese sicher, dass die Dockercontainer mit ausreichenden Rechten gestartet werden:
+    
+    bash setup.sh
+    
+Der SmartPot kann gleich im Anschluss darauf gestartet werden. **Sollte der Start nicht direkt aus der setup.sh erfolgen muss zuerst ein Neustart oder Neulogin durchgeführt werden!**
+Aus dem SmartPot Verzeichnis kann nach Neustart/Neulogin in Zukunft der SmartPot wie folgt gestartet werden:
 
     docker-compose up
+    
+Um den SmartPot als Hintergrunddienst laufen zu lassen und automatisch bei jedem Neustart starten zu lassen muss noch das Flag -d/--detached (losgelöst) verwendet werden:
+    
+    docker-compose up -d
 
 ## 4. elektronischer Aufbau
 
