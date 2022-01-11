@@ -3,4 +3,5 @@ __pycache__/
 *.log
 *.ini
 *.csv
+*.idea
 !resources/smartpot.ini
