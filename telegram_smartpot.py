@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from SmartPot.smartpot import SmartPot
-from monitor import TimeBasedMonitor, HysteresisMonitor
+from src.SmartPot.smartpot import SmartPot
+from src.monitor import TimeBasedMonitor, HysteresisMonitor
 import telepot
 from telepot.loop import MessageLoop
 import time
@@ -313,7 +313,7 @@ def callbackBackup(now, val, name):
     moisture = str(round(val[2],0))
     light = str(round(val[3],0))
     
-    file = open("Logging.csv","a")
+    file = open("data.csv","a")
 
     file.write(zeit + ";" + humi + ";" + temp + ";" + moisture + ";" + light + "\n")
     

@@ -2,12 +2,11 @@
 Example Script to demonstrate monitor usage.
 """
 import time
-from SmartPot.smartpot import SmartPot
-from monitor import TimeBasedMonitor, HysteresisMonitor
-from datetime import datetime
+from src.SmartPot.smartpot import SmartPot
+from src.monitor import TimeBasedMonitor, HysteresisMonitor
 import logging
 import configparser
-import sys
+
 #setup config
 config = configparser.ConfigParser()
 config.read("smartpot.ini")
