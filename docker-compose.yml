@@ -1,7 +1,7 @@
 version: "3.3" 
 services:
   smartpot:
-    user: "0:1000"
+    user: "0:$(id -g)"
     build:
       context: .
       dockerfile: dockerfiles/dockerfile_smartpot
@@ -14,17 +14,17 @@ services:
       source: ./smartpot.log
       target: /home/smartpot/smartpot.log
     - type: bind
-      source: ./Logging.csv
-      target: /home/smartpot/Logging.csv
+      source: ./data.csv
+      target: /home/smartpot/data.csv
   nodered:
-    user: "0:1000"
+    user: "0:$(id -g)"
     build:
       context: .
       dockerfile: dockerfiles/dockerfile_nodered
     ports:
       - "1880:1880"
     volumes:
-      - ./Logging.csv:/home/pi/smartpot/Logging.csv
+      - ./data.csv:/home/pi/smartpot/data.csv
       - nodered_data:/data
 volumes:
   nodered_data:

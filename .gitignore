@@ -1,4 +1,6 @@
-*.log
-*.ini
 */**/__pycache__/
 __pycache__/
+*.log
+*.ini
+*.csv
+!resources/smartpot.ini

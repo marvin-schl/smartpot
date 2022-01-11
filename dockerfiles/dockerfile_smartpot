@@ -8,13 +8,13 @@ USER smartpot
 WORKDIR /home/smartpot
 
 #setting up smartpot directory
-COPY SmartPot ./SmartPot
-COPY monitor.py .
+COPY src/SmartPot ./SmartPot
+COPY src/monitor.py .
+COPY src/logging_conf_setup.py .
 COPY smartpot.log .
 COPY smartpot.ini .
-COPY logging_conf_setup.py .
-COPY TelegramSmartpot.py .
+COPY telgeram_smartpot.py .
 
-RUN touch Logging.csv
+RUN touch data.csv
 
-CMD ["python","-u","TelegramSmartpot.py"]
+CMD ["python","-u","telgeram_smartpot.py"]

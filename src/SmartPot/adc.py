@@ -1,6 +1,6 @@
 import time
-import SmartPot.mcp342x as mcp342x
-from SmartPot.mcp342x import I2CBussError
+from src import SmartPot as mcp342x
+from src.SmartPot import I2CBussError
 from threading import Lock
 import logging
 import configparser
