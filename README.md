@@ -321,8 +321,8 @@ Position    |Bezeichnung                        | Anzahl  |Stückpreis €| Posi
 1           | RaspberryPi 3B                    |1        |39,4        | 39,4
 2           | RaspberryPi Staking Header        |1        |1,6         | 1,60
 3           | ULN20003AD                        |1        |0,75        | 0,75
-4           | 10k Kohleschichtwiderstand        |1        |0,1         | 0,4
-5           | RPI LK Kabel 50                   |1        |2,75        | 5,50
+4           | 10k Kohleschichtwiderstand        |4        |0,1         | 0,4
+5           | RPI LK Kabel 50                   |2        |2,75        | 5,50
 6           | MCP3426                           |1        |3,10        | 3,10
 7           | uA78S05                           |1        |0,45        | 0,45
 8           | BD204                             |1        |0,41        | 0,41
