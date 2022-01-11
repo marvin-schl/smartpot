@@ -302,6 +302,8 @@ Die Schaltung kann an einem handelsüblichen 12V Netzteil betrieben werden. Übe
 wird die Versorgnungsspannung für den RaspberryPi bereit gestellt. Auf dem Board ist eine dreipolige Buchsenleiste für einen DHT11 bzw DHT22 Sensor vorgesehen. Der Sensor kann einfach auf die Buchsenleiste gesteckt (Sensorseitig zur Platinenmitte zeigend) werden und per OneWire Protokoll ausgelesen werden. Für den analogen Lichtsensor und den analogen Bodenfeuchtigkeitssensors ist ein 2 Kanal Delta-Sigma AD-Wandler mit I2C Interface, der MCP3426, verbaut. Die drei Leistungsausgänge werden von drei P-Kanal Mosfets (AO3401A) geschaltet. Die Gate Signale werden durch einen Darlington-Array (ULN2003AD) getrieben, welches die Rohsignale des RaspberryPi verstärkt.
     
 Für einen Betrieb des SmartPots über ein Bredboard muss in der aktuellen Version des SmartPots lediglich der DHT mit J1-12 und der MCP3426, zusätzlich zu seiner äußeren Beschaltung, mit den I2C-Pins J1-3 und J1-5 verbunden werden. Dann können die Sensoren analog zum o.g. Schaltplan ausgelesen werden. 
+    
+Die hier verwendeten analogen Sensoren geben Spannungen bis zu 4,2V  aus. Der MCP3426 kann an seinen differentiellen Eingängen jedoch nur Spannungen zwischen +-2,048V messen. Zur Reduktion der Eingangsspannung auf ein für den MCP3426 optimierten Spannungsniveau kann ein 1:1 Spannungsteiler (bswp: 10k-10k) verwendet werden. Dieser ist in den akuellen Schaltplänen und der Platine noch nicht vorgesehen. Aus diesem Grund wurde der Spannungsteiler in den beiden Sensorkabeln des Licht- und des Bodenfeuchtigkeitssensors verbaut.
 
 Das dazugehörige Layout wurde wie folgt umgesetzt:
 
@@ -417,7 +419,7 @@ Hier werden bekannte Schwächen der aktuellen Version des SmartPots sowies des d
 
 - In dem jetzigen Design wurden die positiven und negativen Ch2 Eingangspins des MCP3426 vertauscht. Die folgliche invertiert gemessene Spannung wurde Softwareseitig kompensiert.
     
-- Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-2,048V messen. Eine Lösuing wäre ein auf der pcb befindlicher 1:1 Spannungsteiler, ein anderer AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
+- Die Ausgangssignale der analog Sensoren sind bis zu 4V hoch. Der MCP3426 kann jedoch nur +-2,048V messen. Eine Lösuing wäre ein auf der Leiterplatte befindlicher 1:1 Spannungsteiler, ein anderer AD-Wandler oder besser an den AD-Wandler angepasste Sensoren.
 
 - Eine Verbesserung des Automatisierungsgrades durch die Nutzung der Hardwareseitig implementierten Schaltfunktionen
 
