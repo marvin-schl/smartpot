@@ -66,7 +66,7 @@ echo -n "Should smartpot be started now? (y/n) "
 read answer
 if [ "$answer" == "y" ]
 then
-    docker-compose up
+    docker-compose up --build
 fi
 
 
