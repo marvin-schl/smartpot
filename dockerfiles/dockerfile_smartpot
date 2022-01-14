@@ -1,5 +1,5 @@
 FROM python:3.7-buster
-# install java on image
+# install pip on image
 RUN apt-get update 
 RUN apt-get install -y python3-pip
 RUN pip3 install RPi.GPIO Adafruit_DHT smbus2 telepot
