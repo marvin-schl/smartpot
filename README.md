@@ -268,7 +268,7 @@ Falls docker und docker-compose bereits installiert sein sollten kann der nächs
 
 ### Einrichtung von docker und docker-compose
 
-Für die Einrichtung von docker und docker-compose müssen folgende Befehle ausfgeführt werden.
+Für die Einrichtung von docker und docker-compose müssen folgende Befehle ausgeführt werden.
 
     sudo apt-get update
     curl -sSL https://get.docker.com | sh
